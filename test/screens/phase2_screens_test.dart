@@ -34,6 +34,7 @@ void main() {
     int questionAgoMs = 6000,
     Map<String, int> answers = const {},
     bool spectatorHost = false,
+    bool hostIsMe = false,
     int players = 8,
     int index = 3,
   }) {
@@ -41,7 +42,7 @@ void main() {
     // Omar's points follow his answer (option 0 is right).
     final omarRight = answers[kMyUid] == 0 || status == RoomStatus.leaderboard;
     return sampleRoom(
-      hostId: spectatorHost ? kMyUid : 'nour',
+      hostId: spectatorHost || hostIsMe ? kMyUid : 'nour',
       players: [
         for (var i = 0; i < players; i++)
           player(uids[i], names[i], i, joinedAt: i).copyWith(
@@ -95,6 +96,11 @@ void main() {
       '08 question (spectator host on a phone)',
       gameRoom(RoomStatus.question, spectatorHost: true, answers: fiveAnswered),
       'game.answer_on_phone',
+    ),
+    _Case(
+      '08 question (host who plays: keep the screen open)',
+      gameRoom(RoomStatus.question, hostIsMe: true, answers: fiveAnswered),
+      'game.keep_open',
     ),
     _Case(
       '08 question (player on a tablet)',

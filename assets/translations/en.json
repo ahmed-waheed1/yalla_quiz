@@ -177,6 +177,7 @@
     "reconnecting_body": "Hang tight, your score is safe.",
     "back_online": "Back online!",
     "leave_title": "Leave the game?",
-    "leave_body": "Your score stays if you come back with the same code."
+    "leave_body": "Your score stays if you come back with the same code.",
+    "keep_open": "Keep this screen open"
   }
 }

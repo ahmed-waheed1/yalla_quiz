@@ -21,6 +21,7 @@ import '../constants/app_constants.dart';
 import '../services/auth_service.dart';
 import '../services/clock.dart';
 import '../services/haptics.dart';
+import '../services/screen_awake.dart';
 import '../services/server_clock.dart';
 import '../services/sound_service.dart';
 
@@ -47,6 +48,7 @@ Future<void> configureDependencies() async {
     ..registerLazySingleton<Clock>(() => getIt<ServerClock>())
     ..registerLazySingleton<Scheduler>(() => const TimerScheduler())
     ..registerLazySingleton<Haptics>(Haptics.new)
+    ..registerLazySingleton<ScreenAwake>(ScreenAwake.new)
     ..registerLazySingleton<SoundService>(SoundService.new)
     // Data sources
     ..registerLazySingleton<RoomRemoteDataSource>(() => RoomRemoteDataSource(getIt()))

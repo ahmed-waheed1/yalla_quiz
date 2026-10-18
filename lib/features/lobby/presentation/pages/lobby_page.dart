@@ -18,6 +18,7 @@ import '../../../../core/widgets/yq_button.dart';
 import '../../../../core/widgets/yq_chip.dart';
 import '../../../../core/widgets/yq_confirm_dialog.dart';
 import '../../../../core/widgets/yq_dot_grid.dart';
+import '../../../../core/widgets/yq_keep_screen_awake.dart';
 import '../../../../core/widgets/yq_ltr.dart';
 import '../../../../core/widgets/yq_pressable.dart';
 import '../../../../core/widgets/yq_scaffold.dart';
@@ -176,7 +177,11 @@ class _LobbyView extends StatelessWidget {
           onPopInvokedWithResult: (didPop, _) {
             if (!didPop) _requestLeave(context);
           },
-          child: Scaffold(body: content),
+          // Screens stay on from the countdown to the final results.
+          child: KeepScreenAwake(
+            enabled: room != null && _inGame(room, game) && !state.leaving,
+            child: Scaffold(body: content),
+          ),
         );
       },
     );
