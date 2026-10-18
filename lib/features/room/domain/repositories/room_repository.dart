@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/utils/failure.dart';
 import '../../../profile/domain/entities/player_profile.dart';
+import '../entities/game_command.dart';
 import '../entities/room.dart';
 
 abstract interface class RoomRepository {
@@ -9,9 +10,11 @@ abstract interface class RoomRepository {
   Future<Either<Failure, String>> currentUid();
 
   /// Creates a room with a fresh code and the caller as host. Returns the code.
+  /// A [spectator] host runs the game on a big screen and doesn't play.
   Future<Either<Failure, String>> createRoom({
     required RoomSettings settings,
     required PlayerProfile profile,
+    bool spectator = false,
   });
 
   /// Joins (or rejoins) a room. New players can only join while in the lobby;
@@ -24,6 +27,19 @@ abstract interface class RoomRepository {
   /// Keeps `players/{uid}/connected` true (with an onDisconnect fallback) for
   /// as long as the stream is listened to. Emits the connection state.
   Stream<bool> maintainPresence(String code);
+
+  /// Host only: applies one phase change atomically.
+  Future<Either<Failure, Unit>> runGameCommand({
+    required String code,
+    required GameCommand command,
+  });
+
+  /// Locks in the caller's answer for question [questionIndex] (once).
+  Future<Either<Failure, Unit>> submitAnswer({
+    required String code,
+    required int questionIndex,
+    required int option,
+  });
 
   /// Takes over as host if [previousHostId] is still the host (it's gone or
   /// disconnected). Atomic, so only one claimer wins.

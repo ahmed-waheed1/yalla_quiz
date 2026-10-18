@@ -40,6 +40,27 @@ abstract final class RoomRules {
   static const int createAttempts = 5;
 }
 
+/// Phase lengths for the game loop (spec 07, 09, 10). The host advances when
+/// `phaseStartedAt` (or `questionStartedAt`) plus these has passed on the
+/// server clock.
+abstract final class GameTiming {
+  /// 3, 2, 1 at a second each, then a second of "Yalla!". Before question 1 only.
+  static const Duration countdown = Duration(seconds: 4);
+
+  /// 600 ms suspense, then the 3 s "Leaderboard in 3…" bar.
+  static const Duration reveal = Duration(milliseconds: 3600);
+
+  /// "Question 5 in 5…".
+  static const Duration leaderboard = Duration(seconds: 5);
+
+  /// Late answers are accepted this long after the timer hits 0 (mirrors the
+  /// rules), so the host reveals only once it has passed.
+  static const Duration answerGrace = Duration(seconds: 1);
+
+  /// How soon the host retries a phase write that failed.
+  static const Duration retryDelay = Duration(seconds: 1);
+}
+
 abstract final class Breakpoints {
   static const double tablet = 600;
   static const double desktop = 1024;

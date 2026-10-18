@@ -7,6 +7,7 @@ import 'package:yalla_quiz/features/game/domain/entities/question.dart';
 import 'package:yalla_quiz/features/game/domain/repositories/question_repository.dart';
 import 'package:yalla_quiz/features/profile/domain/entities/player_profile.dart';
 import 'package:yalla_quiz/features/profile/domain/repositories/profile_repository.dart';
+import 'package:yalla_quiz/features/room/domain/entities/game_command.dart';
 import 'package:yalla_quiz/features/room/domain/entities/room.dart';
 import 'package:yalla_quiz/features/room/domain/repositories/room_repository.dart';
 import 'package:yalla_quiz/features/settings/domain/entities/app_settings.dart';
@@ -84,6 +85,7 @@ class FakeRoomRepository implements RoomRepository {
   Future<Either<Failure, String>> createRoom({
     required RoomSettings settings,
     required PlayerProfile profile,
+    bool spectator = false,
   }) async => right('K7XP2Q');
 
   @override
@@ -106,6 +108,19 @@ class FakeRoomRepository implements RoomRepository {
     controller.add(true);
     return controller.stream;
   }
+
+  @override
+  Future<Either<Failure, Unit>> runGameCommand({
+    required String code,
+    required GameCommand command,
+  }) async => right(unit);
+
+  @override
+  Future<Either<Failure, Unit>> submitAnswer({
+    required String code,
+    required int questionIndex,
+    required int option,
+  }) async => right(unit);
 
   @override
   Future<Either<Failure, Unit>> claimHost({

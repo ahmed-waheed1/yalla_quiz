@@ -9,6 +9,7 @@ import '../../../../core/utils/failure.dart';
 import '../../../../core/utils/log.dart';
 import '../../../../core/utils/room_code.dart';
 import '../../../profile/domain/entities/player_profile.dart';
+import '../../domain/entities/game_command.dart';
 import '../../domain/entities/room.dart';
 import '../../domain/repositories/room_repository.dart';
 import '../datasources/room_remote_data_source.dart';
@@ -50,6 +51,7 @@ class RoomRepositoryImpl implements RoomRepository {
   Future<Either<Failure, String>> createRoom({
     required RoomSettings settings,
     required PlayerProfile profile,
+    bool spectator = false,
   }) => _guard(() async {
     final uid = await _auth.ensureSignedIn();
     // A taken (fresh) code is rejected by the rules; try another one.
@@ -57,7 +59,13 @@ class RoomRepositoryImpl implements RoomRepository {
     for (var attempt = 0; attempt < RoomRules.createAttempts; attempt++) {
       final code = RoomCode.generate();
       try {
-        await _remote.createRoom(code: code, uid: uid, settings: settings, profile: profile);
+        await _remote.createRoom(
+          code: code,
+          uid: uid,
+          settings: settings,
+          profile: profile,
+          spectator: spectator,
+        );
         return code;
       } on FirebaseException catch (e) {
         if (e.code != 'permission-denied') rethrow;
@@ -108,6 +116,26 @@ class RoomRepositoryImpl implements RoomRepository {
     final uid = await _auth.ensureSignedIn();
     yield* _remote.maintainPresence(code, uid);
   }
+
+  @override
+  Future<Either<Failure, Unit>> runGameCommand({
+    required String code,
+    required GameCommand command,
+  }) => _guard(() async {
+    await _remote.runGameCommand(code, command);
+    return unit;
+  });
+
+  @override
+  Future<Either<Failure, Unit>> submitAnswer({
+    required String code,
+    required int questionIndex,
+    required int option,
+  }) => _guard(() async {
+    final uid = await _auth.ensureSignedIn();
+    await _remote.submitAnswer(code, uid, questionIndex, option);
+    return unit;
+  });
 
   @override
   Future<Either<Failure, Unit>> claimHost({required String code, required String previousHostId}) =>

@@ -106,6 +106,7 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - **Presence.** While in a room, `RoomRepository.maintainPresence` listens to `.info/connected`. On every reconnect it arms `onDisconnect().update({connected: false})`, then sets `connected: true`.
 - **Host drops.** The others wait `RoomRules.hostReconnectGrace` (10 s). Then the connected player with the earliest `joinedAt` claims host with a transaction on `hostId` (`HostSuccession` in `features/room/domain/services/`).
 - **Host leaves deliberately.** Hand over to the successor and remove yourself in one multi-path update. If nobody else is left, delete the room.
+- **Game loop.** `GameEngine` (`features/game/domain/services/`) is the pure phase state machine: room in, next `GameCommand` (`room/domain/entities/game_command.dart`) and its due time out. `GameHostDriver` runs it on the host, scheduling on the injected `Clock`/`Scheduler` (`core/services/clock.dart`; `ServerClock` in the app, `FakeClock` in tests) and re-reading the latest snapshot when a timer fires, so a new host resumes from whatever phase RTDB is in. Each command is one multi-path update (`room/data/datasources/game_writes.dart`). Phase lengths are `GameTiming` in `app_constants.dart`. Game-loop tests run whole games on `FakeGameServer` (`test/helpers/`), which mirrors the rules.
 - **Leftover rooms.** Without Functions, rooms everyone abandoned stay until a new room reuses the code after 2 h.
 
 ## UI conventions
