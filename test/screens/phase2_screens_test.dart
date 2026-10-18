@@ -11,6 +11,9 @@ import '../helpers/pump_app.dart';
 
 const Size kDesktop = Size(1440, 900);
 
+/// A common laptop window, shorter than the desktop design.
+const Size kLaptop = Size(1280, 800);
+
 /// Renders every Phase 2 screen and state (07–11 on phones, 16–19 on the
 /// spectator host's big screen, the reconnecting banner and the Create-room
 /// hosting toggle) in light and dark, English and Arabic, and fails on any
@@ -156,7 +159,7 @@ void main() {
       },
     ),
     // 16–19 Host big screen (spectator host)
-    for (final size in [kTablet, kDesktop]) ...[
+    for (final size in [kTablet, kDesktop, kLaptop]) ...[
       _Case(
         '16 host question',
         gameRoom(RoomStatus.question, spectatorHost: true, answers: fiveAnswered),
@@ -247,6 +250,8 @@ String _sizeLabel(Size size) => size == kPhone
     ? ''
     : size == kTablet
     ? ' [tablet]'
+    : size == kLaptop
+    ? ' [laptop]'
     : ' [desktop]';
 
 Future<void> _render(

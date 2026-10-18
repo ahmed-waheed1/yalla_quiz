@@ -37,11 +37,15 @@ class HostScaffold extends StatelessWidget {
     required this.body,
     this.progress,
     this.footer,
+    this.scroll = true,
   });
 
   final ScreenSize size;
   final Room room;
   final Widget body;
+
+  /// False when the body sizes itself to the space left (the tile grids).
+  final bool scroll;
   final String? progress;
   final Widget? footer;
 
@@ -68,7 +72,7 @@ class HostScaffold extends StatelessWidget {
               children: [
                 HostTopBar(code: room.code, progress: progress),
                 const SizedBox(height: YqSpace.x8),
-                Expanded(child: SingleChildScrollView(child: body)),
+                Expanded(child: scroll ? SingleChildScrollView(child: body) : body),
                 if (footer != null) ...[const SizedBox(height: YqSpace.x6), footer!],
               ],
             ),
@@ -89,6 +93,8 @@ class _TileSpec {
 
   final double height;
   final double textSize;
+
+  _TileSpec withHeight(double value) => _TileSpec(height: value, textSize: textSize);
 
   static const double radius = 28;
   static const double padding = 24;
@@ -144,6 +150,7 @@ class HostQuestionView extends StatelessWidget {
       size: size,
       room: room,
       progress: _progress(room),
+      scroll: false,
       body: question == null
           ? const Center(child: YqSpinner())
           : Column(
@@ -189,11 +196,13 @@ class HostQuestionView extends StatelessWidget {
                   ),
                 ],
                 const SizedBox(height: YqSpace.x10),
-                _TileGrid(
-                  options: question.options,
-                  spec: desktop
-                      ? const _TileSpec(height: 168, textSize: 42)
-                      : _TileSpec(height: 196, textSize: t.hostAnswer.fontSize ?? 36),
+                Expanded(
+                  child: _TileGrid(
+                    options: question.options,
+                    spec: desktop
+                        ? const _TileSpec(height: 168, textSize: 42)
+                        : _TileSpec(height: 196, textSize: t.hostAnswer.fontSize ?? 36),
+                  ),
                 ),
               ],
             ),
@@ -239,6 +248,7 @@ class HostRevealView extends StatelessWidget {
         size: size,
         room: room,
         progress: _progress(room),
+        scroll: false,
         body: question == null || full == null
             ? const Center(child: YqSpinner())
             : Column(
@@ -250,12 +260,14 @@ class HostRevealView extends StatelessWidget {
                     style: t.hostQuestion.copyWith(fontSize: _questionSize, color: c.ink),
                   ),
                   const SizedBox(height: YqSpace.x8),
-                  _TileGrid(
-                    options: question.options,
-                    spec: _TileSpec(height: 220, textSize: t.hostAnswer.fontSize ?? 36),
-                    correct: revealed ? full.answer : null,
-                    votes: Standings.votes(room, room.currentQuestionIndex),
-                    players: room.contestants.length,
+                  Expanded(
+                    child: _TileGrid(
+                      options: question.options,
+                      spec: _TileSpec(height: 220, textSize: t.hostAnswer.fontSize ?? 36),
+                      correct: revealed ? full.answer : null,
+                      votes: Standings.votes(room, room.currentQuestionIndex),
+                      players: room.contestants.length,
+                    ),
                   ),
                 ],
               ),
@@ -297,8 +309,24 @@ class _TileGrid extends StatelessWidget {
   final List<int>? votes;
   final int players;
 
+  /// Below this the tiles stop shrinking and the grid scrolls instead.
+  static const double _minTileHeight = 140;
+
   @override
-  Widget build(BuildContext context) => Column(
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final fit = (constraints.maxHeight - _TileSpec.gap) / 2;
+      if (fit >= _minTileHeight) {
+        return Align(
+          alignment: AlignmentDirectional.topCenter,
+          child: _grid(spec.withHeight(math.min(spec.height, fit))),
+        );
+      }
+      return SingleChildScrollView(child: _grid(spec.withHeight(_minTileHeight)));
+    },
+  );
+
+  Widget _grid(_TileSpec spec) => Column(
     children: [
       for (var row = 0; row < 2; row++) ...[
         if (row > 0) const SizedBox(height: _TileSpec.gap),
@@ -369,7 +397,11 @@ class _HostTile extends StatelessWidget {
         children: [
           Row(
             children: [
-              YqAnswerShapeIcon(shape: style.shape, size: _TileSpec.icon, color: style.onFill),
+              YqAnswerShapeIcon(
+                shape: style.shape,
+                size: math.min(_TileSpec.icon, spec.height * 0.25),
+                color: style.onFill,
+              ),
               const Spacer(),
               if (correct ?? false)
                 Container(
