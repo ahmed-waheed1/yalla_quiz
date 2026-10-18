@@ -53,6 +53,17 @@ void main() {
         }
       });
 
+      testWidgets('Settings: switch thumb is surface when on', (tester) async {
+        registerFakes();
+        await pumpScreen(tester, const SettingsPage(), locale: const Locale('en'), brightness: brightness);
+        final context = tester.element(find.byType(Switch).first);
+        final sw = tester.widget<Switch>(find.byType(Switch).first);
+        expect(sw.value, isTrue);
+        final thumb = sw.thumbColor?.resolve({WidgetState.selected}) ??
+            Theme.of(context).switchTheme.thumbColor?.resolve({WidgetState.selected});
+        expect(thumb, colors.surface);
+      });
+
       testWidgets('Toast is ink on bg', (tester) async {
         registerFakes();
         await pumpScreen(tester, const SettingsPage(), locale: const Locale('en'), brightness: brightness);

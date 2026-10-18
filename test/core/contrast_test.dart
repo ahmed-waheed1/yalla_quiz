@@ -48,6 +48,7 @@ final Map<String, (Color, Color, double) Function(YqColors)> _pairs = {
   'banner warning: body (inkMuted on warningSoft)': (c) => (c.inkMuted, c.warningSoft, _text),
   'banner success: body (inkMuted on successSoft)': (c) => (c.inkMuted, c.successSoft, _text),
   'switch: on track vs card (success vs surface)': (c) => (c.success, c.surface, _ui),
+  'switch: on thumb vs track (surface vs success)': (c) => (c.surface, c.success, _ui),
   'screen: muted text (inkMuted on bg)': (c) => (c.inkMuted, c.bg, _text),
 };
 
