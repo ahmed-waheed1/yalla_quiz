@@ -222,6 +222,25 @@ describe('phase transitions', () => {
     await assertSucceeds(write('host', toQuestion(0)));
   });
 
+  test('question → reveal on every question, including the first', async () => {
+    for (let q = 0; q < IDS.length; q++) {
+      await seed(inGame('question', q));
+      await assertSucceeds(write('host', scoreWrite(q, { host: 500, p1: 0, p2: 0 })));
+    }
+  });
+
+  test('reveal → leaderboard on every question but the last, finished only on the last', async () => {
+    for (let q = 0; q < IDS.length; q++) {
+      const last = q === IDS.length - 1;
+      await seed(inGame('reveal', q));
+      const toLeaderboard = write('host', { status: 'leaderboard', phaseStartedAt: serverTimestamp() });
+      await (last ? assertFails(toLeaderboard) : assertSucceeds(toLeaderboard));
+      await seed(inGame('reveal', q));
+      const toFinished = write('host', { status: 'finished', phaseStartedAt: serverTimestamp() });
+      await (last ? assertSucceeds(toFinished) : assertFails(toFinished));
+    }
+  });
+
   test('reveal → leaderboard, except after the last question', async () => {
     await seed(inGame('reveal', 3));
     await assertFails(write('host', { status: 'finished', phaseStartedAt: serverTimestamp() }));
