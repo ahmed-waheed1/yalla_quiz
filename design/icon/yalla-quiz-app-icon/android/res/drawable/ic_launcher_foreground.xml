@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Yalla Quiz adaptive foreground · 108dp canvas · content inside the 66dp safe zone -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+  <path android:fillColor="#FF5A36" android:pathData="M42 27 H66 A16 16 0 0 1 82 43 V57 A16 16 0 0 1 66 73 H53 L39.8 81.4 Q37.6 82.8 37.9 80.3 L39.2 72.8 A16 16 0 0 1 26 57 V43 A16 16 0 0 1 42 27 Z"/>
+  <path android:strokeColor="#1E0F3D" android:strokeWidth="8.5" android:strokeLineCap="round" android:fillColor="#00000000" android:pathData="M44.5 44 C44.5 38 48.8 34.5 54 34.5 C59.3 34.5 63.5 38 63.5 43 C63.5 47.2 60.8 49.6 58 51.3 C55.6 52.8 54 54.6 54 57.6"/>
+  <path android:fillColor="#1E0F3D" android:pathData="M43.4 66a4.4 4.4 0 1 0 8.8 0a4.4 4.4 0 1 0 -8.8 0"/>
+  <path android:fillColor="#1E0F3D" android:pathData="M55.8 66a4.4 4.4 0 1 0 8.8 0a4.4 4.4 0 1 0 -8.8 0"/>
+  <path android:strokeColor="#1E0F3D" android:strokeWidth="4.8" android:strokeLineJoin="round" android:fillColor="#00000000" android:pathData="M71 26.5 Q72.5 31.5 77.5 33 Q72.5 34.5 71 39.5 Q69.5 34.5 64.5 33 Q69.5 31.5 71 26.5 Z"/>
+  <path android:fillColor="#FFB321" android:pathData="M71 26.5 Q72.5 31.5 77.5 33 Q72.5 34.5 71 39.5 Q69.5 34.5 64.5 33 Q69.5 31.5 71 26.5 Z"/>
+</vector>

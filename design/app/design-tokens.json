@@ -1,0 +1,160 @@
+{
+  "$name": "Yalla Quiz design tokens",
+  "$version": "1.0.0",
+  "$note": "Same values as lib/core/theme/*.dart. Colours are #RRGGBB or #AARRGGBB (Flutter order). Sizes are logical pixels (dp).",
+
+  "color": {
+    "brand": {
+      "coral": "#FF5A36",
+      "saffron": "#FFB321",
+      "night": "#1E0F3D",
+      "sand": "#FFF6EC",
+      "nightDeep": "#140A2B",
+      "night2": "#2A1A4F"
+    },
+    "light": {
+      "bg": "#FFF6EC",
+      "bgPattern": "#F1E2D2",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#FBEADB",
+      "ink": "#1E0F3D",
+      "inkMuted": "#5B4D73",
+      "line": "#EAD9C8",
+      "primary": "#FF5A36",
+      "primaryDeep": "#C93A1A",
+      "onPrimary": "#1E0F3D",
+      "inverse": "#1E0F3D",
+      "onInverse": "#FFF6EC",
+      "inverse2": "#2A1A4F",
+      "accent": "#FFB321",
+      "success": "#0B7A54",
+      "successSoft": "#D7F3E6",
+      "danger": "#C81E4A",
+      "dangerSoft": "#FBDDE5",
+      "warning": "#9A5B00",
+      "warningSoft": "#FFEFC7",
+      "focus": "#3A2FD6",
+      "scrim": "#8C1E0F3D",
+      "podiumSilver": "#D9CFE6",
+      "timerCalm": "#0B7A54",
+      "timerWarn": "#9A5B00",
+      "timerPanic": "#C81E4A"
+    },
+    "dark": {
+      "bg": "#140A2B",
+      "bgPattern": "#22163F",
+      "surface": "#22143F",
+      "surfaceAlt": "#2E1D52",
+      "ink": "#FFF3E6",
+      "inkMuted": "#C2B6D9",
+      "line": "#3D2C66",
+      "primary": "#FF6A45",
+      "primaryDeep": "#B8381A",
+      "onPrimary": "#1E0F3D",
+      "inverse": "#2E1D52",
+      "onInverse": "#FFF3E6",
+      "inverse2": "#3D2C66",
+      "accent": "#FFC24D",
+      "success": "#3DDC97",
+      "successSoft": "#123A2E",
+      "danger": "#FF7090",
+      "dangerSoft": "#4A1630",
+      "warning": "#FFD23F",
+      "warningSoft": "#3D3112",
+      "focus": "#9C94FF",
+      "scrim": "#A0000000",
+      "podiumSilver": "#C2B6D9",
+      "timerCalm": "#3DDC97",
+      "timerWarn": "#FFD23F",
+      "timerPanic": "#FF7090"
+    },
+    "answers": {
+      "$note": "Identical in light and dark. Always show the shape icon; never rely on colour alone.",
+      "a1": { "shape": "triangle", "fill": "#3A2FD6", "onFill": "#FFFFFF", "deep": "#241A9A", "contrast": "8.2:1", "luminance": 0.08 },
+      "a2": { "shape": "diamond",  "fill": "#19C2A8", "onFill": "#140A2B", "deep": "#0E8572", "contrast": "8.4:1", "luminance": 0.42 },
+      "a3": { "shape": "circle",   "fill": "#FFD23F", "onFill": "#140A2B", "deep": "#C79A10", "contrast": "13:1",  "luminance": 0.67 },
+      "a4": { "shape": "square",   "fill": "#E8457F", "onFill": "#140A2B", "deep": "#A8245A", "contrast": "5.1:1", "luminance": 0.23 }
+    },
+    "shapePaths24": {
+      "$note": "SVG path data on a 24×24 box, filled with onFill.",
+      "triangle": "M12 3.5 L21.5 20 H2.5 Z",
+      "diamond": "M12 2 L22 12 L12 22 L2 12 Z",
+      "circle": "M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0",
+      "square": "M4 4h16v16H4z"
+    }
+  },
+
+  "typography": {
+    "fontFamily": "Cairo",
+    "logoFontFamily": "Lalezar (wordmark artwork only)",
+    "weights": [500, 600, 700, 800, 900],
+    "numbers": "Western digits 0-9, tabular figures, laid out LTR in both locales",
+    "styles": {
+      "display":      { "size": 64, "weight": 900, "lineHeight": { "latin": 1.05, "arabic": 1.30 }, "tabular": true },
+      "headline":     { "size": 32, "weight": 900, "lineHeight": { "latin": 1.15, "arabic": 1.35 } },
+      "title":        { "size": 24, "weight": 800, "lineHeight": { "latin": 1.25, "arabic": 1.50 } },
+      "question":     { "size": 22, "weight": 800, "lineHeight": { "latin": 1.30, "arabic": 1.60 } },
+      "titleSm":      { "size": 18, "weight": 800, "lineHeight": { "latin": 1.30, "arabic": 1.55 } },
+      "button":       { "size": 18, "weight": 800, "lineHeight": { "latin": 1.20, "arabic": 1.40 } },
+      "label":        { "size": 14, "weight": 800, "lineHeight": { "latin": 1.30, "arabic": 1.55 } },
+      "body":         { "size": 16, "weight": 500, "lineHeight": { "latin": 1.45, "arabic": 1.75 } },
+      "caption":      { "size": 13, "weight": 600, "lineHeight": { "latin": 1.40, "arabic": 1.70 } },
+      "code":         { "size": 34, "weight": 900, "lineHeight": 1.1, "letterSpacingEm": 0.08, "tabular": true, "direction": "ltr" },
+      "timer":        { "size": 34, "weight": 900, "lineHeight": 1.0, "tabular": true },
+      "numeric":      { "size": 15, "weight": 900, "lineHeight": 1.2, "tabular": true, "direction": "ltr" },
+      "hostQuestion": { "size": 50, "weight": 900, "lineHeight": { "latin": 1.20, "arabic": 1.50 }, "desktopSize": 64 },
+      "hostAnswer":   { "size": 36, "weight": 900, "lineHeight": { "latin": 1.25, "arabic": 1.50 }, "desktopSize": 42 },
+      "hostTimer":    { "size": 68, "weight": 900, "lineHeight": 1.0, "tabular": true, "desktopSize": 80 }
+    }
+  },
+
+  "space": {
+    "x1": 4, "x2": 8, "x3": 12, "x4": 16, "x5": 20, "x6": 24, "x8": 32, "x10": 40, "x14": 56,
+    "gutter": 20,
+    "hostGutter": 40,
+    "minTouch": 48,
+    "buttonHeight": 58,
+    "answerHeight": 64,
+    "iconButton": 48,
+    "codeBox": { "width": 48, "height": 62, "gap": 7 }
+  },
+
+  "radius": {
+    "xs": 8, "sm": 12, "md": 16, "lg": 18, "xl": 24, "xxl": 32, "pill": 999
+  },
+
+  "elevation": {
+    "stomp":          { "$note": "Buttons + answers. Hard offset, no blur. Colour = the matching deep/primaryDeep.", "offsetY": 5, "blur": 0, "pressedOffsetY": 1, "pressedTranslateY": 4 },
+    "stompSecondary": { "$note": "Secondary button, colour = ink.", "offsetY": 4, "blur": 0 },
+    "card":  { "light": { "color": "#591E0F3D", "offsetY": 12, "blur": 24, "spread": -12 }, "dark": { "color": "#80000000", "offsetY": 12, "blur": 24, "spread": -12 } },
+    "modal": { "light": { "color": "#801E0F3D", "offsetY": 24, "blur": 48, "spread": -16 }, "dark": { "color": "#99000000", "offsetY": 24, "blur": 48, "spread": -16 } }
+  },
+
+  "border": {
+    "hairline": 1.5,
+    "secondaryButton": 2.5,
+    "focusRing": 3,
+    "selectedRing": 3,
+    "selectedRingOffset": 3
+  },
+
+  "motion": {
+    "duration": { "instant": 80, "fast": 160, "base": 240, "slow": 500, "reveal": 600, "party": 1200, "reducedFade": 120 },
+    "curve": {
+      "snap":  "cubic-bezier(0.2, 0.9, 0.3, 1.3)",
+      "out":   "cubic-bezier(0.2, 0.8, 0.2, 1.0)",
+      "inOut": "easeInOutCubic",
+      "back":  "easeOutBack"
+    }
+  },
+
+  "timer": {
+    "phoneRing": { "size": 96, "radius": 40, "stroke": 9, "trackColor": "surfaceAlt", "fill": "surface" },
+    "hostRing": { "size": 176, "radius": 74, "stroke": 16 },
+    "rules": "calm > 50% left · warn ≤ 50% · panic ≤ 5 s (1 Hz pulse to 1.08 + light haptic per second) · 0 = inkMuted. Drains clockwise in LTR, counter-clockwise in RTL."
+  },
+
+  "background": {
+    "dotPattern": { "spacing": 24, "dotRadius": 1.6, "color": "bgPattern" }
+  }
+}

@@ -1,0 +1,13 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/branding/png/yalla_icon_1024.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#1E0F3D"
+  adaptive_icon_foreground: "assets/branding/png/android/ic_launcher_foreground_432.png"
+  adaptive_icon_monochrome: "assets/branding/png/android/ic_launcher_monochrome_432.png"
+  web:
+    generate: true
+    image_path: "assets/branding/png/yalla_icon_1024.png"
+    background_color: "#1E0F3D"
+    theme_color: "#FF5A36"

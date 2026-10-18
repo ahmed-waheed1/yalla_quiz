@@ -1,0 +1,31 @@
+# Paste into pubspec.yaml (or keep as separate config files)
+# Assets referenced below live in assets/branding/ — copy the png/ folder there.
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/branding/png/yalla_icon_1024.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#1E0F3D"
+  adaptive_icon_foreground: "assets/branding/png/android/ic_launcher_foreground_432.png"
+  adaptive_icon_monochrome: "assets/branding/png/android/ic_launcher_monochrome_432.png"
+
+flutter_native_splash:
+  color: "#FFF6EC"
+  color_dark: "#140A2B"
+  image: "assets/branding/png/splash/splash_mark_light.png"
+  image_dark: "assets/branding/png/splash/splash_mark_dark.png"
+  android_12:
+    color: "#FFF6EC"
+    color_dark: "#140A2B"
+    image: "assets/branding/png/splash/splash_android12_light.png"
+    image_dark: "assets/branding/png/splash/splash_android12_dark.png"
+    icon_background_color_dark: "#2A1A4F"
+
+# Colour values (match YqColors)
+#   inverse / ink  #1E0F3D   icon background, "?", dots, spark keyline
+#   primary        #FF5A36   speech bubble
+#   accent         #FFB321   spark
+#   bg light       #FFF6EC   light splash
+#   bg dark        #140A2B   dark splash
+#   inverse-2      #2A1A4F   Android 12 dark splash icon circle
