@@ -1,1 +1,37 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"yalla-quiz-8b2a9","appId":"1:1029896568591:android:dd910f652408cabf21887a","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"yalla-quiz-8b2a9","configurations":{"android":"1:1029896568591:android:dd910f652408cabf21887a","ios":"1:1029896568591:ios:55fae14646dd36f421887a","web":"1:1029896568591:web:1a6d7b911dcbe12921887a"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "yalla-quiz-8b2a9",
+          "appId": "1:1029896568591:android:dd910f652408cabf21887a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "yalla-quiz-8b2a9",
+          "configurations": {
+            "android": "1:1029896568591:android:dd910f652408cabf21887a",
+            "ios": "1:1029896568591:ios:55fae14646dd36f421887a",
+            "web": "1:1029896568591:web:1a6d7b911dcbe12921887a"
+          }
+        }
+      }
+    }
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "database": {
+      "port": 9000
+    },
+    "ui": {
+      "enabled": false
+    }
+  }
+}

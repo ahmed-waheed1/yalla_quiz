@@ -1,1 +1,127 @@
-{}
+{
+  "app": {
+    "title": "Yalla Quiz"
+  },
+  "common": {
+    "back": "Back",
+    "close": "Close",
+    "or": "or",
+    "error_generic": "Something went wrong. Try again.",
+    "error_network": "You're offline. Check your connection and try again.",
+    "coming_next": "The game screens are coming in the next update"
+  },
+  "categories": {
+    "general": "General",
+    "movies_tv": "Movies & TV",
+    "football": "Football",
+    "music": "Music",
+    "geography": "Geography",
+    "food": "Food"
+  },
+  "splash": {
+    "tagline": "Yalla, let's go!"
+  },
+  "home": {
+    "settings": "Settings",
+    "hey": "Hey {name}!",
+    "ready": "Ready for a round?",
+    "hero_title": "Play live with your friends",
+    "hero_body": "One room, one code, everyone answers on their phone.",
+    "create": "Create room",
+    "join": "Join room"
+  },
+  "profile": {
+    "title": "Your player",
+    "shuffle": "Shuffle avatar",
+    "name_label": "What should we call you?",
+    "name_placeholder": "Your name",
+    "name_hint": "Friends will see this in the room",
+    "pick_title": "Pick your look",
+    "pick_hint": "or shuffle for a new one",
+    "avatar": "Avatar {}",
+    "go": "Let's go"
+  },
+  "create": {
+    "title": "Set up your room",
+    "category": "Category",
+    "question_count": "Number of questions",
+    "time_per_question": "Time per question",
+    "seconds_short": "{} s",
+    "summary_questions": {
+      "one": "{} question",
+      "other": "{} questions"
+    },
+    "summary_time": "{} s each",
+    "summary_minutes": {
+      "one": "about {} min",
+      "other": "about {} min"
+    },
+    "go": "Open the room"
+  },
+  "join": {
+    "title": "Join a room",
+    "head": "Got a code?",
+    "sub": "Type the 6-character code from the host's screen.",
+    "code_label": "Room code · A–Z, 2–9",
+    "scan": "Scan QR code",
+    "go": "Join room",
+    "invalid_title": "That code doesn't exist",
+    "invalid_body": "Double-check the letters and try again.",
+    "full_title": "This room is full ({}/{})",
+    "full_body": "Ask the host to start a new room for the rest of you.",
+    "started_title": "This game already started",
+    "started_body": "Ask the host to open a new room after this round."
+  },
+  "scan": {
+    "title": "Scan QR code",
+    "hint": "Point the camera at the code on the host's screen.",
+    "camera_error": "Couldn't open the camera. Type the code instead."
+  },
+  "lobby": {
+    "leave": "Leave room",
+    "title": "Lobby",
+    "meta": {
+      "one": "{category} · {} Q",
+      "other": "{category} · {} Q"
+    },
+    "code_label": "Room code",
+    "copy": "Copy",
+    "copied": "Code copied",
+    "qr_label": "QR code to join room {}",
+    "share": "Share invite",
+    "share_message": "Join my Yalla Quiz room! Code {}",
+    "share_preview": "“Join my Yalla Quiz room! Code {}”",
+    "waiting": "Waiting for your friends…",
+    "start": "Start game",
+    "need_two": "You need at least 2 players to start",
+    "wait_host": "Waiting for the host to start…",
+    "host": "Host",
+    "you_suffix": " (You)",
+    "joining": "Joining…",
+    "room_chip": "Room",
+    "leave_title": "Leave the room?",
+    "leave_body_host": "Another player will take over as host.",
+    "leave_confirm": "Leave",
+    "leave_cancel": "Stay",
+    "now_host": "You're the host now",
+    "closed": "The room was closed"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "language_hint": "Switches the whole app, including layout direction.",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "sound": "Sound effects",
+    "sound_hint": "Countdown ticks, lock-in, celebrations",
+    "vibration": "Vibration",
+    "edit_profile": "Edit name & avatar",
+    "version": "Yalla Quiz · v{}"
+  },
+  "languages": {
+    "en": "English",
+    "ar": "العربية"
+  }
+}

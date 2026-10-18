@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "id": "general_001",
+    "en": { "q": "What's the capital of Morocco?", "options": ["Rabat", "Casablanca", "Marrakesh", "Fes"] },
+    "ar": { "q": "إيه عاصمة المغرب؟", "options": ["الرباط", "الدار البيضاء", "مراكش", "فاس"] },
+    "answer": 0
+  },
+  {
+    "id": "general_002",
+    "en": { "q": "Which planet is known as the Red Planet?", "options": ["Venus", "Mars", "Jupiter", "Mercury"] },
+    "ar": { "q": "أنهي كوكب اسمه الكوكب الأحمر؟", "options": ["الزهرة", "المريخ", "المشتري", "عطارد"] },
+    "answer": 1
+  },
+  {
+    "id": "general_003",
+    "en": { "q": "How many sides does a hexagon have?", "options": ["5", "6", "7", "8"] },
+    "ar": { "q": "الشكل السداسي ليه كام ضلع؟", "options": ["5", "6", "7", "8"] },
+    "answer": 1
+  },
+  {
+    "id": "general_004",
+    "en": { "q": "What's the longest river in Africa?", "options": ["The Nile", "The Congo", "The Niger", "The Zambezi"] },
+    "ar": { "q": "إيه أطول نهر في أفريقيا؟", "options": ["النيل", "الكونغو", "النيجر", "الزامبيزي"] },
+    "answer": 0
+  },
+  {
+    "id": "general_005",
+    "en": { "q": "Who painted the Mona Lisa?", "options": ["Michelangelo", "Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"] },
+    "ar": { "q": "مين رسم الموناليزا؟", "options": ["مايكل أنجلو", "فان جوخ", "ليوناردو دافنشي", "بيكاسو"] },
+    "answer": 2
+  },
+  {
+    "id": "general_006",
+    "en": { "q": "What's the chemical symbol for gold?", "options": ["Ag", "Au", "Gd", "Go"] },
+    "ar": { "q": "إيه الرمز الكيميائي للدهب؟", "options": ["Ag", "Au", "Gd", "Go"] },
+    "answer": 1
+  },
+  {
+    "id": "general_007",
+    "en": { "q": "How many minutes are there in a day?", "options": ["1,440", "1,200", "1,400", "2,400"] },
+    "ar": { "q": "اليوم فيه كام دقيقة؟", "options": ["1,440", "1,200", "1,400", "2,400"] },
+    "answer": 0
+  },
+  {
+    "id": "general_008",
+    "en": { "q": "What's the largest ocean on Earth?", "options": ["Atlantic", "Indian", "Arctic", "Pacific"] },
+    "ar": { "q": "إيه أكبر محيط في العالم؟", "options": ["الأطلسي", "الهندي", "المتجمد الشمالي", "الهادي"] },
+    "answer": 3
+  },
+  {
+    "id": "general_009",
+    "en": { "q": "Which country has the most pyramids?", "options": ["Egypt", "Sudan", "Mexico", "Peru"] },
+    "ar": { "q": "أنهي دولة فيها أكبر عدد من الأهرامات؟", "options": ["مصر", "السودان", "المكسيك", "بيرو"] },
+    "answer": 1
+  },
+  {
+    "id": "general_010",
+    "en": { "q": "What's the hardest natural material?", "options": ["Gold", "Iron", "Diamond", "Quartz"] },
+    "ar": { "q": "إيه أصلب مادة في الطبيعة؟", "options": ["الدهب", "الحديد", "الألماس", "الكوارتز"] },
+    "answer": 2
+  }
+]
