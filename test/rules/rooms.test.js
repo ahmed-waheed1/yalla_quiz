@@ -275,6 +275,21 @@ describe('phase transitions', () => {
     await assertFails(write('host', { currentQuestionIndex: 5, status: 'reveal' }));
   });
 
+  test('a repeated phase write cannot restart the timer or extend the phase', async () => {
+    await seed(inGame('question', 2));
+    await assertFails(
+      write('host', {
+        status: 'question',
+        currentQuestionIndex: 2,
+        questionStartedAt: serverTimestamp(),
+        phaseStartedAt: serverTimestamp(),
+      }),
+    );
+    await assertFails(write('host', { questionStartedAt: serverTimestamp() }));
+    await seed(inGame('leaderboard', 2));
+    await assertFails(write('host', { status: 'leaderboard', phaseStartedAt: serverTimestamp() }));
+  });
+
   test('a status change needs a fresh phaseStartedAt', async () => {
     await seed(inGame('reveal', 1));
     await assertFails(write('host', { status: 'leaderboard', phaseStartedAt: Date.now() - 1000 }));
