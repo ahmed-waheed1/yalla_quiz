@@ -49,3 +49,5 @@ app.*.map.json
 
 # Rules tests (Node)
 /test/rules/node_modules/
+/test/e2e/node_modules/
+/test/e2e/shots/

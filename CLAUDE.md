@@ -126,6 +126,7 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 ## Tests
 - `test/screens/phase1_screens_test.dart` renders every screen and state in light and dark, `en` and `ar` (phone, plus tablet for the lobby) with fake repositories and fails on any `FlutterError`: missing ancestors, overflow, build exceptions. Add every new screen and state there.
 - The harness (`test/helpers/pump_app.dart`) loads the real Cairo font so overflow checks match devices.
+- **End to end.** `test/e2e/` plays a full 5-question game in the emulators with three browser sessions (big-screen host + an English and an Arabic phone player), including a timeout, a host drop with takeover and Play again, and checks every score in the database. Run it after changes to the game loop, rules or room flow: `cd test/e2e && npm install && npm run build && npm test` (see its README).
 
 ## Workflow
 - **Branch per task.** Do each task on its own branch. When `flutter analyze` and `flutter test` are both clean, merge it into `main` (`--no-ff`) and delete the branch without asking.
