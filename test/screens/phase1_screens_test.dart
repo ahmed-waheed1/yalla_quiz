@@ -14,8 +14,9 @@ import 'package:yalla_quiz/features/settings/presentation/pages/settings_page.da
 import '../helpers/fakes.dart';
 import '../helpers/pump_app.dart';
 
-/// Renders every Phase 1 screen and state in English and Arabic and fails on
-/// any FlutterError (missing ancestors, layout overflow, build exceptions).
+/// Renders every Phase 1 screen and state in light and dark, English and
+/// Arabic, and fails on any FlutterError (missing ancestors, layout overflow,
+/// build exceptions).
 void main() {
   setUpAll(initTestEnvironment);
 
@@ -88,36 +89,46 @@ void main() {
         room: fullRoom, size: kTablet),
   ];
 
-  for (final locale in const [Locale('en'), Locale('ar')]) {
-    group(locale.languageCode, () {
-      for (final c in cases) {
-        testWidgets(c.name, (tester) async {
-          registerFakes(
-            profile: c.profile ? kNour : null,
-            rooms: FakeRoomRepository(room: c.room, joinFailure: c.joinFailure),
-          );
-          final recorder = FlutterErrorRecorder()..start();
-          addTearDown(recorder.stop);
+  for (final brightness in Brightness.values) {
+    for (final locale in const [Locale('en'), Locale('ar')]) {
+      group('${brightness.name} ${locale.languageCode}', () {
+        for (final c in cases) {
+          testWidgets(c.name, (tester) async {
+            registerFakes(
+              profile: c.profile ? kNour : null,
+              rooms: FakeRoomRepository(room: c.room, joinFailure: c.joinFailure),
+            );
+            final recorder = FlutterErrorRecorder()..start();
+            addTearDown(recorder.stop);
 
-          await pumpScreen(tester, c.build(tester), locale: locale, size: c.size);
-          if (c.interact != null) await c.interact!(tester);
-          final key = c.expectKey;
-          if (key != null) expect(find.text(key.tr()), findsWidgets, reason: key);
-          await settle(tester, c.settleFor);
+            await pumpScreen(
+              tester,
+              c.build(tester),
+              locale: locale,
+              size: c.size,
+              brightness: brightness,
+            );
+            expect(Theme.of(tester.element(find.byType(Navigator).first)).brightness, brightness);
+            if (c.interact != null) await c.interact!(tester);
+            final key = c.expectKey;
+            if (key != null) expect(find.text(key.tr()), findsWidgets, reason: key);
+            await settle(tester, c.settleFor);
 
-          expect(
-            recorder.errors.map((e) => e.exceptionAsString()).toList(),
-            isEmpty,
-            reason: 'FlutterErrors while rendering ${c.name} (${locale.languageCode})',
-          );
-          expect(tester.takeException(), isNull);
+            expect(
+              recorder.errors.map((e) => e.exceptionAsString()).toList(),
+              isEmpty,
+              reason: 'FlutterErrors while rendering ${c.name} '
+                  '(${brightness.name}, ${locale.languageCode})',
+            );
+            expect(tester.takeException(), isNull);
 
-          // Unmount and let pending timers (toasts, debounces) run out.
-          await tester.pumpWidget(const SizedBox.shrink());
-          await settle(tester, const Duration(seconds: 3));
-        });
-      }
-    });
+            // Unmount and let pending timers (toasts, debounces) run out.
+            await tester.pumpWidget(const SizedBox.shrink());
+            await settle(tester, const Duration(seconds: 3));
+          });
+        }
+      });
+    }
   }
 }
 

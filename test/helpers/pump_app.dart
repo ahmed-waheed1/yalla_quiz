@@ -87,6 +87,7 @@ Future<void> pumpScreen(
   Widget page, {
   required Locale locale,
   Size size = kPhone,
+  Brightness brightness = Brightness.light,
 }) async {
   // Pages navigate (splash → home, lobby → home …); land on a blank page.
   final router = GoRouter(
@@ -98,7 +99,7 @@ Future<void> pumpScreen(
     ],
   );
   addTearDown(router.dispose);
-  await pumpRouterApp(tester, router, locale: locale, size: size);
+  await pumpRouterApp(tester, router, locale: locale, size: size, brightness: brightness);
 }
 
 /// Pumps the app shell around [router] (the real one or a test one).
@@ -108,6 +109,7 @@ Future<void> pumpRouterApp(
   required Locale locale,
   Size size = kPhone,
   bool disableAnimations = false,
+  Brightness brightness = Brightness.light,
 }) async {
   tester.view.physicalSize = size * 2;
   tester.view.devicePixelRatio = 2;
@@ -140,6 +142,8 @@ Future<void> pumpRouterApp(
                 supportedLocales: context.supportedLocales,
                 localizationsDelegates: context.localizationDelegates,
                 theme: YqTheme.build(Brightness.light, context.locale),
+                darkTheme: YqTheme.build(Brightness.dark, context.locale),
+                themeMode: brightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light,
               ),
             ),
           ),
