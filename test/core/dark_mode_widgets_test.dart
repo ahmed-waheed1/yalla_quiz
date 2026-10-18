@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yalla_quiz/core/theme/yq_colors.dart';
 import 'package:yalla_quiz/core/widgets/yq_toast.dart';
+import 'package:yalla_quiz/features/home/presentation/pages/splash_page.dart';
 import 'package:yalla_quiz/features/profile/presentation/pages/profile_setup_page.dart';
 import 'package:yalla_quiz/features/room/presentation/pages/create_room_page.dart';
 import 'package:yalla_quiz/features/settings/presentation/pages/settings_page.dart';
@@ -62,6 +63,28 @@ void main() {
         final thumb = sw.thumbColor?.resolve({WidgetState.selected}) ??
             Theme.of(context).switchTheme.thumbColor?.resolve({WidgetState.selected});
         expect(thumb, colors.surface);
+      });
+
+      testWidgets('Splash follows the theme (matches the native splash)', (tester) async {
+        registerFakes();
+        await pumpScreen(
+          tester,
+          const SplashPage(),
+          locale: const Locale('en'),
+          brightness: brightness,
+          settleAfter: false,
+        );
+        await tester.pump();
+        final splash = find.byType(SplashPage);
+        expect(splash, findsOneWidget);
+        final scaffold = tester.widget<Scaffold>(
+          find.descendant(of: splash, matching: find.byType(Scaffold)),
+        );
+        expect(scaffold.backgroundColor, colors.bg);
+        final tagline = tester.widget<Text>(find.text('splash.tagline'.tr()));
+        expect(tagline.style?.color, SplashPage.taglineColor(colors, brightness));
+        // Let the intro finish and route away so no timers are left.
+        await settle(tester, const Duration(seconds: 3));
       });
 
       testWidgets('Toast is ink on bg', (tester) async {

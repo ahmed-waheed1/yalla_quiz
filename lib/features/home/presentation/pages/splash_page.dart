@@ -19,8 +19,21 @@ import '../widgets/night_star.dart';
 
 /// 01 Splash: plays the intro once (~1.1 s) while signing in anonymously,
 /// then routes to Home, or Profile setup on first launch.
+///
+/// Follows the system theme so the hand-off from the native splash is
+/// seamless: `bg` ground (#FFF6EC light, #140A2B dark, the same colours as
+/// flutter_native_splash) and the same light/dark brand mark.
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  /// Tagline colour: `accent` on night as designed; on sand `accent` is only
+  /// 1.68:1, so light uses `primaryDeep` (4.79:1).
+  static Color taglineColor(YqColors c, Brightness brightness) =>
+      brightness == Brightness.dark ? c.accent : c.primaryDeep;
+
+  /// Star motif: `inverse2` on night as designed; the dot-grid tone on sand.
+  static Color starColor(YqColors c, Brightness brightness) =>
+      brightness == Brightness.dark ? c.inverse2 : c.bgPattern;
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -88,10 +101,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final c = context.yqColors;
     final t = context.yqText;
+    final brightness = Theme.of(context).brightness;
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light,
+      value: brightness == Brightness.dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
       child: Scaffold(
-        backgroundColor: c.inverse,
+        backgroundColor: c.bg,
         body: Stack(
           alignment: AlignmentDirectional.center,
           children: [
@@ -102,7 +116,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 turns: _starController,
                 child: Opacity(
                   opacity: 0.55,
-                  child: NightStar(size: _starSize, color: c.inverse2),
+                  child: NightStar(
+                    size: _starSize,
+                    color: SplashPage.starColor(c, brightness),
+                  ),
                 ),
               ),
             ),
@@ -121,7 +138,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       child: Transform.scale(scale: v, child: child),
                     );
                   },
-                  child: const YqBrandMark(size: _markSize, onDark: true),
+                  child: const YqBrandMark(size: _markSize),
                 ),
                 const SizedBox(height: 18 + YqSpace.x6),
                 FadeTransition(
@@ -131,7 +148,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                     style: t.titleSm.copyWith(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      color: c.accent,
+                      color: SplashPage.taglineColor(c, brightness),
                     ),
                   ),
                 ),

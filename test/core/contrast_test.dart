@@ -1,8 +1,9 @@
 import 'dart:math' as math;
 
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yalla_quiz/core/theme/yq_colors.dart';
+import 'package:yalla_quiz/features/home/presentation/pages/splash_page.dart';
 
 /// WCAG 2.x contrast ratio between two opaque colours.
 double contrast(Color a, Color b) {
@@ -50,9 +51,19 @@ final Map<String, (Color, Color, double) Function(YqColors)> _pairs = {
   'switch: on track vs card (success vs surface)': (c) => (c.success, c.surface, _ui),
   'switch: on thumb vs track (surface vs success)': (c) => (c.surface, c.success, _ui),
   'screen: muted text (inkMuted on bg)': (c) => (c.inkMuted, c.bg, _text),
+  // 20/700 is large text, so 3:1 applies.
+  'splash: tagline on bg': (c) => (SplashPage.taglineColor(c, _brightnessOf(c)), c.bg, _ui),
 };
 
+Brightness _brightnessOf(YqColors c) => identical(c, YqColors.dark) ? Brightness.dark : Brightness.light;
+
 void main() {
+  test('splash background equals the native splash colours', () {
+    // flutter_native_splash.yaml: color #FFF6EC, color_dark #140A2B.
+    expect(YqColors.light.bg, const Color(0xFFFFF6EC));
+    expect(YqColors.dark.bg, const Color(0xFF140A2B));
+  });
+
   for (final (name, colors) in [('light', YqColors.light), ('dark', YqColors.dark)]) {
     group(name, () {
       for (final MapEntry(key: label, value: pair) in _pairs.entries) {
