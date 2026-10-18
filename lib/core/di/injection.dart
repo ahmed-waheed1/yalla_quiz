@@ -19,8 +19,10 @@ import '../../features/settings/domain/repositories/settings_repository.dart';
 import '../../features/settings/presentation/cubit/settings_cubit.dart';
 import '../constants/app_constants.dart';
 import '../services/auth_service.dart';
+import '../services/clock.dart';
 import '../services/haptics.dart';
 import '../services/server_clock.dart';
+import '../services/sound_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -42,7 +44,10 @@ Future<void> configureDependencies() async {
     ..registerSingleton<FirebaseAuth>(auth)
     ..registerLazySingleton<AuthService>(() => AuthService(getIt()))
     ..registerLazySingleton<ServerClock>(() => ServerClock(getIt())..start())
+    ..registerLazySingleton<Clock>(() => getIt<ServerClock>())
+    ..registerLazySingleton<Scheduler>(() => const TimerScheduler())
     ..registerLazySingleton<Haptics>(Haptics.new)
+    ..registerLazySingleton<SoundService>(SoundService.new)
     // Data sources
     ..registerLazySingleton<RoomRemoteDataSource>(() => RoomRemoteDataSource(getIt()))
     ..registerLazySingleton<QuestionAssetDataSource>(() => QuestionAssetDataSource(rootBundle))
@@ -53,5 +58,5 @@ Future<void> configureDependencies() async {
     ..registerLazySingleton<RoomRepository>(() => RoomRepositoryImpl(getIt(), getIt()))
     // App-wide cubits
     ..registerLazySingleton<ProfileCubit>(() => ProfileCubit(getIt())..load())
-    ..registerLazySingleton<SettingsCubit>(() => SettingsCubit(getIt(), getIt()));
+    ..registerLazySingleton<SettingsCubit>(() => SettingsCubit(getIt(), getIt(), getIt()));
 }

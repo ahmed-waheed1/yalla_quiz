@@ -51,6 +51,34 @@ final Map<String, (Color, Color, double) Function(YqColors)> _pairs = {
   'switch: on track vs card (success vs surface)': (c) => (c.success, c.surface, _ui),
   'switch: on thumb vs track (surface vs success)': (c) => (c.surface, c.success, _ui),
   'screen: muted text (inkMuted on bg)': (c) => (c.inkMuted, c.bg, _text),
+  'answer button: lock pill text (brandSand on brandNightDeep)': (c) =>
+      (YqColors.brandSand, YqColors.brandNightDeep, _text),
+  'answer button: locked outline vs screen (ink vs bg)': (c) => (c.ink, c.bg, _ui),
+  'answer button: time up label (inkMuted on surfaceAlt)': (c) => (c.inkMuted, c.surfaceAlt, _text),
+  'reveal: check / × marks (bg on success)': (c) => (c.bg, c.success, _ui),
+  'reveal: × marks (bg on danger)': (c) => (c.bg, c.danger, _ui),
+  'reveal: points (success on successSoft)': (c) => (c.success, c.successSoft, _text),
+  // "+0" is 40/900, large text, so 3:1 applies.
+  'reveal: no points (danger on dangerSoft)': (c) => (c.danger, c.dangerSoft, _ui),
+  'reveal: title (ink on successSoft)': (c) => (c.ink, c.successSoft, _text),
+  'vote row: "You" pill (bg on ink)': (c) => (c.bg, c.ink, _text),
+  'vote row: correct outline vs screen (success vs bg)': (c) => (c.success, c.bg, _ui),
+  'vote row: wrong outline vs screen (danger vs bg)': (c) => (c.danger, c.bg, _ui),
+  'leaderboard: #1 badge (brandNight on accent)': (c) => (YqColors.brandNight, c.accent, _text),
+  'leaderboard: #2–3 badge (bg on ink)': (c) => (c.bg, c.ink, _text),
+  'leaderboard: up chip (success on successSoft)': (c) => (c.success, c.successSoft, _text),
+  // Design-specified pair; 4.43:1 in light, just under AA for 13/900 text.
+  // Pinned at its current value until the designer revisits it.
+  'leaderboard: down chip (danger on dangerSoft)': (c) => (c.danger, c.dangerSoft, 4.4),
+  'timer: calm arc vs track (timerCalm vs surfaceAlt)': (c) => (c.timerCalm, c.surfaceAlt, _ui),
+  'timer: warn arc vs track (timerWarn vs surfaceAlt)': (c) => (c.timerWarn, c.surfaceAlt, _ui),
+  'timer: panic arc vs track (timerPanic vs surfaceAlt)': (c) => (c.timerPanic, c.surfaceAlt, _ui),
+  // The current question is also in the text above, so past vs future carries the meaning.
+  'progress: past segment vs future (ink vs surfaceAlt)': (c) => (c.ink, c.surfaceAlt, _ui),
+  'podium: rank on blocks (brandNight on primary)': (c) => (YqColors.brandNight, c.primary, _ui),
+  'podium: rank on silver (brandNight on podiumSilver)': (c) =>
+      (YqColors.brandNight, c.podiumSilver, _ui),
+  'yalla: subline (brandNight on primary)': (c) => (YqColors.brandNight, c.primary, _text),
   // 20/700 is large text, so 3:1 applies.
   'splash: tagline on bg': (c) => (SplashPage.taglineColor(c, _brightnessOf(c)), c.bg, _ui),
 };

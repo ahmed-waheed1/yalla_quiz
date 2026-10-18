@@ -1,16 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/services/haptics.dart';
+import '../../../../core/services/sound_service.dart';
 import '../../domain/entities/app_settings.dart';
 import '../../domain/repositories/settings_repository.dart';
 
 class SettingsCubit extends Cubit<AppSettings> {
-  SettingsCubit(this._repository, this._haptics) : super(_repository.load()) {
+  SettingsCubit(this._repository, this._haptics, this._sound) : super(_repository.load()) {
     _haptics.enabled = state.vibration;
+    _sound.enabled = state.sound;
   }
 
   final SettingsRepository _repository;
   final Haptics _haptics;
+  final SoundService _sound;
 
   void setThemeMode(AppThemeMode mode) => _update(state.copyWith(themeMode: mode));
 
@@ -20,6 +23,7 @@ class SettingsCubit extends Cubit<AppSettings> {
 
   void _update(AppSettings next) {
     _haptics.enabled = next.vibration;
+    _sound.enabled = next.sound;
     emit(next);
     _repository.save(next);
   }

@@ -7,8 +7,7 @@
     "close": "Close",
     "or": "or",
     "error_generic": "Something went wrong. Try again.",
-    "error_network": "You're offline. Check your connection and try again.",
-    "coming_next": "The game screens are coming in the next update"
+    "error_network": "You're offline. Check your connection and try again."
   },
   "categories": {
     "general": "General",
@@ -56,7 +55,12 @@
       "one": "about {} min",
       "other": "about {} min"
     },
-    "go": "Open the room"
+    "go": "Open the room",
+    "hosting": "How are you hosting?",
+    "host_plays": "I'll play too",
+    "host_screen": "Host on big screen",
+    "host_plays_hint": "You answer on this device like everyone else.",
+    "host_screen_hint": "This screen shows the questions; players answer on their phones."
   },
   "join": {
     "title": "Join a room",
@@ -123,5 +127,56 @@
   "languages": {
     "en": "English",
     "ar": "العربية"
+  },
+  "game": {
+    "get_ready": "Get ready!",
+    "get_ready_meta": "Question {} of {} · {category}",
+    "players_ready": {
+      "one": "{} player ready",
+      "other": "{} players ready"
+    },
+    "yalla": "Yalla!",
+    "yalla_sub": "Question 1, here it comes",
+    "question_of": "Question {} of {}",
+    "pick_answer": "Pick your answer!",
+    "answered_count": "{}/{} answered",
+    "locked": "Locked in",
+    "locked_waiting": "Locked in! Waiting for the rest…",
+    "time_up": "Time's up!",
+    "time_up_body": "No answer this round — next one is yours.",
+    "answer_on_phone": "Answer on your phone",
+    "correct_title": "Nailed it!",
+    "fast_bonus": "Fast-answer bonus",
+    "streak": "streak ×{}",
+    "wrong_title": "So close!",
+    "it_was": "It was {}",
+    "streak_reset": "streak reset",
+    "missed_title": "Time's up!",
+    "you": "You",
+    "you_suffix": "{} · You",
+    "leaderboard_in": "Leaderboard in {}…",
+    "results_in": "Results in {}…",
+    "after_question": "After question {} of {}",
+    "leaderboard": "Leaderboard",
+    "climbed": {
+      "one": "You climbed {}",
+      "other": "You climbed {}"
+    },
+    "next_question_in": "Question {} in {}…",
+    "game_over": {
+      "one": "Game over · {} question",
+      "other": "Game over · {} questions"
+    },
+    "crown": "{} takes the crown!",
+    "home": "Home",
+    "play_again": "Play again",
+    "fastest": "{} answered fastest",
+    "nobody_right": "Nobody got this one",
+    "progress": "{}/{}",
+    "reconnecting": "Connection lost — reconnecting…",
+    "reconnecting_body": "Hang tight, your score is safe.",
+    "back_online": "Back online!",
+    "leave_title": "Leave the game?",
+    "leave_body": "Your score stays if you come back with the same code."
   }
 }

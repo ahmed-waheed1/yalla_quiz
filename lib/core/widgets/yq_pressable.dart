@@ -68,7 +68,11 @@ class _YqPressableState extends State<YqPressable> {
               borderRadius: YqRadius.all(widget.focusRadius),
               border: _focused ? Border.all(color: context.yqColors.focus, width: 3) : null,
             ),
-            child: widget.builder(context, _pressed && _enabled),
+            // The label already names the button; don't read the content twice.
+            child: ExcludeSemantics(
+              excluding: widget.semanticLabel != null,
+              child: widget.builder(context, _pressed && _enabled),
+            ),
           ),
         ),
       ),
