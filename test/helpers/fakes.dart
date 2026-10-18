@@ -38,12 +38,34 @@ class FakeSettingsRepository implements SettingsRepository {
 }
 
 class FakeQuestionRepository implements QuestionRepository {
-  @override
-  Future<Either<Failure, List<String>>> categories() async =>
-      right(['food', 'football', 'general', 'geography', 'movies_tv', 'music']);
+  FakeQuestionRepository({Map<String, int>? counts})
+      : counts = counts ??
+            const {
+              'food': 30,
+              'football': 30,
+              'general': 30,
+              'geography': 30,
+              'movies_tv': 30,
+              'music': 30,
+            };
+
+  /// Questions per category.
+  final Map<String, int> counts;
 
   @override
-  Future<Either<Failure, List<Question>>> questions(String category) async => right(const []);
+  Future<Either<Failure, List<String>>> categories() async => right(counts.keys.toList()..sort());
+
+  @override
+  Future<Either<Failure, List<Question>>> questions(String category) async => right([
+        for (var i = 0; i < (counts[category] ?? 0); i++)
+          Question(
+            id: '${category}_$i',
+            category: category,
+            en: const LocalizedQuestion(text: 'Q', options: ['a', 'b', 'c', 'd']),
+            ar: const LocalizedQuestion(text: 'س', options: ['أ', 'ب', 'ج', 'د']),
+            answer: 0,
+          ),
+      ]);
 }
 
 class FakeRoomRepository implements RoomRepository {

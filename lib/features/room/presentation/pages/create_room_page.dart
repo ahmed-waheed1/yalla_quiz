@@ -26,9 +26,9 @@ class CreateRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (_) => CreateRoomCubit(getIt(), getIt(), getIt<ProfileCubit>())..load(),
-        child: const _CreateRoomView(),
-      );
+    create: (_) => CreateRoomCubit(getIt(), getIt(), getIt<ProfileCubit>())..load(),
+    child: const _CreateRoomView(),
+  );
 }
 
 class _CreateRoomView extends StatelessWidget {
@@ -80,7 +80,8 @@ class _CreateRoomView extends StatelessWidget {
                 semanticLabel: 'create.question_count'.tr(),
                 value: state.questionCount,
                 segments: [
-                  for (final n in RoomRules.questionCounts) YqSegment(n, '$n', ltrLabel: true),
+                  for (final n in RoomRules.questionCounts)
+                    YqSegment(n, '$n', ltrLabel: true, enabled: state.isCountAllowed(n)),
                 ],
                 onChanged: cubit.selectQuestionCount,
               ),
@@ -109,7 +110,11 @@ class _CreateRoomView extends StatelessWidget {
                     'create.summary_minutes'.plural(settings.estimatedMinutes),
                   ].join(' · '),
                   textAlign: TextAlign.center,
-                  style: t.caption.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: c.inkMuted),
+                  style: t.caption.copyWith(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: c.inkMuted,
+                  ),
                 ),
               const SizedBox(height: YqSpace.x3),
               YqButton(
@@ -141,11 +146,11 @@ class _CategoryGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget chip(String id) => CategoryChip(
-          id: id,
-          label: 'categories.$id'.tr(),
-          selected: id == selected,
-          onTap: () => onSelect(id),
-        );
+      id: id,
+      label: 'categories.$id'.tr(),
+      selected: id == selected,
+      onTap: () => onSelect(id),
+    );
     return Column(
       children: [
         for (var i = 0; i < ids.length; i += 2) ...[

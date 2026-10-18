@@ -58,5 +58,125 @@
     "en": { "q": "What's the hardest natural material?", "options": ["Gold", "Iron", "Diamond", "Quartz"] },
     "ar": { "q": "إيه أصلب مادة في الطبيعة؟", "options": ["الدهب", "الحديد", "الألماس", "الكوارتز"] },
     "answer": 2
+  },
+  {
+    "id": "general_011",
+    "en": { "q": "How many continents are there?", "options": ["5", "6", "7", "8"] },
+    "ar": { "q": "كام قارة في العالم؟", "options": ["5", "6", "7", "8"] },
+    "answer": 2
+  },
+  {
+    "id": "general_012",
+    "en": { "q": "What's the largest planet in our solar system?", "options": ["Saturn", "Jupiter", "Neptune", "Earth"] },
+    "ar": { "q": "إيه أكبر كوكب في المجموعة الشمسية؟", "options": ["زحل", "المشتري", "نبتون", "الأرض"] },
+    "answer": 1
+  },
+  {
+    "id": "general_013",
+    "en": { "q": "What's the smallest prime number?", "options": ["0", "1", "2", "3"] },
+    "ar": { "q": "إيه أصغر عدد أولي؟", "options": ["0", "1", "2", "3"] },
+    "answer": 2
+  },
+  {
+    "id": "general_014",
+    "en": { "q": "In which country is the ancient city of Petra?", "options": ["Jordan", "Egypt", "Lebanon", "Syria"] },
+    "ar": { "q": "مدينة البتراء الأثرية في أنهي دولة؟", "options": ["الأردن", "مصر", "لبنان", "سوريا"] },
+    "answer": 0
+  },
+  {
+    "id": "general_015",
+    "en": { "q": "Which gas do plants absorb from the air to make food?", "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"] },
+    "ar": { "q": "النباتات بتمتص أنهي غاز من الهوا عشان تعمل غذاها؟", "options": ["الأكسجين", "النيتروجين", "ثاني أكسيد الكربون", "الهيدروجين"] },
+    "answer": 2
+  },
+  {
+    "id": "general_016",
+    "en": { "q": "How many players does each football team have on the pitch?", "options": ["9", "10", "11", "12"] },
+    "ar": { "q": "كل فريق كورة بيلعب بكام لاعب في الملعب؟", "options": ["9", "10", "11", "12"] },
+    "answer": 2
+  },
+  {
+    "id": "general_017",
+    "en": { "q": "What's the capital of Japan?", "options": ["Tokyo", "Seoul", "Beijing", "Bangkok"] },
+    "ar": { "q": "إيه عاصمة اليابان؟", "options": ["طوكيو", "سول", "بكين", "بانكوك"] },
+    "answer": 0
+  },
+  {
+    "id": "general_018",
+    "en": { "q": "At sea level, water boils at how many degrees Celsius?", "options": ["90", "100", "110", "120"] },
+    "ar": { "q": "الميه بتغلي عند كام درجة مئوية عند مستوى سطح البحر؟", "options": ["90", "100", "110", "120"] },
+    "answer": 1
+  },
+  {
+    "id": "general_019",
+    "en": { "q": "Who wrote \"Romeo and Juliet\"?", "options": ["Charles Dickens", "Leo Tolstoy", "Ernest Hemingway", "William Shakespeare"] },
+    "ar": { "q": "مين كتب «روميو وجولييت»؟", "options": ["تشارلز ديكنز", "تولستوي", "همنغواي", "شكسبير"] },
+    "answer": 3
+  },
+  {
+    "id": "general_020",
+    "en": { "q": "Which Egyptian writer won the Nobel Prize in Literature in 1988?", "options": ["Taha Hussein", "Naguib Mahfouz", "Tawfiq al-Hakim", "Yusuf Idris"] },
+    "ar": { "q": "أنهي كاتب مصري خد جايزة نوبل في الأدب سنة 1988؟", "options": ["طه حسين", "نجيب محفوظ", "توفيق الحكيم", "يوسف إدريس"] },
+    "answer": 1
+  },
+  {
+    "id": "general_021",
+    "en": { "q": "What's the largest hot desert in the world?", "options": ["Arabian Desert", "Gobi Desert", "Kalahari Desert", "Sahara"] },
+    "ar": { "q": "إيه أكبر صحرا حارة في العالم؟", "options": ["الصحراء العربية", "صحراء جوبي", "صحراء كالاهاري", "الصحراء الكبرى"] },
+    "answer": 3
+  },
+  {
+    "id": "general_022",
+    "en": { "q": "How many bones are in an adult human body?", "options": ["206", "186", "226", "246"] },
+    "ar": { "q": "جسم الإنسان البالغ فيه كام عضمة؟", "options": ["206", "186", "226", "246"] },
+    "answer": 0
+  },
+  {
+    "id": "general_023",
+    "en": { "q": "Which instrument usually has 88 keys?", "options": ["Piano", "Guitar", "Violin", "Accordion"] },
+    "ar": { "q": "أنهي آلة موسيقية عادةً فيها 88 مفتاح؟", "options": ["البيانو", "الجيتار", "الكمنجة", "الأكورديون"] },
+    "answer": 0
+  },
+  {
+    "id": "general_024",
+    "en": { "q": "What's the currency of the United Kingdom?", "options": ["Euro", "Dollar", "Pound sterling", "Franc"] },
+    "ar": { "q": "إيه عملة بريطانيا؟", "options": ["اليورو", "الدولار", "الجنيه الإسترليني", "الفرنك"] },
+    "answer": 2
+  },
+  {
+    "id": "general_025",
+    "en": { "q": "Which planet is closest to the Sun?", "options": ["Venus", "Mercury", "Mars", "Earth"] },
+    "ar": { "q": "أنهي كوكب أقرب واحد للشمس؟", "options": ["الزهرة", "عطارد", "المريخ", "الأرض"] },
+    "answer": 1
+  },
+  {
+    "id": "general_026",
+    "en": { "q": "How many days are there in a leap year?", "options": ["364", "365", "366", "367"] },
+    "ar": { "q": "السنة الكبيسة فيها كام يوم؟", "options": ["364", "365", "366", "367"] },
+    "answer": 2
+  },
+  {
+    "id": "general_027",
+    "en": { "q": "In which city is the Burj Khalifa?", "options": ["Doha", "Riyadh", "Abu Dhabi", "Dubai"] },
+    "ar": { "q": "برج خليفة في أنهي مدينة؟", "options": ["الدوحة", "الرياض", "أبوظبي", "دبي"] },
+    "answer": 3
+  },
+  {
+    "id": "general_028",
+    "en": { "q": "What's the chemical formula for water?", "options": ["CO₂", "H₂O", "O₂", "NaCl"] },
+    "ar": { "q": "إيه الصيغة الكيميائية للميه؟", "options": ["CO₂", "H₂O", "O₂", "NaCl"] },
+    "answer": 1
+  },
+  {
+    "id": "general_029",
+    "en": { "q": "Which country hosted the 2022 FIFA World Cup?", "options": ["Russia", "Brazil", "UAE", "Qatar"] },
+    "ar": { "q": "أنهي دولة استضافت كاس العالم 2022؟", "options": ["روسيا", "البرازيل", "الإمارات", "قطر"] },
+    "answer": 3
+  },
+  {
+    "id": "general_030",
+    "en": { "q": "What's the largest country in the world by area?", "options": ["Canada", "China", "USA", "Russia"] },
+    "ar": { "q": "إيه أكبر دولة في العالم من حيث المساحة؟", "options": ["كندا", "الصين", "أمريكا", "روسيا"] },
+    "answer": 3
   }
 ]

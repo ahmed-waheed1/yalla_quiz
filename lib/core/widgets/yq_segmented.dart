@@ -8,7 +8,7 @@ import '../theme/yq_typography.dart';
 import 'yq_pressable.dart';
 
 class YqSegment<T> {
-  const YqSegment(this.value, this.label, {this.icon, this.ltrLabel = false});
+  const YqSegment(this.value, this.label, {this.icon, this.ltrLabel = false, this.enabled = true});
 
   final T value;
   final String label;
@@ -16,6 +16,9 @@ class YqSegment<T> {
 
   /// Lay the label out LTR (numbers such as "10" or "20 s").
   final bool ltrLabel;
+
+  /// Disabled segments are dimmed and can't be picked.
+  final bool enabled;
 }
 
 /// Segmented control: `surfaceAlt` track, selected segment `ink` on `bg`.
@@ -37,6 +40,7 @@ class YqSegmented<T> extends StatelessWidget {
   static const double _segmentRadius = 14;
   static const double _gap = 4;
   static const double _iconSize = 18;
+  static const double _disabledOpacity = 0.4;
 
   @override
   Widget build(BuildContext context) {
@@ -72,12 +76,14 @@ class YqSegmented<T> extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: t.label.copyWith(fontSize: 16, color: fg),
     );
-    return Semantics(
+    final Widget segment = Semantics(
       selected: selected,
       child: YqPressable(
         focusRadius: _segmentRadius,
         semanticLabel: s.label,
-        onPressed: selected
+        onPressed: !s.enabled
+            ? null
+            : selected
             ? () {}
             : () {
                 getIt<Haptics>().selection();
@@ -117,5 +123,6 @@ class YqSegmented<T> extends StatelessWidget {
         ),
       ),
     );
+    return s.enabled ? segment : Opacity(opacity: _disabledOpacity, child: segment);
   }
 }

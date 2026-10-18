@@ -51,6 +51,13 @@ void main() {
         profile: false, expectKey: 'profile.name_label'),
     _Case('profile setup (edit)', (_) => const ProfileSetupPage(), expectKey: 'profile.pick_title'),
     _Case('create room', (_) => const CreateRoomPage(), expectKey: 'create.go'),
+    _Case('create room (small category: counts disabled)', (_) => const CreateRoomPage(),
+        questions: {'general': 30, 'music': 8},
+        interact: (t) async {
+          await t.tap(find.text('categories.music'.tr()));
+          await settle(t, const Duration(milliseconds: 500));
+        },
+        expectKey: 'create.go'),
     _Case('join room (empty)', (_) => const JoinRoomPage(), expectKey: 'join.head'),
     _Case('join room (typing)', (_) => const JoinRoomPage(),
         interact: (t) => enterCode(t, 'k7x'), expectKey: 'join.scan'),
@@ -97,6 +104,7 @@ void main() {
             registerFakes(
               profile: c.profile ? kNour : null,
               rooms: FakeRoomRepository(room: c.room, joinFailure: c.joinFailure),
+              questions: c.questions == null ? null : FakeQuestionRepository(counts: c.questions),
             );
             final recorder = FlutterErrorRecorder()..start();
             addTearDown(recorder.stop);
@@ -139,6 +147,7 @@ class _Case {
     this.profile = true,
     this.room,
     this.joinFailure,
+    this.questions,
     this.interact,
     this.expectKey,
     this.size = kPhone,
@@ -150,6 +159,7 @@ class _Case {
   final bool profile;
   final dynamic room;
   final Failure? joinFailure;
+  final Map<String, int>? questions;
   final Future<void> Function(WidgetTester tester)? interact;
   final String? expectKey;
   final Size size;
