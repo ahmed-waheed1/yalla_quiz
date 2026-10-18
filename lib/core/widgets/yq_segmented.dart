@@ -18,7 +18,7 @@ class YqSegment<T> {
   final bool ltrLabel;
 }
 
-/// Segmented control: `surfaceAlt` track, selected segment in `inverse`.
+/// Segmented control: `surfaceAlt` track, selected segment `ink` on `bg`.
 class YqSegmented<T> extends StatelessWidget {
   const YqSegmented({
     super.key,
@@ -62,7 +62,10 @@ class YqSegmented<T> extends StatelessWidget {
 
   Widget _segment(BuildContext context, YqSegment<T> s, YqColors c, YqTypography t) {
     final selected = s.value == value;
-    final fg = selected ? c.onInverse : c.inkMuted;
+    // Selected = `ink` fill with `bg` text, as in the design canvas for both
+    // themes. Not `inverse`: that token is the night *panel* colour, which in
+    // dark equals `surfaceAlt` (the track) and would make the pill vanish.
+    final fg = selected ? c.bg : c.inkMuted;
     final label = Text(
       s.label,
       maxLines: 1,
@@ -85,7 +88,7 @@ class YqSegmented<T> extends StatelessWidget {
           curve: YqMotion.out,
           height: _segmentHeight,
           decoration: BoxDecoration(
-            color: selected ? c.inverse : c.surfaceAlt.withValues(alpha: 0),
+            color: selected ? c.ink : c.surfaceAlt.withValues(alpha: 0),
             borderRadius: YqRadius.all(_segmentRadius),
             boxShadow: selected
                 ? [

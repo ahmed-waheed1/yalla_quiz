@@ -229,6 +229,8 @@ class _AvatarGrid extends StatelessWidget {
   static const double _cell = 68;
   static const double _avatar = 60;
   static const double _badge = 24;
+  static const double _badgeRing = 3;
+  static const double _badgeIcon = 14;
 
   @override
   Widget build(BuildContext context) {
@@ -288,17 +290,17 @@ class _AvatarGrid extends StatelessWidget {
               YqAvatar(seed: seed, size: _avatar),
               if (isSelected)
                 PositionedDirectional(
-                  top: -4,
-                  end: -4,
+                  top: -2 - _badgeRing,
+                  end: -2 - _badgeRing,
                   child: Container(
-                    width: _badge,
-                    height: _badge,
+                    width: _badge + _badgeRing * 2,
+                    height: _badge + _badgeRing * 2,
                     decoration: BoxDecoration(
                       color: c.primary,
                       shape: BoxShape.circle,
-                      border: Border.all(color: c.bg, width: 2),
+                      border: Border.all(color: c.bg, width: _badgeRing),
                     ),
-                    child: Icon(Icons.check_rounded, size: 15, color: c.onInverse),
+                    child: Icon(Icons.check_rounded, size: _badgeIcon, color: c.onPrimary),
                   ),
                 ),
             ],

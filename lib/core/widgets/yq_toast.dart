@@ -6,8 +6,10 @@ import '../theme/yq_colors.dart';
 import '../theme/yq_spacing.dart';
 import '../theme/yq_typography.dart';
 
-/// Pill toast: `inverse` fill, `modal` shadow, 24 above the bottom inset,
-/// auto-hides after 2.4 s.
+/// Pill toast: `ink` fill with `bg` text (high contrast in both themes, as in
+/// the design canvas; `inverse` is the night panel colour and would sink into
+/// a dark screen), `modal` shadow, 24 above the bottom inset, auto-hides after
+/// 2.4 s.
 abstract final class YqToast {
   static const Duration _visibleFor = Duration(milliseconds: 2400);
   static OverlayEntry? _current;
@@ -69,14 +71,14 @@ class _ToastView extends StatelessWidget {
                     vertical: YqSpace.x3,
                   ),
                   decoration: BoxDecoration(
-                    color: c.inverse,
+                    color: c.ink,
                     borderRadius: YqRadius.all(YqRadius.pill),
                     boxShadow: context.yqElevation.modal,
                   ),
                   child: Text(
                     message,
                     textAlign: TextAlign.center,
-                    style: context.yqText.label.copyWith(fontSize: 15, color: c.onInverse),
+                    style: context.yqText.label.copyWith(fontSize: 15, color: c.bg),
                   ),
                 ),
               ),
