@@ -89,6 +89,7 @@ Future<void> pumpScreen(
   required Locale locale,
   Size size = kPhone,
   Brightness brightness = Brightness.light,
+  bool settleAfter = true,
 }) async {
   // Pages navigate (splash → home, lobby → home …); land on a blank page.
   final router = GoRouter(
@@ -100,7 +101,14 @@ Future<void> pumpScreen(
     ],
   );
   addTearDown(router.dispose);
-  await pumpRouterApp(tester, router, locale: locale, size: size, brightness: brightness);
+  await pumpRouterApp(
+    tester,
+    router,
+    locale: locale,
+    size: size,
+    brightness: brightness,
+    settleAfter: settleAfter,
+  );
 }
 
 /// Pumps the app shell around [router] (the real one or a test one).
@@ -111,6 +119,7 @@ Future<void> pumpRouterApp(
   Size size = kPhone,
   bool disableAnimations = false,
   Brightness brightness = Brightness.light,
+  bool settleAfter = true,
 }) async {
   tester.view.physicalSize = size * 2;
   tester.view.devicePixelRatio = 2;
@@ -154,7 +163,7 @@ Future<void> pumpRouterApp(
     // Translations load from the asset bundle asynchronously.
     await Future<void>.delayed(const Duration(milliseconds: 300));
   });
-  await settle(tester);
+  if (settleAfter) await settle(tester);
 }
 
 /// Pumps frames for a while. Screens have endless animations (live dot,
