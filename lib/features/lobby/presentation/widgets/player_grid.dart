@@ -100,7 +100,9 @@ class _PlayerGridState extends State<PlayerGrid> {
         e.leaving = true;
         final uid = e.player.uid;
         _timers.add(Timer(YqMotion.fast, () {
-          if (mounted) setState(() => _entries.removeWhere((x) => x.leaving && x.player.uid == uid));
+          if (mounted) {
+            setState(() => _entries.removeWhere((x) => x.leaving && x.player.uid == uid));
+          }
         }));
       }
     }
