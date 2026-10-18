@@ -106,9 +106,15 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - **Placeholders.** `YqWordmark` and `YqHeroIllustration` (`core/widgets/yq_brand.dart`) show the brand mark until the Lalezar wordmark and the hero SVG land in `assets/images/`; swap them there only. The splash shows no wordmark until then.
 - **Image assets.** Use the generated `Assets` (`lib/gen/assets.gen.dart`, flutter_gen) for image files.
 - Haptics go through `getIt<Haptics>()`, which respects the Vibration setting.
+- **Route transitions.** Every route sets one via `YqTransitions.page` (`core/router/yq_transitions.dart`). Use `slide` for in-flow pushes (it enters from the end edge and mirrors in RTL), `fade` (fade-through) for context switches done with `go`, and `none` for hard cuts ("Yalla!" → question). All use `YqMotion.base` and `YqMotion.out`, with no animation under reduced motion. Unknown paths redirect to Home.
+- **One Material library only.** The app (and the designer's theme files) use `package:flutter/material.dart`. Some newer packages are built on the standalone `material_ui` package instead (e.g. pinput 7, go_router 18's page detection, animations 3, google_fonts 9), whose `Material`/`MaterialApp`/`Theme` are *different types*: their widgets can't see our `Material` ancestors, theme or localizations. pinput was dropped for this reason (`YqCodeInput` is built on Flutter's `TextField`). Before using widgets from a package, check its imports for `package:material_ui`.
+
+## Tests
+- `test/screens/phase1_screens_test.dart` renders every screen and state in `en` and `ar` (phone, plus tablet for the lobby) with fake repositories and fails on any `FlutterError`: missing ancestors, overflow, build exceptions. Add every new screen and state there.
+- The harness (`test/helpers/pump_app.dart`) loads the real Cairo font so overflow checks match devices.
 
 ## Workflow
-- Run `flutter analyze` after every step and keep it at zero issues. `flutter test` must pass.
+- Run `flutter analyze` and `flutter test` after every step; both must be clean.
 - After changing freezed/json models: `dart run build_runner build`.
 - **Local Firebase.** Run `firebase emulators:start --only auth,database` (uses `database.rules.json`) and `flutter run --dart-define=YQ_EMULATOR=true`. For a physical device, add `--dart-define=YQ_EMULATOR_HOST=<your LAN IP>`.
 - Don't edit the designer's theme files or the generated Firebase config.

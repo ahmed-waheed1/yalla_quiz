@@ -45,7 +45,10 @@ class YqAppBar extends StatelessWidget {
             )
           else
             const Spacer(),
-          ?trailing,
+          if (trailing != null)
+            Flexible(
+              child: Align(alignment: AlignmentDirectional.centerEnd, child: trailing),
+            ),
         ],
       ),
     );

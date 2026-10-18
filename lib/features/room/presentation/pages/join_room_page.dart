@@ -108,6 +108,7 @@ class _JoinRoomViewState extends State<_JoinRoomView> {
                 child: YqCodeInput(
                   controller: _code,
                   focusNode: _focus,
+                  semanticLabel: 'join.code_label'.tr(),
                   hasError: state.error != null,
                   errorCount: state.errorCount,
                   enabled: !state.submitting,
