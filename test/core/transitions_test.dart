@@ -54,15 +54,25 @@ void main() {
     });
 
     testWidgets('enters from the left in RTL', (tester) async {
-      await _pumpTransition(tester, YqTransition.slide, animation: 0.3, direction: TextDirection.rtl);
+      await _pumpTransition(
+        tester,
+        YqTransition.slide,
+        animation: 0.3,
+        direction: TextDirection.rtl,
+      );
       expect(_dx(tester), lessThan(0));
     });
 
     testWidgets('covered page moves towards the start edge (both directions)', (tester) async {
       await _pumpTransition(tester, YqTransition.slide, animation: 1, secondary: 0.5);
       expect(_dx(tester), lessThan(0));
-      await _pumpTransition(tester, YqTransition.slide,
-          animation: 1, secondary: 0.5, direction: TextDirection.rtl);
+      await _pumpTransition(
+        tester,
+        YqTransition.slide,
+        animation: 1,
+        secondary: 0.5,
+        direction: TextDirection.rtl,
+      );
       expect(_dx(tester), greaterThan(0));
     });
 
@@ -72,8 +82,9 @@ void main() {
     });
   });
 
-  testWidgets('fade-through: incoming page is invisible until the outgoing one is gone',
-      (tester) async {
+  testWidgets('fade-through: incoming page is invisible until the outgoing one is gone', (
+    tester,
+  ) async {
     await _pumpTransition(tester, YqTransition.fade, animation: 0.2);
     final fades = tester.widgetList<FadeTransition>(
       find.ancestor(of: find.byKey(_childKey), matching: find.byType(FadeTransition)),
@@ -98,8 +109,9 @@ void main() {
     setUpAll(initTestEnvironment);
 
     for (final locale in const [Locale('en'), Locale('ar')]) {
-      testWidgets('pushing Settings slides in from the end edge (${locale.languageCode})',
-          (tester) async {
+      testWidgets('pushing Settings slides in from the end edge (${locale.languageCode})', (
+        tester,
+      ) async {
         registerFakes();
         final router = buildRouter();
         addTearDown(router.dispose);

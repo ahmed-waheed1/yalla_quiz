@@ -123,8 +123,9 @@ Future<void> pumpRouterApp(
 }) async {
   tester.view.physicalSize = size * 2;
   tester.view.devicePixelRatio = 2;
-  tester.platformDispatcher.accessibilityFeaturesTestValue =
-      FakeAccessibilityFeatures(disableAnimations: disableAnimations);
+  tester.platformDispatcher.accessibilityFeaturesTestValue = FakeAccessibilityFeatures(
+    disableAnimations: disableAnimations,
+  );
   addTearDown(tester.view.reset);
   addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
 

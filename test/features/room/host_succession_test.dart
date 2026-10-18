@@ -6,13 +6,13 @@ RoomPlayer _p(String uid, int joinedAt, {bool connected = true}) =>
     RoomPlayer(uid: uid, name: uid, avatarSeed: 0, joinedAt: joinedAt, connected: connected);
 
 Room _room(String hostId, List<RoomPlayer> players) => Room(
-      code: 'K7XP2Q',
-      hostId: hostId,
-      status: RoomStatus.lobby,
-      createdAt: 0,
-      settings: const RoomSettings(category: 'general'),
-      players: players,
-    );
+  code: 'K7XP2Q',
+  hostId: hostId,
+  status: RoomStatus.lobby,
+  createdAt: 0,
+  settings: const RoomSettings(category: 'general'),
+  players: players,
+);
 
 void main() {
   group('HostSuccession', () {
@@ -35,10 +35,7 @@ void main() {
     test('falls back to a disconnected player only when allowed', () {
       final room = _room('a', [_p('a', 1), _p('b', 2, connected: false)]);
       expect(HostSuccession.successor(room, excludeUid: 'a'), isNull);
-      expect(
-        HostSuccession.successor(room, excludeUid: 'a', allowDisconnected: true)?.uid,
-        'b',
-      );
+      expect(HostSuccession.successor(room, excludeUid: 'a', allowDisconnected: true)?.uid, 'b');
     });
 
     test('no successor when the host is alone', () {

@@ -44,10 +44,7 @@ abstract class RoomPlayer with _$RoomPlayer {
 /// A player's pick for one question. [answeredAt] is a server timestamp.
 @freezed
 abstract class PlayerAnswer with _$PlayerAnswer {
-  const factory PlayerAnswer({
-    required int option,
-    required int answeredAt,
-  }) = _PlayerAnswer;
+  const factory PlayerAnswer({required int option, required int answeredAt}) = _PlayerAnswer;
 }
 
 @freezed
@@ -92,7 +89,10 @@ abstract class Room with _$Room {
   bool get isFull => players.length >= settings.maxPlayers;
 
   /// Players who answer and are ranked (everyone but a big-screen host).
-  List<RoomPlayer> get contestants => [for (final p in players) if (!p.spectator) p];
+  List<RoomPlayer> get contestants => [
+    for (final p in players)
+      if (!p.spectator) p,
+  ];
 
   bool get canStart => contestants.length >= RoomRules.minPlayersToStart;
 

@@ -20,18 +20,18 @@ abstract class RoomSettingsModel with _$RoomSettingsModel {
       _$RoomSettingsModelFromJson(json);
 
   factory RoomSettingsModel.fromEntity(RoomSettings s) => RoomSettingsModel(
-        category: s.category,
-        questionCount: s.questionCount,
-        timePerQuestion: s.timePerQuestion,
-        maxPlayers: s.maxPlayers,
-      );
+    category: s.category,
+    questionCount: s.questionCount,
+    timePerQuestion: s.timePerQuestion,
+    maxPlayers: s.maxPlayers,
+  );
 
   RoomSettings toEntity() => RoomSettings(
-        category: category,
-        questionCount: questionCount,
-        timePerQuestion: timePerQuestion,
-        maxPlayers: maxPlayers,
-      );
+    category: category,
+    questionCount: questionCount,
+    timePerQuestion: timePerQuestion,
+    maxPlayers: maxPlayers,
+  );
 }
 
 @freezed
@@ -52,26 +52,23 @@ abstract class PlayerModel with _$PlayerModel {
   factory PlayerModel.fromJson(Map<String, dynamic> json) => _$PlayerModelFromJson(json);
 
   RoomPlayer toEntity(String uid) => RoomPlayer(
-        uid: uid,
-        name: name,
-        avatarSeed: avatarSeed,
-        joinedAt: joinedAt,
-        connected: connected,
-        score: score,
-        streak: streak,
-        lastPoints: lastPoints,
-        spectator: spectator,
-      );
+    uid: uid,
+    name: name,
+    avatarSeed: avatarSeed,
+    joinedAt: joinedAt,
+    connected: connected,
+    score: score,
+    streak: streak,
+    lastPoints: lastPoints,
+    spectator: spectator,
+  );
 }
 
 @freezed
 abstract class AnswerModel with _$AnswerModel {
   const AnswerModel._();
 
-  const factory AnswerModel({
-    required int option,
-    required int answeredAt,
-  }) = _AnswerModel;
+  const factory AnswerModel({required int option, required int answeredAt}) = _AnswerModel;
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) => _$AnswerModelFromJson(json);
 
@@ -104,12 +101,15 @@ Map<int, Map<String, AnswerModel>> _answersFromJson(Object? json) {
 }
 
 Map<String, Object?> _answersToJson(Map<int, Map<String, AnswerModel>> answers) => {
-      for (final e in answers.entries)
-        '${e.key}': {for (final a in e.value.entries) a.key: a.value.toJson()},
-    };
+  for (final e in answers.entries)
+    '${e.key}': {for (final a in e.value.entries) a.key: a.value.toJson()},
+};
 
 Set<String> _usedIdsFromJson(Object? json) => json is Map
-    ? {for (final e in json.entries) if (e.value == true) e.key.toString()}
+    ? {
+        for (final e in json.entries)
+          if (e.value == true) e.key.toString(),
+      }
     : <String>{};
 
 Map<String, bool> _usedIdsToJson(Set<String> ids) => {for (final id in ids) id: true};

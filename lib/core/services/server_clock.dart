@@ -5,8 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 /// Server-aligned clock from `.info/serverTimeOffset`. Game timers are
 /// computed from server timestamps with this, never from a local countdown.
 class ServerClock {
-  ServerClock(FirebaseDatabase database)
-      : _offsetRef = database.ref('.info/serverTimeOffset');
+  ServerClock(FirebaseDatabase database) : _offsetRef = database.ref('.info/serverTimeOffset');
 
   final DatabaseReference _offsetRef;
   StreamSubscription<DatabaseEvent>? _subscription;

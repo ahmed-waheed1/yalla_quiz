@@ -8,7 +8,11 @@ import '../../helpers/pump_app.dart';
 void main() {
   Future<CreateRoomCubit> loaded(Map<String, int> counts) async {
     final profiles = ProfileCubit(FakeProfileRepository(kNour))..load();
-    final cubit = CreateRoomCubit(FakeQuestionRepository(counts: counts), FakeRoomRepository(), profiles);
+    final cubit = CreateRoomCubit(
+      FakeQuestionRepository(counts: counts),
+      FakeRoomRepository(),
+      profiles,
+    );
     await cubit.load();
     return cubit;
   }
@@ -45,5 +49,4 @@ void main() {
     cubit.selectCategory('general');
     expect(cubit.state.questionCount, 10);
   });
-
 }

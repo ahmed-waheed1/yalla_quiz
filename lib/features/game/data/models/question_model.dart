@@ -7,10 +7,8 @@ part 'question_model.g.dart';
 
 @freezed
 abstract class LocalizedQuestionModel with _$LocalizedQuestionModel {
-  const factory LocalizedQuestionModel({
-    required String q,
-    required List<String> options,
-  }) = _LocalizedQuestionModel;
+  const factory LocalizedQuestionModel({required String q, required List<String> options}) =
+      _LocalizedQuestionModel;
 
   factory LocalizedQuestionModel.fromJson(Map<String, dynamic> json) =>
       _$LocalizedQuestionModelFromJson(json);
@@ -30,10 +28,10 @@ abstract class QuestionModel with _$QuestionModel {
   factory QuestionModel.fromJson(Map<String, dynamic> json) => _$QuestionModelFromJson(json);
 
   Question toEntity(String category) => Question(
-        id: id,
-        category: category,
-        en: LocalizedQuestion(text: en.q, options: en.options),
-        ar: LocalizedQuestion(text: ar.q, options: ar.options),
-        answer: answer,
-      );
+    id: id,
+    category: category,
+    en: LocalizedQuestion(text: en.q, options: en.options),
+    ar: LocalizedQuestion(text: ar.q, options: ar.options),
+    answer: answer,
+  );
 }

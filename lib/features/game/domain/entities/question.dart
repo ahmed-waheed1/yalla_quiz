@@ -4,10 +4,8 @@ part 'question.freezed.dart';
 
 @freezed
 abstract class LocalizedQuestion with _$LocalizedQuestion {
-  const factory LocalizedQuestion({
-    required String text,
-    required List<String> options,
-  }) = _LocalizedQuestion;
+  const factory LocalizedQuestion({required String text, required List<String> options}) =
+      _LocalizedQuestion;
 }
 
 /// A trivia question with English and Arabic text. Each player sees it in

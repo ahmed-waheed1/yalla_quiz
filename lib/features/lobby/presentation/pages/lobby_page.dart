@@ -37,9 +37,9 @@ class LobbyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (_) => LobbyCubit(code: code, rooms: getIt(), haptics: getIt())..start(),
-        child: const _LobbyView(),
-      );
+    create: (_) => LobbyCubit(code: code, rooms: getIt(), haptics: getIt())..start(),
+    child: const _LobbyView(),
+  );
 }
 
 class _LobbyView extends StatelessWidget {
@@ -145,10 +145,10 @@ class _CloseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => YqIconButton(
-        icon: args.leaving ? const YqSpinner(size: 20) : const Icon(Icons.close_rounded),
-        tooltip: 'lobby.leave'.tr(),
-        onPressed: args.leaving ? null : args.onLeave,
-      );
+    icon: args.leaving ? const YqSpinner(size: 20) : const Icon(Icons.close_rounded),
+    tooltip: 'lobby.leave'.tr(),
+    onPressed: args.leaving ? null : args.onLeave,
+  );
 }
 
 class _PhoneLobby extends StatelessWidget {
@@ -247,7 +247,11 @@ class _HostScreenLobby extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    RoomQr(code: room.code, size: _qrSize, semanticLabel: 'lobby.qr_label'.tr(args: [room.code])),
+                    RoomQr(
+                      code: room.code,
+                      size: _qrSize,
+                      semanticLabel: 'lobby.qr_label'.tr(args: [room.code]),
+                    ),
                     const SizedBox(width: YqSpace.x5),
                     Flexible(
                       child: Tooltip(
@@ -258,7 +262,10 @@ class _HostScreenLobby extends StatelessWidget {
                           focusRadius: YqRadius.sm,
                           builder: (context, _) => Padding(
                             padding: const EdgeInsetsDirectional.only(bottom: YqSpace.x6),
-                            child: YqNumberText(room.code, style: t.code.copyWith(fontSize: 30, color: c.ink)),
+                            child: YqNumberText(
+                              room.code,
+                              style: t.code.copyWith(fontSize: 30, color: c.ink),
+                            ),
                           ),
                         ),
                       ),

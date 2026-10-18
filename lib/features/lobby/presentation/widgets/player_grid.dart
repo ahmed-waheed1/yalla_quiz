@@ -39,13 +39,13 @@ class PlayerGridMetrics {
   );
 
   PlayerGridMetrics withColumns(int value) => PlayerGridMetrics(
-        columns: value,
-        gap: gap,
-        tileHeight: tileHeight,
-        avatarSize: avatarSize,
-        nameSize: nameSize,
-        badgeSize: badgeSize,
-      );
+    columns: value,
+    gap: gap,
+    tileHeight: tileHeight,
+    avatarSize: avatarSize,
+    nameSize: nameSize,
+    badgeSize: badgeSize,
+  );
 
   final int columns;
   final double gap;
@@ -58,12 +58,7 @@ class PlayerGridMetrics {
 /// Lobby players plus a ghost "Joining…" tile while the room isn't full.
 /// Joiners pop in (0.6 → 1, `snap`) with a light haptic; leavers fade out.
 class PlayerGrid extends StatefulWidget {
-  const PlayerGrid({
-    super.key,
-    required this.room,
-    required this.myUid,
-    required this.metrics,
-  });
+  const PlayerGrid({super.key, required this.room, required this.myUid, required this.metrics});
 
   final Room room;
   final String myUid;
@@ -99,11 +94,13 @@ class _PlayerGridState extends State<PlayerGrid> {
       if (!nextIds.contains(e.player.uid) && !e.leaving) {
         e.leaving = true;
         final uid = e.player.uid;
-        _timers.add(Timer(YqMotion.fast, () {
-          if (mounted) {
-            setState(() => _entries.removeWhere((x) => x.leaving && x.player.uid == uid));
-          }
-        }));
+        _timers.add(
+          Timer(YqMotion.fast, () {
+            if (mounted) {
+              setState(() => _entries.removeWhere((x) => x.leaving && x.player.uid == uid));
+            }
+          }),
+        );
       }
     }
     for (final p in next) {
@@ -207,8 +204,10 @@ class _AnimatedTileState extends State<_AnimatedTile> with SingleTickerProviderS
     duration: YqMotion.base,
     value: widget.animateIn ? 0 : 1,
   );
-  late final Animation<double> _scale =
-      Tween<double>(begin: 0.6, end: 1).animate(CurvedAnimation(parent: _in, curve: YqMotion.snap));
+  late final Animation<double> _scale = Tween<double>(
+    begin: 0.6,
+    end: 1,
+  ).animate(CurvedAnimation(parent: _in, curve: YqMotion.snap));
 
   @override
   void initState() {

@@ -63,7 +63,9 @@ class LobbyCubit extends Cubit<LobbyState> {
       (uid) {
         emit(state.copyWith(myUid: uid));
         _roomSub = _rooms.watchRoom(code).listen(_onRoom);
-        _presenceSub = _rooms.maintainPresence(code).listen(
+        _presenceSub = _rooms
+            .maintainPresence(code)
+            .listen(
               (online) => emit(state.copyWith(online: online)),
               onError: (Object _) => emit(state.copyWith(online: false)),
             );
@@ -75,22 +77,21 @@ class LobbyCubit extends Cubit<LobbyState> {
     if (state.leaving) return;
     event.match(
       (failure) => emit(state.copyWith(status: LobbyStatus.error, failure: failure)),
-      (maybeRoom) => maybeRoom.match(
-        () => _close(),
-        (room) {
-          final uid = state.myUid!;
-          if (room.player(uid) == null) return _close();
-          final wasHost = state.room != null && state.isHost;
-          final promoted = state.room != null && !wasHost && room.isHost(uid);
-          if (promoted) _haptics.medium();
-          emit(state.copyWith(
+      (maybeRoom) => maybeRoom.match(() => _close(), (room) {
+        final uid = state.myUid!;
+        if (room.player(uid) == null) return _close();
+        final wasHost = state.room != null && state.isHost;
+        final promoted = state.room != null && !wasHost && room.isHost(uid);
+        if (promoted) _haptics.medium();
+        emit(
+          state.copyWith(
             status: LobbyStatus.ready,
             room: room,
             promotedCount: state.promotedCount + (promoted ? 1 : 0),
-          ));
-          _evaluateHost(room);
-        },
-      ),
+          ),
+        );
+        _evaluateHost(room);
+      }),
     );
   }
 

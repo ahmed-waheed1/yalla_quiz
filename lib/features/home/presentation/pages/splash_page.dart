@@ -45,17 +45,23 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   static const double _markSize = 180;
   static const double _starSize = 620;
 
-  late final AnimationController _introController =
-      AnimationController(vsync: this, duration: _intro);
-  late final AnimationController _starController =
-      AnimationController(vsync: this, duration: const Duration(seconds: 40));
-  late final AnimationController _dotsController =
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 900));
+  late final AnimationController _introController = AnimationController(
+    vsync: this,
+    duration: _intro,
+  );
+  late final AnimationController _starController = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 40),
+  );
+  late final AnimationController _dotsController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 900),
+  );
 
   Animation<double> _interval(double startMs, double endMs, Curve curve) => CurvedAnimation(
-        parent: _introController,
-        curve: Interval(startMs / 1100, endMs / 1100, curve: curve),
-      );
+    parent: _introController,
+    curve: Interval(startMs / 1100, endMs / 1100, curve: curve),
+  );
 
   late final Animation<double> _mark = _interval(0, 220, YqMotion.snap);
   late final Animation<double> _tagline = _interval(330, 480, YqMotion.out);
@@ -79,7 +85,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   Future<void> _run() async {
-    final signIn = getIt<AuthService>().ensureSignedIn().timeout(_signInTimeout).then<void>(
+    final signIn = getIt<AuthService>()
+        .ensureSignedIn()
+        .timeout(_signInTimeout)
+        .then<void>(
           (_) {},
           onError: (Object e) => log.w('Anonymous sign-in failed at startup', error: e),
         );
@@ -116,10 +125,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 turns: _starController,
                 child: Opacity(
                   opacity: 0.55,
-                  child: NightStar(
-                    size: _starSize,
-                    color: SplashPage.starColor(c, brightness),
-                  ),
+                  child: NightStar(size: _starSize, color: SplashPage.starColor(c, brightness)),
                 ),
               ),
             ),
@@ -175,24 +181,24 @@ class _LoadingDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
-        animation: controller,
-        builder: (context, _) => Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            for (var i = 0; i < 3; i++) ...[
-              if (i > 0) const SizedBox(width: YqSpace.x2 + YqSpace.x3),
-              Opacity(
-                opacity: _opacityFor(i),
-                child: Container(
-                  width: _dot,
-                  height: _dot,
-                  decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-                ),
-              ),
-            ],
-          ],
-        ),
-      );
+    animation: controller,
+    builder: (context, _) => Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var i = 0; i < 3; i++) ...[
+          if (i > 0) const SizedBox(width: YqSpace.x2 + YqSpace.x3),
+          Opacity(
+            opacity: _opacityFor(i),
+            child: Container(
+              width: _dot,
+              height: _dot,
+              decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+            ),
+          ),
+        ],
+      ],
+    ),
+  );
 
   double _opacityFor(int i) {
     final phase = (controller.value * 3 - i) % 3;

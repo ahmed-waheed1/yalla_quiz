@@ -11,11 +11,11 @@ class YqSpinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox.square(
-        dimension: size,
-        child: CircularProgressIndicator(
-          strokeWidth: strokeWidth,
-          strokeCap: StrokeCap.round,
-          color: color ?? context.yqColors.primary,
-        ),
-      );
+    dimension: size,
+    child: CircularProgressIndicator(
+      strokeWidth: strokeWidth,
+      strokeCap: StrokeCap.round,
+      color: color ?? context.yqColors.primary,
+    ),
+  );
 }

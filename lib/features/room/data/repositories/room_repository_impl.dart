@@ -50,23 +50,22 @@ class RoomRepositoryImpl implements RoomRepository {
   Future<Either<Failure, String>> createRoom({
     required RoomSettings settings,
     required PlayerProfile profile,
-  }) =>
-      _guard(() async {
-        final uid = await _auth.ensureSignedIn();
-        // A taken (fresh) code is rejected by the rules; try another one.
-        Object? lastError;
-        for (var attempt = 0; attempt < RoomRules.createAttempts; attempt++) {
-          final code = RoomCode.generate();
-          try {
-            await _remote.createRoom(code: code, uid: uid, settings: settings, profile: profile);
-            return code;
-          } on FirebaseException catch (e) {
-            if (e.code != 'permission-denied') rethrow;
-            lastError = e;
-          }
-        }
-        throw lastError!;
-      });
+  }) => _guard(() async {
+    final uid = await _auth.ensureSignedIn();
+    // A taken (fresh) code is rejected by the rules; try another one.
+    Object? lastError;
+    for (var attempt = 0; attempt < RoomRules.createAttempts; attempt++) {
+      final code = RoomCode.generate();
+      try {
+        await _remote.createRoom(code: code, uid: uid, settings: settings, profile: profile);
+        return code;
+      } on FirebaseException catch (e) {
+        if (e.code != 'permission-denied') rethrow;
+        lastError = e;
+      }
+    }
+    throw lastError!;
+  });
 
   @override
   Future<Either<Failure, Unit>> joinRoom({
@@ -111,10 +110,7 @@ class RoomRepositoryImpl implements RoomRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> claimHost({
-    required String code,
-    required String previousHostId,
-  }) =>
+  Future<Either<Failure, Unit>> claimHost({required String code, required String previousHostId}) =>
       _guard(() async {
         final uid = await _auth.ensureSignedIn();
         await _remote.claimHost(code, uid, previousHostId);
@@ -126,10 +122,9 @@ class RoomRepositoryImpl implements RoomRepository {
     required String code,
     required bool isHost,
     String? successorUid,
-  }) =>
-      _guard(() async {
-        final uid = await _auth.ensureSignedIn();
-        await _remote.leave(code, uid, isHost: isHost, successorUid: successorUid);
-        return unit;
-      });
+  }) => _guard(() async {
+    final uid = await _auth.ensureSignedIn();
+    await _remote.leave(code, uid, isHost: isHost, successorUid: successorUid);
+    return unit;
+  });
 }

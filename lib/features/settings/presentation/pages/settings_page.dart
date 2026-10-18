@@ -33,12 +33,12 @@ class SettingsPage extends StatelessWidget {
     final profile = context.watch<ProfileCubit>().state;
 
     Widget cardHeader(IconData icon, String label) => Row(
-          children: [
-            Icon(icon, size: _cardIcon, color: c.ink),
-            const SizedBox(width: YqSpace.x2 + 2),
-            Expanded(child: Text(label, style: t.titleSm.copyWith(fontSize: 16))),
-          ],
-        );
+      children: [
+        Icon(icon, size: _cardIcon, color: c.ink),
+        const SizedBox(width: YqSpace.x2 + 2),
+        Expanded(child: Text(label, style: t.titleSm.copyWith(fontSize: 16))),
+      ],
+    );
 
     return YqScaffold(
       appBar: YqAppBar.back(context, title: 'settings.title'.tr()),
@@ -77,9 +77,21 @@ class SettingsPage extends StatelessWidget {
                   semanticLabel: 'settings.theme'.tr(),
                   value: settings.themeMode,
                   segments: [
-                    YqSegment(AppThemeMode.light, 'settings.light'.tr(), icon: Icons.light_mode_outlined),
-                    YqSegment(AppThemeMode.dark, 'settings.dark'.tr(), icon: Icons.dark_mode_outlined),
-                    YqSegment(AppThemeMode.system, 'settings.system'.tr(), icon: Icons.smartphone_rounded),
+                    YqSegment(
+                      AppThemeMode.light,
+                      'settings.light'.tr(),
+                      icon: Icons.light_mode_outlined,
+                    ),
+                    YqSegment(
+                      AppThemeMode.dark,
+                      'settings.dark'.tr(),
+                      icon: Icons.dark_mode_outlined,
+                    ),
+                    YqSegment(
+                      AppThemeMode.system,
+                      'settings.system'.tr(),
+                      icon: Icons.smartphone_rounded,
+                    ),
                   ],
                   onChanged: cubit.setThemeMode,
                 ),
@@ -88,7 +100,10 @@ class SettingsPage extends StatelessWidget {
           ),
           const SizedBox(height: YqSpace.x3 + 2),
           YqCard(
-            padding: const EdgeInsetsDirectional.symmetric(horizontal: YqSpace.x4, vertical: YqSpace.x1),
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: YqSpace.x4,
+              vertical: YqSpace.x1,
+            ),
             child: Column(
               children: [
                 _ToggleRow(

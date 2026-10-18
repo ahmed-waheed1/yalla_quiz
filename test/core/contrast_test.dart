@@ -55,7 +55,8 @@ final Map<String, (Color, Color, double) Function(YqColors)> _pairs = {
   'splash: tagline on bg': (c) => (SplashPage.taglineColor(c, _brightnessOf(c)), c.bg, _ui),
 };
 
-Brightness _brightnessOf(YqColors c) => identical(c, YqColors.dark) ? Brightness.dark : Brightness.light;
+Brightness _brightnessOf(YqColors c) =>
+    identical(c, YqColors.dark) ? Brightness.dark : Brightness.light;
 
 void main() {
   test('splash background equals the native splash colours', () {

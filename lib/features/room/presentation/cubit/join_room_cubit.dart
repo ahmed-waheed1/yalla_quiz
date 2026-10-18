@@ -51,21 +51,14 @@ class JoinRoomCubit extends Cubit<JoinRoomState> {
     emit(state.copyWith(submitting: true, transientFailure: null));
     final result = await _rooms.joinRoom(code: state.code, profile: profile);
     if (isClosed) return;
-    result.match(
-      (failure) {
-        switch (failure) {
-          case RoomNotFoundFailure() || RoomFullFailure() || GameStartedFailure():
-            _haptics.heavy();
-            emit(state.copyWith(
-              submitting: false,
-              error: failure,
-              errorCount: state.errorCount + 1,
-            ));
-          default:
-            emit(state.copyWith(submitting: false, transientFailure: failure));
-        }
-      },
-      (_) => emit(state.copyWith(submitting: false, joinedCode: state.code)),
-    );
+    result.match((failure) {
+      switch (failure) {
+        case RoomNotFoundFailure() || RoomFullFailure() || GameStartedFailure():
+          _haptics.heavy();
+          emit(state.copyWith(submitting: false, error: failure, errorCount: state.errorCount + 1));
+        default:
+          emit(state.copyWith(submitting: false, transientFailure: failure));
+      }
+    }, (_) => emit(state.copyWith(submitting: false, joinedCode: state.code)));
   }
 }

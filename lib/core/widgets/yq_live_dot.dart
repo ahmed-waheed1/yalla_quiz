@@ -14,8 +14,10 @@ class YqLiveDot extends StatefulWidget {
 }
 
 class _YqLiveDotState extends State<YqLiveDot> with SingleTickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1400),
+  );
 
   @override
   void didChangeDependencies() {

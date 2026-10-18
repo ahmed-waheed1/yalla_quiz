@@ -29,13 +29,13 @@ abstract class ProfileSetupState with _$ProfileSetupState {
 
 class ProfileSetupCubit extends Cubit<ProfileSetupState> {
   ProfileSetupCubit(this._profiles, {Random? random})
-      : _random = random ?? Random(),
-        super(
-          ProfileSetupState(
-            name: _profiles.state?.name ?? '',
-            avatarSeed: _profiles.state?.avatarSeed ?? 0,
-          ),
-        );
+    : _random = random ?? Random(),
+      super(
+        ProfileSetupState(
+          name: _profiles.state?.name ?? '',
+          avatarSeed: _profiles.state?.avatarSeed ?? 0,
+        ),
+      );
 
   final ProfileCubit _profiles;
   final Random _random;

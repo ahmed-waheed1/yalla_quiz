@@ -17,8 +17,10 @@ class _YqShakeState extends State<YqShake> with SingleTickerProviderStateMixin {
   static const double _amplitude = 6;
   static const int _shakes = 3;
 
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 300),
+  );
 
   @override
   void didUpdateWidget(YqShake oldWidget) {
@@ -36,12 +38,12 @@ class _YqShakeState extends State<YqShake> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
-        animation: _controller,
-        child: widget.child,
-        builder: (context, child) {
-          final t = _controller.value;
-          final dx = math.sin(t * math.pi * 2 * _shakes) * _amplitude * (1 - t);
-          return Transform.translate(offset: Offset(dx, 0), child: child);
-        },
-      );
+    animation: _controller,
+    child: widget.child,
+    builder: (context, child) {
+      final t = _controller.value;
+      final dx = math.sin(t * math.pi * 2 * _shakes) * _amplitude * (1 - t);
+      return Transform.translate(offset: Offset(dx, 0), child: child);
+    },
+  );
 }
