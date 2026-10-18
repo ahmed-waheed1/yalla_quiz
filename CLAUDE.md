@@ -128,6 +128,7 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - **Branch per task.** Do each task on its own branch. When `flutter analyze` and `flutter test` are both clean, merge it into `main` (`--no-ff`) and delete the branch without asking.
 - **Exception:** stop and ask before merging if the change touches the RTDB schema, `database.rules.json`, or dependencies (`pubspec.yaml`).
 - Run `flutter analyze` and `flutter test` after every step; both must be clean.
+- Run `dart format` on files you change; the repo is formatted at width 100 (`formatter: page_width` in `analysis_options.yaml`). Generated files (`*.g.dart`, `*.freezed.dart`, `lib/gen/`, `firebase_options.dart`) and the designer's theme files are left as they are.
 - After changing freezed/json models: `dart run build_runner build`.
 - **Local Firebase.** Run `firebase emulators:start --only auth,database` (uses `database.rules.json`) and `flutter run --dart-define=YQ_EMULATOR=true`. For a physical device, add `--dart-define=YQ_EMULATOR_HOST=<your LAN IP>`.
 - Don't edit the designer's theme files or the generated Firebase config.
