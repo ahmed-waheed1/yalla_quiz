@@ -88,10 +88,6 @@ Future<void> pumpScreen(
   required Locale locale,
   Size size = kPhone,
 }) async {
-  tester.view.physicalSize = size * 2;
-  tester.view.devicePixelRatio = 2;
-  addTearDown(tester.view.reset);
-
   // Pages navigate (splash → home, lobby → home …); land on a blank page.
   final router = GoRouter(
     initialLocation: '/test',
@@ -102,6 +98,23 @@ Future<void> pumpScreen(
     ],
   );
   addTearDown(router.dispose);
+  await pumpRouterApp(tester, router, locale: locale, size: size);
+}
+
+/// Pumps the app shell around [router] (the real one or a test one).
+Future<void> pumpRouterApp(
+  WidgetTester tester,
+  GoRouter router, {
+  required Locale locale,
+  Size size = kPhone,
+  bool disableAnimations = false,
+}) async {
+  tester.view.physicalSize = size * 2;
+  tester.view.devicePixelRatio = 2;
+  tester.platformDispatcher.accessibilityFeaturesTestValue =
+      FakeAccessibilityFeatures(disableAnimations: disableAnimations);
+  addTearDown(tester.view.reset);
+  addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
 
   await tester.runAsync(() async {
     await tester.pumpWidget(
