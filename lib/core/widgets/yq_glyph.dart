@@ -26,10 +26,10 @@ class YqGlyphIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.string(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="${glyph.path}"/></svg>',
-        width: size,
-        height: size,
-        colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        excludeFromSemantics: true,
-      );
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="${glyph.path}"/></svg>',
+    width: size,
+    height: size,
+    colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+    excludeFromSemantics: true,
+  );
 }

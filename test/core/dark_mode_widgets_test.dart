@@ -29,10 +29,16 @@ void main() {
     (Brightness.dark, YqColors.dark),
   ]) {
     group(brightness.name, () {
-      testWidgets('Settings: selected segment is ink on bg and stands out from the track',
-          (tester) async {
+      testWidgets('Settings: selected segment is ink on bg and stands out from the track', (
+        tester,
+      ) async {
         registerFakes();
-        await pumpScreen(tester, const SettingsPage(), locale: const Locale('en'), brightness: brightness);
+        await pumpScreen(
+          tester,
+          const SettingsPage(),
+          locale: const Locale('en'),
+          brightness: brightness,
+        );
 
         final (fill, fg) = segmentColors(tester, 'languages.en'.tr());
         expect(fill, colors.ink);
@@ -46,8 +52,16 @@ void main() {
 
       testWidgets('Create room: selected count and time segments are ink on bg', (tester) async {
         registerFakes();
-        await pumpScreen(tester, const CreateRoomPage(), locale: const Locale('ar'), brightness: brightness);
-        for (final label in ['10', 'create.seconds_short'.tr(args: ['20'])]) {
+        await pumpScreen(
+          tester,
+          const CreateRoomPage(),
+          locale: const Locale('ar'),
+          brightness: brightness,
+        );
+        for (final label in [
+          '10',
+          'create.seconds_short'.tr(args: ['20']),
+        ]) {
           final (fill, fg) = segmentColors(tester, label);
           expect(fill, colors.ink, reason: label);
           expect(fg, colors.bg, reason: label);
@@ -56,11 +70,17 @@ void main() {
 
       testWidgets('Settings: switch thumb is surface when on', (tester) async {
         registerFakes();
-        await pumpScreen(tester, const SettingsPage(), locale: const Locale('en'), brightness: brightness);
+        await pumpScreen(
+          tester,
+          const SettingsPage(),
+          locale: const Locale('en'),
+          brightness: brightness,
+        );
         final context = tester.element(find.byType(Switch).first);
         final sw = tester.widget<Switch>(find.byType(Switch).first);
         expect(sw.value, isTrue);
-        final thumb = sw.thumbColor?.resolve({WidgetState.selected}) ??
+        final thumb =
+            sw.thumbColor?.resolve({WidgetState.selected}) ??
             Theme.of(context).switchTheme.thumbColor?.resolve({WidgetState.selected});
         expect(thumb, colors.surface);
       });
@@ -89,7 +109,12 @@ void main() {
 
       testWidgets('Toast is ink on bg', (tester) async {
         registerFakes();
-        await pumpScreen(tester, const SettingsPage(), locale: const Locale('en'), brightness: brightness);
+        await pumpScreen(
+          tester,
+          const SettingsPage(),
+          locale: const Locale('en'),
+          brightness: brightness,
+        );
         YqToast.show(tester.element(find.byType(SettingsPage)), 'Code copied');
         await settle(tester, const Duration(milliseconds: 400));
         final text = find.text('Code copied');
@@ -103,7 +128,12 @@ void main() {
 
       testWidgets('Avatar picker check badge uses onPrimary on primary', (tester) async {
         registerFakes();
-        await pumpScreen(tester, const ProfileSetupPage(), locale: const Locale('en'), brightness: brightness);
+        await pumpScreen(
+          tester,
+          const ProfileSetupPage(),
+          locale: const Locale('en'),
+          brightness: brightness,
+        );
         final check = find.byIcon(Icons.check_rounded);
         expect(tester.widget<Icon>(check).color, colors.onPrimary);
         final badge = tester.widget<Container>(

@@ -51,7 +51,10 @@ class CategoryChip extends StatelessWidget {
                 width: _tile,
                 height: _tile,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(color: style.fill, borderRadius: YqRadius.all(_tileRadius)),
+                decoration: BoxDecoration(
+                  color: style.fill,
+                  borderRadius: YqRadius.all(_tileRadius),
+                ),
                 child: YqGlyphIcon(style.glyph, size: _glyph, color: style.onFill),
               ),
               const SizedBox(width: YqSpace.x3),

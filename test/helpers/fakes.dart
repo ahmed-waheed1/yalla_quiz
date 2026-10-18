@@ -39,15 +39,16 @@ class FakeSettingsRepository implements SettingsRepository {
 
 class FakeQuestionRepository implements QuestionRepository {
   FakeQuestionRepository({Map<String, int>? counts})
-      : counts = counts ??
-            const {
-              'food': 30,
-              'football': 30,
-              'general': 30,
-              'geography': 30,
-              'movies_tv': 30,
-              'music': 30,
-            };
+    : counts =
+          counts ??
+          const {
+            'food': 30,
+            'football': 30,
+            'general': 30,
+            'geography': 30,
+            'movies_tv': 30,
+            'music': 30,
+          };
 
   /// Questions per category.
   final Map<String, int> counts;
@@ -57,15 +58,15 @@ class FakeQuestionRepository implements QuestionRepository {
 
   @override
   Future<Either<Failure, List<Question>>> questions(String category) async => right([
-        for (var i = 0; i < (counts[category] ?? 0); i++)
-          Question(
-            id: '${category}_$i',
-            category: category,
-            en: const LocalizedQuestion(text: 'Q', options: ['a', 'b', 'c', 'd']),
-            ar: const LocalizedQuestion(text: 'س', options: ['أ', 'ب', 'ج', 'د']),
-            answer: 0,
-          ),
-      ]);
+    for (var i = 0; i < (counts[category] ?? 0); i++)
+      Question(
+        id: '${category}_$i',
+        category: category,
+        en: const LocalizedQuestion(text: 'Q', options: ['a', 'b', 'c', 'd']),
+        ar: const LocalizedQuestion(text: 'س', options: ['أ', 'ب', 'ج', 'د']),
+        answer: 0,
+      ),
+  ]);
 }
 
 class FakeRoomRepository implements RoomRepository {
@@ -83,15 +84,13 @@ class FakeRoomRepository implements RoomRepository {
   Future<Either<Failure, String>> createRoom({
     required RoomSettings settings,
     required PlayerProfile profile,
-  }) async =>
-      right('K7XP2Q');
+  }) async => right('K7XP2Q');
 
   @override
   Future<Either<Failure, Unit>> joinRoom({
     required String code,
     required PlayerProfile profile,
-  }) async =>
-      joinFailure == null ? right(unit) : left(joinFailure!);
+  }) async => joinFailure == null ? right(unit) : left(joinFailure!);
 
   @override
   Stream<Either<Failure, Option<Room>>> watchRoom(String code) {
@@ -112,36 +111,28 @@ class FakeRoomRepository implements RoomRepository {
   Future<Either<Failure, Unit>> claimHost({
     required String code,
     required String previousHostId,
-  }) async =>
-      right(unit);
+  }) async => right(unit);
 
   @override
   Future<Either<Failure, Unit>> leaveRoom({
     required String code,
     required bool isHost,
     String? successorUid,
-  }) async =>
-      right(unit);
+  }) async => right(unit);
 }
 
 RoomPlayer player(String uid, String name, int seed, {bool connected = true, int joinedAt = 0}) =>
-    RoomPlayer(
-      uid: uid,
-      name: name,
-      avatarSeed: seed,
-      joinedAt: joinedAt,
-      connected: connected,
-    );
+    RoomPlayer(uid: uid, name: name, avatarSeed: seed, joinedAt: joinedAt, connected: connected);
 
 /// Sample room from the design: K7XP2Q, General, 10 questions.
 Room sampleRoom({required String hostId, required List<RoomPlayer> players}) => Room(
-      code: 'K7XP2Q',
-      hostId: hostId,
-      status: RoomStatus.lobby,
-      createdAt: 0,
-      settings: const RoomSettings(category: 'general'),
-      players: players,
-    );
+  code: 'K7XP2Q',
+  hostId: hostId,
+  status: RoomStatus.lobby,
+  createdAt: 0,
+  settings: const RoomSettings(category: 'general'),
+  players: players,
+);
 
 class FakeAuthService implements AuthService {
   @override

@@ -52,7 +52,9 @@ void main() {
 
   /// Every pixel the hidden field paints, as RGBA bytes.
   Future<List<int>> hiddenFieldPixels(WidgetTester tester) async {
-    final boundary = tester.renderObject<RenderRepaintBoundary>(find.byKey(YqCodeInput.hiddenFieldKey));
+    final boundary = tester.renderObject<RenderRepaintBoundary>(
+      find.byKey(YqCodeInput.hiddenFieldKey),
+    );
     expect(boundary.size.width, greaterThan(0));
     final bytes = await tester.runAsync(() async {
       final image = await boundary.toImage();
@@ -73,7 +75,9 @@ void main() {
 
   for (final brightness in Brightness.values) {
     group(brightness.name, () {
-      testWidgets('hidden field paints nothing: idle, focused, typed, selected, error', (tester) async {
+      testWidgets('hidden field paints nothing: idle, focused, typed, selected, error', (
+        tester,
+      ) async {
         await pumpInput(tester, brightness: brightness);
         expectInvisible(await hiddenFieldPixels(tester), 'idle');
 

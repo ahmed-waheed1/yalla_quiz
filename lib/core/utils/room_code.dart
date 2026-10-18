@@ -3,9 +3,7 @@ import 'dart:math';
 import '../constants/app_constants.dart';
 
 abstract final class RoomCode {
-  static final RegExp _valid = RegExp(
-    '^[${RoomRules.codeAlphabet}]{${RoomRules.codeLength}}\$',
-  );
+  static final RegExp _valid = RegExp('^[${RoomRules.codeAlphabet}]{${RoomRules.codeLength}}\$');
 
   static String generate([Random? random]) {
     final r = random ?? Random.secure();

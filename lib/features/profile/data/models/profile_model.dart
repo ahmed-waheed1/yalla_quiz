@@ -9,10 +9,7 @@ part 'profile_model.g.dart';
 abstract class ProfileModel with _$ProfileModel {
   const ProfileModel._();
 
-  const factory ProfileModel({
-    required String name,
-    required int avatarSeed,
-  }) = _ProfileModel;
+  const factory ProfileModel({required String name, required int avatarSeed}) = _ProfileModel;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => _$ProfileModelFromJson(json);
 

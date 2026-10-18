@@ -19,12 +19,12 @@ class RoomRemoteDataSource {
   DatabaseReference _player(String code, String uid) => _db.ref('rooms/$code/players/$uid');
 
   Map<String, Object?> _newPlayer(PlayerProfile profile) => {
-        'name': profile.name,
-        'avatarSeed': profile.avatarSeed,
-        'joinedAt': ServerValue.timestamp,
-        'connected': true,
-        'score': 0,
-      };
+    'name': profile.name,
+    'avatarSeed': profile.avatarSeed,
+    'joinedAt': ServerValue.timestamp,
+    'connected': true,
+    'score': 0,
+  };
 
   /// Fails with `permission-denied` if a fresh room already uses [code].
   Future<void> createRoom({
@@ -32,15 +32,14 @@ class RoomRemoteDataSource {
     required String uid,
     required RoomSettings settings,
     required PlayerProfile profile,
-  }) =>
-      _room(code).set({
-        'hostId': uid,
-        'status': RoomStatus.lobby.name,
-        'createdAt': ServerValue.timestamp,
-        'settings': RoomSettingsModel.fromEntity(settings).toJson(),
-        'currentQuestionIndex': 0,
-        'players': {uid: _newPlayer(profile)},
-      });
+  }) => _room(code).set({
+    'hostId': uid,
+    'status': RoomStatus.lobby.name,
+    'createdAt': ServerValue.timestamp,
+    'settings': RoomSettingsModel.fromEntity(settings).toJson(),
+    'currentQuestionIndex': 0,
+    'players': {uid: _newPlayer(profile)},
+  });
 
   Future<RoomModel?> fetchRoom(String code) async {
     final snapshot = await _room(code).get();
@@ -51,16 +50,15 @@ class RoomRemoteDataSource {
   Future<void> addPlayer(String code, String uid, PlayerProfile profile) =>
       _player(code, uid).set(_newPlayer(profile));
 
-  Future<void> rejoin(String code, String uid, PlayerProfile profile) => _player(code, uid).update({
-        'name': profile.name,
-        'avatarSeed': profile.avatarSeed,
-        'connected': true,
-      });
+  Future<void> rejoin(String code, String uid, PlayerProfile profile) => _player(
+    code,
+    uid,
+  ).update({'name': profile.name, 'avatarSeed': profile.avatarSeed, 'connected': true});
 
   Stream<RoomModel?> watchRoom(String code) => _room(code).onValue.map((event) {
-        final json = jsonMapOrNull(event.snapshot.value);
-        return json == null ? null : RoomModel.fromJson(json);
-      });
+    final json = jsonMapOrNull(event.snapshot.value);
+    return json == null ? null : RoomModel.fromJson(json);
+  });
 
   /// While listened to, re-marks the player connected after every reconnect
   /// and arms `onDisconnect` to flip it back to false.

@@ -30,9 +30,9 @@ class ProfileSetupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (_) => ProfileSetupCubit(getIt<ProfileCubit>()),
-        child: _ProfileSetupView(next: next),
-      );
+    create: (_) => ProfileSetupCubit(getIt<ProfileCubit>()),
+    child: _ProfileSetupView(next: next),
+  );
 }
 
 class _ProfileSetupView extends StatefulWidget {
@@ -45,8 +45,9 @@ class _ProfileSetupView extends StatefulWidget {
 }
 
 class _ProfileSetupViewState extends State<_ProfileSetupView> {
-  late final TextEditingController _name =
-      TextEditingController(text: context.read<ProfileSetupCubit>().state.name);
+  late final TextEditingController _name = TextEditingController(
+    text: context.read<ProfileSetupCubit>().state.name,
+  );
 
   static const double _previewSize = 132;
   static const double _fieldHeight = 60;
@@ -152,14 +153,15 @@ class _ProfileSetupViewState extends State<_ProfileSetupView> {
           Row(
             children: [
               Expanded(
-                child: Text(
-                  'profile.name_hint'.tr(),
-                  style: t.caption.copyWith(color: c.inkMuted),
-                ),
+                child: Text('profile.name_hint'.tr(), style: t.caption.copyWith(color: c.inkMuted)),
               ),
               YqNumberText(
                 '${state.name.characters.length}/${RoomRules.nameMaxLength}',
-                style: t.numeric.copyWith(fontSize: 13, fontWeight: FontWeight.w700, color: c.inkMuted),
+                style: t.numeric.copyWith(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: c.inkMuted,
+                ),
               ),
             ],
           ),

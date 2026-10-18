@@ -40,7 +40,10 @@ class YqBanner extends StatelessWidget {
       liveRegion: true,
       child: Container(
         constraints: const BoxConstraints(minHeight: 56),
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: YqSpace.x4, vertical: YqSpace.x3),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: YqSpace.x4,
+          vertical: YqSpace.x3,
+        ),
         decoration: BoxDecoration(
           color: soft,
           borderRadius: YqRadius.all(YqRadius.lg),
@@ -61,7 +64,10 @@ class YqBanner extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: t.titleSm.copyWith(fontSize: titleSize, color: c.ink)),
+                  Text(
+                    title,
+                    style: t.titleSm.copyWith(fontSize: titleSize, color: c.ink),
+                  ),
                   if (body != null)
                     Text(
                       body!,

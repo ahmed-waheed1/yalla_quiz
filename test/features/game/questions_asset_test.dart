@@ -6,7 +6,10 @@ import 'package:yalla_quiz/features/game/data/models/question_model.dart';
 
 /// Validates every bundled question file against the format the game needs.
 void main() {
-  final files = Directory('assets/questions').listSync().whereType<File>().where((f) => f.path.endsWith('.json'));
+  final files = Directory('assets/questions')
+      .listSync()
+      .whereType<File>()
+      .where((f) => f.path.endsWith('.json'));
 
   test('there is at least one question file', () => expect(files, isNotEmpty));
 

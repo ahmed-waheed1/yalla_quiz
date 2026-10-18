@@ -28,9 +28,9 @@ void copyRoomCode(BuildContext context, String code) {
 
 /// "General · 10 Q"
 String lobbyMeta(RoomSettings settings) => 'lobby.meta'.plural(
-      settings.questionCount,
-      namedArgs: {'category': 'categories.${settings.category}'.tr()},
-    );
+  settings.questionCount,
+  namedArgs: {'category': 'categories.${settings.category}'.tr()},
+);
 
 /// Phone code card: label, big code, copy button, QR at the end.
 class LobbyCodeCard extends StatelessWidget {
@@ -53,7 +53,10 @@ class LobbyCodeCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('lobby.code_label'.tr(), style: t.label.copyWith(fontSize: 13, color: c.inkMuted)),
+                Text(
+                  'lobby.code_label'.tr(),
+                  style: t.label.copyWith(fontSize: 13, color: c.inkMuted),
+                ),
                 const SizedBox(height: YqSpace.x1),
                 FittedBox(
                   fit: BoxFit.scaleDown,
@@ -90,7 +93,11 @@ class LobbyCodeCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: YqSpace.x3 + 2),
-          RoomQr(code: code, size: _qrSize, semanticLabel: 'lobby.qr_label'.tr(args: [code])),
+          RoomQr(
+            code: code,
+            size: _qrSize,
+            semanticLabel: 'lobby.qr_label'.tr(args: [code]),
+          ),
         ],
       ),
     );

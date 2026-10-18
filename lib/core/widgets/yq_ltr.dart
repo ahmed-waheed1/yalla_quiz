@@ -21,6 +21,6 @@ class YqNumberText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => YqLtr(
-        child: Text(text, style: style, textAlign: textAlign, maxLines: 1),
-      );
+    child: Text(text, style: style, textAlign: textAlign, maxLines: 1),
+  );
 }

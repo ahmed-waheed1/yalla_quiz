@@ -64,7 +64,11 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: YqSpace.x4),
                 Text(
                   'home.hero_title'.tr(),
-                  style: t.title.copyWith(fontSize: 22, fontWeight: FontWeight.w900, color: c.onInverse),
+                  style: t.title.copyWith(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
+                    color: c.onInverse,
+                  ),
                 ),
                 const SizedBox(height: YqSpace.x1),
                 Text(

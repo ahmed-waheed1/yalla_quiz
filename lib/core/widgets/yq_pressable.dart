@@ -66,9 +66,7 @@ class _YqPressableState extends State<YqPressable> {
             position: DecorationPosition.foreground,
             decoration: BoxDecoration(
               borderRadius: YqRadius.all(widget.focusRadius),
-              border: _focused
-                  ? Border.all(color: context.yqColors.focus, width: 3)
-                  : null,
+              border: _focused ? Border.all(color: context.yqColors.focus, width: 3) : null,
             ),
             child: widget.builder(context, _pressed && _enabled),
           ),

@@ -16,10 +16,7 @@ abstract interface class RoomRepository {
 
   /// Joins (or rejoins) a room. New players can only join while in the lobby;
   /// existing players can rejoin at any status and keep their score.
-  Future<Either<Failure, Unit>> joinRoom({
-    required String code,
-    required PlayerProfile profile,
-  });
+  Future<Either<Failure, Unit>> joinRoom({required String code, required PlayerProfile profile});
 
   /// Live room updates; emits `none()` when the room is deleted.
   Stream<Either<Failure, Option<Room>>> watchRoom(String code);
@@ -30,10 +27,7 @@ abstract interface class RoomRepository {
 
   /// Takes over as host if [previousHostId] is still the host (it's gone or
   /// disconnected). Atomic, so only one claimer wins.
-  Future<Either<Failure, Unit>> claimHost({
-    required String code,
-    required String previousHostId,
-  });
+  Future<Either<Failure, Unit>> claimHost({required String code, required String previousHostId});
 
   /// Leaves the room: a host hands over to [successorUid] or, if there is no
   /// one left, deletes the room.

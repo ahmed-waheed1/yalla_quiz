@@ -68,10 +68,10 @@ class YqButton extends StatelessWidget {
         final List<BoxShadow> shadow = disabled
             ? const []
             : primary
-                ? YqElevation.stomp(c.primaryDeep, pressed: pressed)
-                : (pressed
-                    ? YqElevation.stomp(c.ink, pressed: true)
-                    : YqElevation.stompSecondary(c.ink));
+            ? YqElevation.stomp(c.primaryDeep, pressed: pressed)
+            : (pressed
+                  ? YqElevation.stomp(c.ink, pressed: true)
+                  : YqElevation.stompSecondary(c.ink));
 
         return AnimatedContainer(
           duration: YqMotion.instant,

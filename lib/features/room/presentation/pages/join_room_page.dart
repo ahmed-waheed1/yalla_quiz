@@ -28,9 +28,9 @@ class JoinRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (_) => JoinRoomCubit(getIt(), getIt<ProfileCubit>(), getIt()),
-        child: _JoinRoomView(initialCode: initialCode),
-      );
+    create: (_) => JoinRoomCubit(getIt(), getIt<ProfileCubit>(), getIt()),
+    child: _JoinRoomView(initialCode: initialCode),
+  );
 }
 
 class _JoinRoomView extends StatefulWidget {
@@ -51,7 +51,9 @@ class _JoinRoomViewState extends State<_JoinRoomView> {
     super.initState();
     final initial = widget.initialCode;
     if (initial != null && initial.isNotEmpty) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _onChanged(initial, submitIfComplete: true));
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _onChanged(initial, submitIfComplete: true),
+      );
     }
   }
 
@@ -81,7 +83,8 @@ class _JoinRoomViewState extends State<_JoinRoomView> {
     final t = context.yqText;
 
     return BlocConsumer<JoinRoomCubit, JoinRoomState>(
-      listenWhen: (a, b) => a.joinedCode != b.joinedCode || a.transientFailure != b.transientFailure,
+      listenWhen: (a, b) =>
+          a.joinedCode != b.joinedCode || a.transientFailure != b.transientFailure,
       listener: (context, state) {
         final code = state.joinedCode;
         if (code != null) {
@@ -150,29 +153,29 @@ class _ErrorCard extends StatelessWidget {
     final reduced = MediaQuery.disableAnimationsOf(context);
     final Widget? card = switch (e) {
       RoomNotFoundFailure() => YqBanner(
-          kind: YqBannerKind.danger,
-          icon: const Icon(Icons.error_outline_rounded),
-          iconSize: 24,
-          title: 'join.invalid_title'.tr(),
-          body: 'join.invalid_body'.tr(),
-          bodySize: 14,
-        ),
+        kind: YqBannerKind.danger,
+        icon: const Icon(Icons.error_outline_rounded),
+        iconSize: 24,
+        title: 'join.invalid_title'.tr(),
+        body: 'join.invalid_body'.tr(),
+        bodySize: 14,
+      ),
       RoomFullFailure(:final maxPlayers) => YqBanner(
-          kind: YqBannerKind.danger,
-          icon: const Icon(Icons.group_outlined),
-          iconSize: 24,
-          title: 'join.full_title'.tr(args: ['$maxPlayers', '$maxPlayers']),
-          body: 'join.full_body'.tr(),
-          bodySize: 14,
-        ),
+        kind: YqBannerKind.danger,
+        icon: const Icon(Icons.group_outlined),
+        iconSize: 24,
+        title: 'join.full_title'.tr(args: ['$maxPlayers', '$maxPlayers']),
+        body: 'join.full_body'.tr(),
+        bodySize: 14,
+      ),
       GameStartedFailure() => YqBanner(
-          kind: YqBannerKind.danger,
-          icon: const Icon(Icons.timer_outlined),
-          iconSize: 24,
-          title: 'join.started_title'.tr(),
-          body: 'join.started_body'.tr(),
-          bodySize: 14,
-        ),
+        kind: YqBannerKind.danger,
+        icon: const Icon(Icons.timer_outlined),
+        iconSize: 24,
+        title: 'join.started_title'.tr(),
+        body: 'join.started_body'.tr(),
+        bodySize: 14,
+      ),
       _ => null,
     };
     return AnimatedSwitcher(

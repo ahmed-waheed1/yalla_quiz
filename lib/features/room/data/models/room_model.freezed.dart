@@ -295,7 +295,7 @@ as int,
 /// @nodoc
 mixin _$PlayerModel {
 
- String get name; int get avatarSeed; int get joinedAt; bool get connected; int get score; int get streak; int get lastPoints;
+ String get name; int get avatarSeed; int get joinedAt; bool get connected; int get score; int get streak; int get lastPoints; bool get spectator;
 /// Create a copy of PlayerModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -309,20 +309,20 @@ $PlayerModelCopyWith<PlayerModel> get copyWith => _$PlayerModelCopyWithImpl<Play
 @override
 bool operator ==(Object other) {
   final _this = this as PlayerModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlayerModel&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.avatarSeed, _this.avatarSeed) || other.avatarSeed == _this.avatarSeed)&&(identical(other.joinedAt, _this.joinedAt) || other.joinedAt == _this.joinedAt)&&(identical(other.connected, _this.connected) || other.connected == _this.connected)&&(identical(other.score, _this.score) || other.score == _this.score)&&(identical(other.streak, _this.streak) || other.streak == _this.streak)&&(identical(other.lastPoints, _this.lastPoints) || other.lastPoints == _this.lastPoints));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlayerModel&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.avatarSeed, _this.avatarSeed) || other.avatarSeed == _this.avatarSeed)&&(identical(other.joinedAt, _this.joinedAt) || other.joinedAt == _this.joinedAt)&&(identical(other.connected, _this.connected) || other.connected == _this.connected)&&(identical(other.score, _this.score) || other.score == _this.score)&&(identical(other.streak, _this.streak) || other.streak == _this.streak)&&(identical(other.lastPoints, _this.lastPoints) || other.lastPoints == _this.lastPoints)&&(identical(other.spectator, _this.spectator) || other.spectator == _this.spectator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as PlayerModel;
-  return Object.hash(runtimeType,_this.name,_this.avatarSeed,_this.joinedAt,_this.connected,_this.score,_this.streak,_this.lastPoints);
+  return Object.hash(runtimeType,_this.name,_this.avatarSeed,_this.joinedAt,_this.connected,_this.score,_this.streak,_this.lastPoints,_this.spectator);
 }
 
 @override
 String toString() {
   final _this = this as PlayerModel;
-  return 'PlayerModel(name: ${_this.name}, avatarSeed: ${_this.avatarSeed}, joinedAt: ${_this.joinedAt}, connected: ${_this.connected}, score: ${_this.score}, streak: ${_this.streak}, lastPoints: ${_this.lastPoints})';
+  return 'PlayerModel(name: ${_this.name}, avatarSeed: ${_this.avatarSeed}, joinedAt: ${_this.joinedAt}, connected: ${_this.connected}, score: ${_this.score}, streak: ${_this.streak}, lastPoints: ${_this.lastPoints}, spectator: ${_this.spectator})';
 }
 
 
@@ -333,7 +333,7 @@ abstract mixin class $PlayerModelCopyWith<$Res>  {
   factory $PlayerModelCopyWith(PlayerModel value, $Res Function(PlayerModel) _then) = _$PlayerModelCopyWithImpl;
 @useResult
 $Res call({
- String name, int avatarSeed, int joinedAt, bool connected, int score, int streak, int lastPoints
+ String name, int avatarSeed, int joinedAt, bool connected, int score, int streak, int lastPoints, bool spectator
 });
 
 
@@ -350,7 +350,7 @@ class _$PlayerModelCopyWithImpl<$Res>
 
 /// Create a copy of PlayerModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? avatarSeed = null,Object? joinedAt = null,Object? connected = null,Object? score = null,Object? streak = null,Object? lastPoints = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? avatarSeed = null,Object? joinedAt = null,Object? connected = null,Object? score = null,Object? streak = null,Object? lastPoints = null,Object? spectator = null,}) {
   return _then(PlayerModel(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,avatarSeed: null == avatarSeed ? _self.avatarSeed : avatarSeed // ignore: cast_nullable_to_non_nullable
@@ -359,7 +359,8 @@ as int,connected: null == connected ? _self.connected : connected // ignore: cas
 as bool,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
 as int,streak: null == streak ? _self.streak : streak // ignore: cast_nullable_to_non_nullable
 as int,lastPoints: null == lastPoints ? _self.lastPoints : lastPoints // ignore: cast_nullable_to_non_nullable
-as int,
+as int,spectator: null == spectator ? _self.spectator : spectator // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
@@ -444,10 +445,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints,  bool spectator)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PlayerModel() when $default != null:
-return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints);case _:
+return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints,_that.spectator);case _:
   return orElse();
 
 }
@@ -465,10 +466,10 @@ return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints,  bool spectator)  $default,) {final _that = this;
 switch (_that) {
 case _PlayerModel():
-return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints);case _:
+return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints,_that.spectator);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -485,10 +486,10 @@ return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  int avatarSeed,  int joinedAt,  bool connected,  int score,  int streak,  int lastPoints,  bool spectator)?  $default,) {final _that = this;
 switch (_that) {
 case _PlayerModel() when $default != null:
-return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints);case _:
+return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that.score,_that.streak,_that.lastPoints,_that.spectator);case _:
   return null;
 
 }
@@ -500,7 +501,7 @@ return $default(_that.name,_that.avatarSeed,_that.joinedAt,_that.connected,_that
 @JsonSerializable()
 
 class _PlayerModel extends PlayerModel {
-  const _PlayerModel({required this.name, required this.avatarSeed, required this.joinedAt, this.connected = false, this.score = 0, this.streak = 0, this.lastPoints = 0}): super._();
+  const _PlayerModel({required this.name, required this.avatarSeed, required this.joinedAt, this.connected = false, this.score = 0, this.streak = 0, this.lastPoints = 0, this.spectator = false}): super._();
   factory _PlayerModel.fromJson(Map<String, dynamic> json) => _$PlayerModelFromJson(json);
 
 @override final  String name;
@@ -510,6 +511,7 @@ class _PlayerModel extends PlayerModel {
 @override@JsonKey() final  int score;
 @override@JsonKey() final  int streak;
 @override@JsonKey() final  int lastPoints;
+@override@JsonKey() final  bool spectator;
 
 /// Create a copy of PlayerModel
 /// with the given fields replaced by the non-null parameter values.
@@ -524,18 +526,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlayerModel&&(identical(other.name, name) || other.name == name)&&(identical(other.avatarSeed, avatarSeed) || other.avatarSeed == avatarSeed)&&(identical(other.joinedAt, joinedAt) || other.joinedAt == joinedAt)&&(identical(other.connected, connected) || other.connected == connected)&&(identical(other.score, score) || other.score == score)&&(identical(other.streak, streak) || other.streak == streak)&&(identical(other.lastPoints, lastPoints) || other.lastPoints == lastPoints));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PlayerModel&&(identical(other.name, name) || other.name == name)&&(identical(other.avatarSeed, avatarSeed) || other.avatarSeed == avatarSeed)&&(identical(other.joinedAt, joinedAt) || other.joinedAt == joinedAt)&&(identical(other.connected, connected) || other.connected == connected)&&(identical(other.score, score) || other.score == score)&&(identical(other.streak, streak) || other.streak == streak)&&(identical(other.lastPoints, lastPoints) || other.lastPoints == lastPoints)&&(identical(other.spectator, spectator) || other.spectator == spectator));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,name,avatarSeed,joinedAt,connected,score,streak,lastPoints);
+    return Object.hash(runtimeType,name,avatarSeed,joinedAt,connected,score,streak,lastPoints,spectator);
 }
 
 @override
 String toString() {
-    return 'PlayerModel(name: $name, avatarSeed: $avatarSeed, joinedAt: $joinedAt, connected: $connected, score: $score, streak: $streak, lastPoints: $lastPoints)';
+    return 'PlayerModel(name: $name, avatarSeed: $avatarSeed, joinedAt: $joinedAt, connected: $connected, score: $score, streak: $streak, lastPoints: $lastPoints, spectator: $spectator)';
 }
 
 
@@ -546,7 +548,7 @@ abstract mixin class _$PlayerModelCopyWith<$Res> implements $PlayerModelCopyWith
   factory _$PlayerModelCopyWith(_PlayerModel value, $Res Function(_PlayerModel) _then) = __$PlayerModelCopyWithImpl;
 @override @useResult
 $Res call({
- String name, int avatarSeed, int joinedAt, bool connected, int score, int streak, int lastPoints
+ String name, int avatarSeed, int joinedAt, bool connected, int score, int streak, int lastPoints, bool spectator
 });
 
 
@@ -563,7 +565,7 @@ class __$PlayerModelCopyWithImpl<$Res>
 
 /// Create a copy of PlayerModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? avatarSeed = null,Object? joinedAt = null,Object? connected = null,Object? score = null,Object? streak = null,Object? lastPoints = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? avatarSeed = null,Object? joinedAt = null,Object? connected = null,Object? score = null,Object? streak = null,Object? lastPoints = null,Object? spectator = null,}) {
   return _then(_PlayerModel(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,avatarSeed: null == avatarSeed ? _self.avatarSeed : avatarSeed // ignore: cast_nullable_to_non_nullable
@@ -572,6 +574,280 @@ as int,connected: null == connected ? _self.connected : connected // ignore: cas
 as bool,score: null == score ? _self.score : score // ignore: cast_nullable_to_non_nullable
 as int,streak: null == streak ? _self.streak : streak // ignore: cast_nullable_to_non_nullable
 as int,lastPoints: null == lastPoints ? _self.lastPoints : lastPoints // ignore: cast_nullable_to_non_nullable
+as int,spectator: null == spectator ? _self.spectator : spectator // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$AnswerModel {
+
+ int get option; int get answeredAt;
+/// Create a copy of AnswerModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AnswerModelCopyWith<AnswerModel> get copyWith => _$AnswerModelCopyWithImpl<AnswerModel>(this as AnswerModel, _$identity);
+
+  /// Serializes this AnswerModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as AnswerModel;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AnswerModel&&(identical(other.option, _this.option) || other.option == _this.option)&&(identical(other.answeredAt, _this.answeredAt) || other.answeredAt == _this.answeredAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as AnswerModel;
+  return Object.hash(runtimeType,_this.option,_this.answeredAt);
+}
+
+@override
+String toString() {
+  final _this = this as AnswerModel;
+  return 'AnswerModel(option: ${_this.option}, answeredAt: ${_this.answeredAt})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AnswerModelCopyWith<$Res>  {
+  factory $AnswerModelCopyWith(AnswerModel value, $Res Function(AnswerModel) _then) = _$AnswerModelCopyWithImpl;
+@useResult
+$Res call({
+ int option, int answeredAt
+});
+
+
+
+
+}
+/// @nodoc
+class _$AnswerModelCopyWithImpl<$Res>
+    implements $AnswerModelCopyWith<$Res> {
+  _$AnswerModelCopyWithImpl(this._self, this._then);
+
+  final AnswerModel _self;
+  final $Res Function(AnswerModel) _then;
+
+/// Create a copy of AnswerModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? option = null,Object? answeredAt = null,}) {
+  return _then(AnswerModel(
+option: null == option ? _self.option : option // ignore: cast_nullable_to_non_nullable
+as int,answeredAt: null == answeredAt ? _self.answeredAt : answeredAt // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [AnswerModel].
+extension AnswerModelPatterns on AnswerModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AnswerModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AnswerModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AnswerModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _AnswerModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AnswerModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AnswerModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int option,  int answeredAt)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AnswerModel() when $default != null:
+return $default(_that.option,_that.answeredAt);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int option,  int answeredAt)  $default,) {final _that = this;
+switch (_that) {
+case _AnswerModel():
+return $default(_that.option,_that.answeredAt);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int option,  int answeredAt)?  $default,) {final _that = this;
+switch (_that) {
+case _AnswerModel() when $default != null:
+return $default(_that.option,_that.answeredAt);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _AnswerModel extends AnswerModel {
+  const _AnswerModel({required this.option, required this.answeredAt}): super._();
+  factory _AnswerModel.fromJson(Map<String, dynamic> json) => _$AnswerModelFromJson(json);
+
+@override final  int option;
+@override final  int answeredAt;
+
+/// Create a copy of AnswerModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AnswerModelCopyWith<_AnswerModel> get copyWith => __$AnswerModelCopyWithImpl<_AnswerModel>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AnswerModelToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AnswerModel&&(identical(other.option, option) || other.option == option)&&(identical(other.answeredAt, answeredAt) || other.answeredAt == answeredAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,option,answeredAt);
+}
+
+@override
+String toString() {
+    return 'AnswerModel(option: $option, answeredAt: $answeredAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AnswerModelCopyWith<$Res> implements $AnswerModelCopyWith<$Res> {
+  factory _$AnswerModelCopyWith(_AnswerModel value, $Res Function(_AnswerModel) _then) = __$AnswerModelCopyWithImpl;
+@override @useResult
+$Res call({
+ int option, int answeredAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$AnswerModelCopyWithImpl<$Res>
+    implements _$AnswerModelCopyWith<$Res> {
+  __$AnswerModelCopyWithImpl(this._self, this._then);
+
+  final _AnswerModel _self;
+  final $Res Function(_AnswerModel) _then;
+
+/// Create a copy of AnswerModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? option = null,Object? answeredAt = null,}) {
+  return _then(_AnswerModel(
+option: null == option ? _self.option : option // ignore: cast_nullable_to_non_nullable
+as int,answeredAt: null == answeredAt ? _self.answeredAt : answeredAt // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -583,7 +859,7 @@ as int,
 /// @nodoc
 mixin _$RoomModel {
 
- String get hostId;@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus get status; int get createdAt; RoomSettingsModel get settings; Map<String, PlayerModel> get players; List<String> get questionIds; int get currentQuestionIndex; int? get questionStartedAt; int? get phaseStartedAt;
+ String get hostId;@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus get status; int get createdAt; RoomSettingsModel get settings; Map<String, PlayerModel> get players; List<String> get questionIds; int get currentQuestionIndex; int? get questionStartedAt; int? get phaseStartedAt; int? get scoredQuestionIndex;@JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson) Set<String> get usedQuestionIds;@JsonKey(fromJson: _answersFromJson, toJson: _answersToJson) Map<int, Map<String, AnswerModel>> get answers;
 /// Create a copy of RoomModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -597,20 +873,20 @@ $RoomModelCopyWith<RoomModel> get copyWith => _$RoomModelCopyWithImpl<RoomModel>
 @override
 bool operator ==(Object other) {
   final _this = this as RoomModel;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RoomModel&&(identical(other.hostId, _this.hostId) || other.hostId == _this.hostId)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.settings, _this.settings) || other.settings == _this.settings)&&const DeepCollectionEquality().equals(other.players, _this.players)&&const DeepCollectionEquality().equals(other.questionIds, _this.questionIds)&&(identical(other.currentQuestionIndex, _this.currentQuestionIndex) || other.currentQuestionIndex == _this.currentQuestionIndex)&&(identical(other.questionStartedAt, _this.questionStartedAt) || other.questionStartedAt == _this.questionStartedAt)&&(identical(other.phaseStartedAt, _this.phaseStartedAt) || other.phaseStartedAt == _this.phaseStartedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RoomModel&&(identical(other.hostId, _this.hostId) || other.hostId == _this.hostId)&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.settings, _this.settings) || other.settings == _this.settings)&&const DeepCollectionEquality().equals(other.players, _this.players)&&const DeepCollectionEquality().equals(other.questionIds, _this.questionIds)&&(identical(other.currentQuestionIndex, _this.currentQuestionIndex) || other.currentQuestionIndex == _this.currentQuestionIndex)&&(identical(other.questionStartedAt, _this.questionStartedAt) || other.questionStartedAt == _this.questionStartedAt)&&(identical(other.phaseStartedAt, _this.phaseStartedAt) || other.phaseStartedAt == _this.phaseStartedAt)&&(identical(other.scoredQuestionIndex, _this.scoredQuestionIndex) || other.scoredQuestionIndex == _this.scoredQuestionIndex)&&const DeepCollectionEquality().equals(other.usedQuestionIds, _this.usedQuestionIds)&&const DeepCollectionEquality().equals(other.answers, _this.answers));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as RoomModel;
-  return Object.hash(runtimeType,_this.hostId,_this.status,_this.createdAt,_this.settings,const DeepCollectionEquality().hash(_this.players),const DeepCollectionEquality().hash(_this.questionIds),_this.currentQuestionIndex,_this.questionStartedAt,_this.phaseStartedAt);
+  return Object.hash(runtimeType,_this.hostId,_this.status,_this.createdAt,_this.settings,const DeepCollectionEquality().hash(_this.players),const DeepCollectionEquality().hash(_this.questionIds),_this.currentQuestionIndex,_this.questionStartedAt,_this.phaseStartedAt,_this.scoredQuestionIndex,const DeepCollectionEquality().hash(_this.usedQuestionIds),const DeepCollectionEquality().hash(_this.answers));
 }
 
 @override
 String toString() {
   final _this = this as RoomModel;
-  return 'RoomModel(hostId: ${_this.hostId}, status: ${_this.status}, createdAt: ${_this.createdAt}, settings: ${_this.settings}, players: ${_this.players}, questionIds: ${_this.questionIds}, currentQuestionIndex: ${_this.currentQuestionIndex}, questionStartedAt: ${_this.questionStartedAt}, phaseStartedAt: ${_this.phaseStartedAt})';
+  return 'RoomModel(hostId: ${_this.hostId}, status: ${_this.status}, createdAt: ${_this.createdAt}, settings: ${_this.settings}, players: ${_this.players}, questionIds: ${_this.questionIds}, currentQuestionIndex: ${_this.currentQuestionIndex}, questionStartedAt: ${_this.questionStartedAt}, phaseStartedAt: ${_this.phaseStartedAt}, scoredQuestionIndex: ${_this.scoredQuestionIndex}, usedQuestionIds: ${_this.usedQuestionIds}, answers: ${_this.answers})';
 }
 
 
@@ -621,7 +897,7 @@ abstract mixin class $RoomModelCopyWith<$Res>  {
   factory $RoomModelCopyWith(RoomModel value, $Res Function(RoomModel) _then) = _$RoomModelCopyWithImpl;
 @useResult
 $Res call({
- String hostId,@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus status, int createdAt, RoomSettingsModel settings, Map<String, PlayerModel> players, List<String> questionIds, int currentQuestionIndex, int? questionStartedAt, int? phaseStartedAt
+ String hostId,@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus status, int createdAt, RoomSettingsModel settings, Map<String, PlayerModel> players, List<String> questionIds, int currentQuestionIndex, int? questionStartedAt, int? phaseStartedAt, int? scoredQuestionIndex,@JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson) Set<String> usedQuestionIds,@JsonKey(fromJson: _answersFromJson, toJson: _answersToJson) Map<int, Map<String, AnswerModel>> answers
 });
 
 
@@ -638,7 +914,7 @@ class _$RoomModelCopyWithImpl<$Res>
 
 /// Create a copy of RoomModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hostId = null,Object? status = null,Object? createdAt = null,Object? settings = null,Object? players = null,Object? questionIds = null,Object? currentQuestionIndex = null,Object? questionStartedAt = freezed,Object? phaseStartedAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? hostId = null,Object? status = null,Object? createdAt = null,Object? settings = null,Object? players = null,Object? questionIds = null,Object? currentQuestionIndex = null,Object? questionStartedAt = freezed,Object? phaseStartedAt = freezed,Object? scoredQuestionIndex = freezed,Object? usedQuestionIds = null,Object? answers = null,}) {
   return _then(RoomModel(
 hostId: null == hostId ? _self.hostId : hostId // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -649,7 +925,10 @@ as Map<String, PlayerModel>,questionIds: null == questionIds ? _self.questionIds
 as List<String>,currentQuestionIndex: null == currentQuestionIndex ? _self.currentQuestionIndex : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
 as int,questionStartedAt: freezed == questionStartedAt ? _self.questionStartedAt : questionStartedAt // ignore: cast_nullable_to_non_nullable
 as int?,phaseStartedAt: freezed == phaseStartedAt ? _self.phaseStartedAt : phaseStartedAt // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,scoredQuestionIndex: freezed == scoredQuestionIndex ? _self.scoredQuestionIndex : scoredQuestionIndex // ignore: cast_nullable_to_non_nullable
+as int?,usedQuestionIds: null == usedQuestionIds ? _self.usedQuestionIds : usedQuestionIds // ignore: cast_nullable_to_non_nullable
+as Set<String>,answers: null == answers ? _self.answers : answers // ignore: cast_nullable_to_non_nullable
+as Map<int, Map<String, AnswerModel>>,
   ));
 }
 /// Create a copy of RoomModel
@@ -743,10 +1022,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt,  int? scoredQuestionIndex, @JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson)  Set<String> usedQuestionIds, @JsonKey(fromJson: _answersFromJson, toJson: _answersToJson)  Map<int, Map<String, AnswerModel>> answers)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RoomModel() when $default != null:
-return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt);case _:
+return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt,_that.scoredQuestionIndex,_that.usedQuestionIds,_that.answers);case _:
   return orElse();
 
 }
@@ -764,10 +1043,10 @@ return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt,  int? scoredQuestionIndex, @JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson)  Set<String> usedQuestionIds, @JsonKey(fromJson: _answersFromJson, toJson: _answersToJson)  Map<int, Map<String, AnswerModel>> answers)  $default,) {final _that = this;
 switch (_that) {
 case _RoomModel():
-return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt);case _:
+return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt,_that.scoredQuestionIndex,_that.usedQuestionIds,_that.answers);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -784,10 +1063,10 @@ return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby)  RoomStatus status,  int createdAt,  RoomSettingsModel settings,  Map<String, PlayerModel> players,  List<String> questionIds,  int currentQuestionIndex,  int? questionStartedAt,  int? phaseStartedAt,  int? scoredQuestionIndex, @JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson)  Set<String> usedQuestionIds, @JsonKey(fromJson: _answersFromJson, toJson: _answersToJson)  Map<int, Map<String, AnswerModel>> answers)?  $default,) {final _that = this;
 switch (_that) {
 case _RoomModel() when $default != null:
-return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt);case _:
+return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.players,_that.questionIds,_that.currentQuestionIndex,_that.questionStartedAt,_that.phaseStartedAt,_that.scoredQuestionIndex,_that.usedQuestionIds,_that.answers);case _:
   return null;
 
 }
@@ -799,7 +1078,7 @@ return $default(_that.hostId,_that.status,_that.createdAt,_that.settings,_that.p
 @JsonSerializable()
 
 class _RoomModel extends RoomModel {
-  const _RoomModel({required this.hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby) required this.status, required this.createdAt, required this.settings,  Map<String, PlayerModel> players = const <String, PlayerModel>{},  List<String> questionIds = const <String>[], this.currentQuestionIndex = 0, this.questionStartedAt, this.phaseStartedAt}): _players = players,_questionIds = questionIds,super._();
+  const _RoomModel({required this.hostId, @JsonKey(unknownEnumValue: RoomStatus.lobby) required this.status, required this.createdAt, required this.settings,  Map<String, PlayerModel> players = const <String, PlayerModel>{},  List<String> questionIds = const <String>[], this.currentQuestionIndex = 0, this.questionStartedAt, this.phaseStartedAt, this.scoredQuestionIndex, @JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson)  Set<String> usedQuestionIds = const <String>{}, @JsonKey(fromJson: _answersFromJson, toJson: _answersToJson)  Map<int, Map<String, AnswerModel>> answers = const <int, Map<String, AnswerModel>>{}}): _players = players,_questionIds = questionIds,_usedQuestionIds = usedQuestionIds,_answers = answers,super._();
   factory _RoomModel.fromJson(Map<String, dynamic> json) => _$RoomModelFromJson(json);
 
 @override final  String hostId;
@@ -823,6 +1102,21 @@ class _RoomModel extends RoomModel {
 @override@JsonKey() final  int currentQuestionIndex;
 @override final  int? questionStartedAt;
 @override final  int? phaseStartedAt;
+@override final  int? scoredQuestionIndex;
+ final  Set<String> _usedQuestionIds;
+@override@JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson) Set<String> get usedQuestionIds {
+  if (_usedQuestionIds is EqualUnmodifiableSetView) return _usedQuestionIds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableSetView(_usedQuestionIds);
+}
+
+ final  Map<int, Map<String, AnswerModel>> _answers;
+@override@JsonKey(fromJson: _answersFromJson, toJson: _answersToJson) Map<int, Map<String, AnswerModel>> get answers {
+  if (_answers is EqualUnmodifiableMapView) return _answers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_answers);
+}
+
 
 /// Create a copy of RoomModel
 /// with the given fields replaced by the non-null parameter values.
@@ -837,18 +1131,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _RoomModel&&(identical(other.hostId, hostId) || other.hostId == hostId)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.settings, settings) || other.settings == settings)&&const DeepCollectionEquality().equals(other.players, _players)&&const DeepCollectionEquality().equals(other.questionIds, _questionIds)&&(identical(other.currentQuestionIndex, currentQuestionIndex) || other.currentQuestionIndex == currentQuestionIndex)&&(identical(other.questionStartedAt, questionStartedAt) || other.questionStartedAt == questionStartedAt)&&(identical(other.phaseStartedAt, phaseStartedAt) || other.phaseStartedAt == phaseStartedAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _RoomModel&&(identical(other.hostId, hostId) || other.hostId == hostId)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.settings, settings) || other.settings == settings)&&const DeepCollectionEquality().equals(other.players, _players)&&const DeepCollectionEquality().equals(other.questionIds, _questionIds)&&(identical(other.currentQuestionIndex, currentQuestionIndex) || other.currentQuestionIndex == currentQuestionIndex)&&(identical(other.questionStartedAt, questionStartedAt) || other.questionStartedAt == questionStartedAt)&&(identical(other.phaseStartedAt, phaseStartedAt) || other.phaseStartedAt == phaseStartedAt)&&(identical(other.scoredQuestionIndex, scoredQuestionIndex) || other.scoredQuestionIndex == scoredQuestionIndex)&&const DeepCollectionEquality().equals(other.usedQuestionIds, _usedQuestionIds)&&const DeepCollectionEquality().equals(other.answers, _answers));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,hostId,status,createdAt,settings,const DeepCollectionEquality().hash(_players),const DeepCollectionEquality().hash(_questionIds),currentQuestionIndex,questionStartedAt,phaseStartedAt);
+    return Object.hash(runtimeType,hostId,status,createdAt,settings,const DeepCollectionEquality().hash(_players),const DeepCollectionEquality().hash(_questionIds),currentQuestionIndex,questionStartedAt,phaseStartedAt,scoredQuestionIndex,const DeepCollectionEquality().hash(_usedQuestionIds),const DeepCollectionEquality().hash(_answers));
 }
 
 @override
 String toString() {
-    return 'RoomModel(hostId: $hostId, status: $status, createdAt: $createdAt, settings: $settings, players: $players, questionIds: $questionIds, currentQuestionIndex: $currentQuestionIndex, questionStartedAt: $questionStartedAt, phaseStartedAt: $phaseStartedAt)';
+    return 'RoomModel(hostId: $hostId, status: $status, createdAt: $createdAt, settings: $settings, players: $players, questionIds: $questionIds, currentQuestionIndex: $currentQuestionIndex, questionStartedAt: $questionStartedAt, phaseStartedAt: $phaseStartedAt, scoredQuestionIndex: $scoredQuestionIndex, usedQuestionIds: $usedQuestionIds, answers: $answers)';
 }
 
 
@@ -859,7 +1153,7 @@ abstract mixin class _$RoomModelCopyWith<$Res> implements $RoomModelCopyWith<$Re
   factory _$RoomModelCopyWith(_RoomModel value, $Res Function(_RoomModel) _then) = __$RoomModelCopyWithImpl;
 @override @useResult
 $Res call({
- String hostId,@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus status, int createdAt, RoomSettingsModel settings, Map<String, PlayerModel> players, List<String> questionIds, int currentQuestionIndex, int? questionStartedAt, int? phaseStartedAt
+ String hostId,@JsonKey(unknownEnumValue: RoomStatus.lobby) RoomStatus status, int createdAt, RoomSettingsModel settings, Map<String, PlayerModel> players, List<String> questionIds, int currentQuestionIndex, int? questionStartedAt, int? phaseStartedAt, int? scoredQuestionIndex,@JsonKey(fromJson: _usedIdsFromJson, toJson: _usedIdsToJson) Set<String> usedQuestionIds,@JsonKey(fromJson: _answersFromJson, toJson: _answersToJson) Map<int, Map<String, AnswerModel>> answers
 });
 
 
@@ -876,7 +1170,7 @@ class __$RoomModelCopyWithImpl<$Res>
 
 /// Create a copy of RoomModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? hostId = null,Object? status = null,Object? createdAt = null,Object? settings = null,Object? players = null,Object? questionIds = null,Object? currentQuestionIndex = null,Object? questionStartedAt = freezed,Object? phaseStartedAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? hostId = null,Object? status = null,Object? createdAt = null,Object? settings = null,Object? players = null,Object? questionIds = null,Object? currentQuestionIndex = null,Object? questionStartedAt = freezed,Object? phaseStartedAt = freezed,Object? scoredQuestionIndex = freezed,Object? usedQuestionIds = null,Object? answers = null,}) {
   return _then(_RoomModel(
 hostId: null == hostId ? _self.hostId : hostId // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -887,7 +1181,10 @@ as Map<String, PlayerModel>,questionIds: null == questionIds ? _self._questionId
 as List<String>,currentQuestionIndex: null == currentQuestionIndex ? _self.currentQuestionIndex : currentQuestionIndex // ignore: cast_nullable_to_non_nullable
 as int,questionStartedAt: freezed == questionStartedAt ? _self.questionStartedAt : questionStartedAt // ignore: cast_nullable_to_non_nullable
 as int?,phaseStartedAt: freezed == phaseStartedAt ? _self.phaseStartedAt : phaseStartedAt // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,scoredQuestionIndex: freezed == scoredQuestionIndex ? _self.scoredQuestionIndex : scoredQuestionIndex // ignore: cast_nullable_to_non_nullable
+as int?,usedQuestionIds: null == usedQuestionIds ? _self._usedQuestionIds : usedQuestionIds // ignore: cast_nullable_to_non_nullable
+as Set<String>,answers: null == answers ? _self._answers : answers // ignore: cast_nullable_to_non_nullable
+as Map<int, Map<String, AnswerModel>>,
   ));
 }
 

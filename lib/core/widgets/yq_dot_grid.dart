@@ -13,10 +13,7 @@ class YqDotGridBackground extends StatelessWidget {
     final c = context.yqColors;
     return ColoredBox(
       color: c.bg,
-      child: CustomPaint(
-        painter: _DotGridPainter(c.bgPattern),
-        child: child,
-      ),
+      child: CustomPaint(painter: _DotGridPainter(c.bgPattern), child: child),
     );
   }
 }

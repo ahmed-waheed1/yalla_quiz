@@ -9,16 +9,29 @@ void main() {
   String read(String path) => File(path).readAsStringSync();
 
   test('Android: label comes from strings.xml (en + ar)', () {
-    expect(read('android/app/src/main/AndroidManifest.xml'), contains('android:label="@string/app_name"'));
-    expect(read('android/app/src/main/res/values/strings.xml'),
-        contains('<string name="app_name">Yalla Quiz</string>'));
-    expect(read('android/app/src/main/res/values-ar/strings.xml'),
-        contains('<string name="app_name">يلا كويز</string>'));
+    expect(
+      read('android/app/src/main/AndroidManifest.xml'),
+      contains('android:label="@string/app_name"'),
+    );
+    expect(
+      read('android/app/src/main/res/values/strings.xml'),
+      contains('<string name="app_name">Yalla Quiz</string>'),
+    );
+    expect(
+      read('android/app/src/main/res/values-ar/strings.xml'),
+      contains('<string name="app_name">يلا كويز</string>'),
+    );
   });
 
   test('iOS: display name localized via InfoPlist.strings, bundled by Xcode', () {
-    expect(read('ios/Runner/en.lproj/InfoPlist.strings'), contains('"CFBundleDisplayName" = "Yalla Quiz";'));
-    expect(read('ios/Runner/ar.lproj/InfoPlist.strings'), contains('"CFBundleDisplayName" = "يلا كويز";'));
+    expect(
+      read('ios/Runner/en.lproj/InfoPlist.strings'),
+      contains('"CFBundleDisplayName" = "Yalla Quiz";'),
+    );
+    expect(
+      read('ios/Runner/ar.lproj/InfoPlist.strings'),
+      contains('"CFBundleDisplayName" = "يلا كويز";'),
+    );
     final plist = read('ios/Runner/Info.plist');
     expect(plist, contains('<key>CFBundleLocalizations</key>'));
     expect(plist, contains('<string>ar</string>'));
