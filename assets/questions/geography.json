@@ -1,0 +1,302 @@
+[
+  {
+    "id": "geography_001",
+    "en": { "q": "What's the capital of Egypt?", "options": ["Alexandria", "Giza", "Luxor", "Cairo"] },
+    "ar": { "q": "إيه عاصمة مصر؟", "options": ["الإسكندرية", "الجيزة", "الأقصر", "القاهرة"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_002",
+    "en": { "q": "Which sea lies along Egypt's northern coast?", "options": ["The Red Sea", "The Mediterranean", "The Arabian Sea", "The Black Sea"] },
+    "ar": { "q": "أنهي بحر على الساحل الشمالي لمصر؟", "options": ["البحر الأحمر", "البحر المتوسط", "بحر العرب", "البحر الأسود"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_003",
+    "en": { "q": "The Suez Canal links the Mediterranean to which sea?", "options": ["The Arabian Sea", "The Red Sea", "The Dead Sea", "The Caspian Sea"] },
+    "ar": { "q": "قناة السويس بتوصّل البحر المتوسط بأنهي بحر؟", "options": ["بحر العرب", "البحر الأحمر", "البحر الميت", "بحر قزوين"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_004",
+    "en": { "q": "What's the capital of Saudi Arabia?", "options": ["Jeddah", "Mecca", "Riyadh", "Dammam"] },
+    "ar": { "q": "إيه عاصمة السعودية؟", "options": ["جدة", "مكة", "الرياض", "الدمام"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_005",
+    "en": { "q": "What's the capital of the United Arab Emirates?", "options": ["Dubai", "Sharjah", "Abu Dhabi", "Ajman"] },
+    "ar": { "q": "إيه عاصمة الإمارات؟", "options": ["دبي", "الشارقة", "أبوظبي", "عجمان"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_006",
+    "en": { "q": "What's the capital of Lebanon?", "options": ["Beirut", "Tripoli", "Sidon", "Byblos"] },
+    "ar": { "q": "إيه عاصمة لبنان؟", "options": ["بيروت", "طرابلس", "صيدا", "جبيل"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_007",
+    "en": { "q": "Which Egyptian city was founded by Alexander the Great?", "options": ["Port Said", "Alexandria", "Damietta", "Rosetta"] },
+    "ar": { "q": "أنهي مدينة مصرية أسسها الإسكندر الأكبر؟", "options": ["بورسعيد", "الإسكندرية", "دمياط", "رشيد"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_008",
+    "en": { "q": "Which Arab country is made up of islands in the Gulf?", "options": ["Qatar", "Kuwait", "Oman", "Bahrain"] },
+    "ar": { "q": "أنهي دولة عربية عبارة عن جزر في الخليج العربي؟", "options": ["قطر", "الكويت", "عُمان", "البحرين"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_009",
+    "en": { "q": "Which river flows through Baghdad?", "options": ["The Euphrates", "The Nile", "The Jordan", "The Tigris"] },
+    "ar": { "q": "أنهي نهر بيعدّي في بغداد؟", "options": ["الفرات", "النيل", "نهر الأردن", "دجلة"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_010",
+    "en": { "q": "Which strait separates Morocco from Spain?", "options": ["Bab el-Mandeb", "The Strait of Hormuz", "The Strait of Gibraltar", "The Bosphorus"] },
+    "ar": { "q": "أنهي مضيق بيفصل المغرب عن إسبانيا؟", "options": ["مضيق باب المندب", "مضيق هرمز", "مضيق جبل طارق", "مضيق البوسفور"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_011",
+    "en": { "q": "In which city do the White Nile and the Blue Nile meet?", "options": ["Khartoum", "Aswan", "Juba", "Addis Ababa"] },
+    "ar": { "q": "النيل الأبيض والنيل الأزرق بيتقابلوا في أنهي مدينة؟", "options": ["الخرطوم", "أسوان", "جوبا", "أديس أبابا"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_012",
+    "en": { "q": "Lake Nasser was created by which dam?", "options": ["The Merowe Dam", "The Kariba Dam", "The Aswan High Dam", "The Euphrates Dam"] },
+    "ar": { "q": "بحيرة ناصر اتكوّنت بسبب أنهي سد؟", "options": ["سد مروي", "سد كاريبا", "السد العالي", "سد الفرات"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_013",
+    "en": { "q": "Siwa Oasis is in which Egyptian desert?", "options": ["The Eastern Desert", "The Western Desert", "Sinai", "The Nubian Desert"] },
+    "ar": { "q": "واحة سيوة في أنهي صحرا في مصر؟", "options": ["الصحراء الشرقية", "الصحراء الغربية", "سيناء", "الصحراء النوبية"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_014",
+    "en": { "q": "What's the capital of Oman?", "options": ["Salalah", "Muscat", "Sohar", "Nizwa"] },
+    "ar": { "q": "إيه عاصمة عُمان؟", "options": ["صلالة", "مسقط", "صحار", "نزوى"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_015",
+    "en": { "q": "Which is the largest Arab country by area?", "options": ["Saudi Arabia", "Sudan", "Libya", "Algeria"] },
+    "ar": { "q": "إيه أكبر دولة عربية من حيث المساحة؟", "options": ["السعودية", "السودان", "ليبيا", "الجزائر"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_016",
+    "en": { "q": "Most of the Empty Quarter (Rub' al Khali) lies in which country?", "options": ["Oman", "Yemen", "The UAE", "Saudi Arabia"] },
+    "ar": { "q": "معظم الربع الخالي في أنهي دولة؟", "options": ["عُمان", "اليمن", "الإمارات", "السعودية"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_017",
+    "en": { "q": "Which city sits at the southern end of the Suez Canal?", "options": ["Suez", "Port Said", "Ismailia", "Hurghada"] },
+    "ar": { "q": "أنهي مدينة عند المدخل الجنوبي لقناة السويس؟", "options": ["السويس", "بورسعيد", "الإسماعيلية", "الغردقة"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_018",
+    "en": { "q": "What's the highest mountain in Egypt?", "options": ["Mount Catherine", "Mount Sinai", "Gebel Elba", "Gebel Shayib"] },
+    "ar": { "q": "إيه أعلى جبل في مصر؟", "options": ["جبل كاترين", "جبل موسى", "جبل علبة", "جبل الشايب"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_019",
+    "en": { "q": "Egypt's lowest point is in which depression?", "options": ["The Faiyum Depression", "The Qattara Depression", "Wadi El Natrun", "Siwa Oasis"] },
+    "ar": { "q": "أوطى نقطة في مصر في أنهي منخفض؟", "options": ["منخفض الفيوم", "منخفض القطارة", "وادي النطرون", "واحة سيوة"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_020",
+    "en": { "q": "The island of Socotra belongs to which country?", "options": ["Oman", "Yemen", "Somalia", "Djibouti"] },
+    "ar": { "q": "جزيرة سقطرى تبع أنهي دولة؟", "options": ["عُمان", "اليمن", "الصومال", "جيبوتي"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_021",
+    "en": { "q": "What's the capital of France?", "options": ["Lyon", "Marseille", "Paris", "Nice"] },
+    "ar": { "q": "إيه عاصمة فرنسا؟", "options": ["ليون", "مارسيليا", "باريس", "نيس"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_022",
+    "en": { "q": "What's the highest mountain in the world?", "options": ["K2", "Kilimanjaro", "Mont Blanc", "Mount Everest"] },
+    "ar": { "q": "إيه أعلى جبل في العالم؟", "options": ["كي 2", "كليمنجارو", "مون بلان", "إيفرست"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_023",
+    "en": { "q": "Which continent is Brazil in?", "options": ["South America", "North America", "Africa", "Europe"] },
+    "ar": { "q": "البرازيل في أنهي قارة؟", "options": ["أمريكا الجنوبية", "أمريكا الشمالية", "أفريقيا", "أوروبا"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_024",
+    "en": { "q": "What's the capital of Italy?", "options": ["Milan", "Venice", "Rome", "Naples"] },
+    "ar": { "q": "إيه عاصمة إيطاليا؟", "options": ["ميلانو", "البندقية", "روما", "نابولي"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_025",
+    "en": { "q": "Which ocean lies between Africa and the Americas?", "options": ["The Atlantic", "The Pacific", "The Indian Ocean", "The Arctic Ocean"] },
+    "ar": { "q": "أنهي محيط بين أفريقيا والأمريكتين؟", "options": ["الأطلسي", "الهادي", "الهندي", "المتجمد الشمالي"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_026",
+    "en": { "q": "The Statue of Liberty is in which city?", "options": ["New York", "Washington", "Chicago", "Boston"] },
+    "ar": { "q": "تمثال الحرية في أنهي مدينة؟", "options": ["نيويورك", "واشنطن", "شيكاغو", "بوسطن"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_027",
+    "en": { "q": "What's the capital of Spain?", "options": ["Barcelona", "Seville", "Valencia", "Madrid"] },
+    "ar": { "q": "إيه عاصمة إسبانيا؟", "options": ["برشلونة", "إشبيلية", "فالنسيا", "مدريد"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_028",
+    "en": { "q": "Sydney is in which country?", "options": ["New Zealand", "Australia", "Canada", "The United Kingdom"] },
+    "ar": { "q": "مدينة سيدني في أنهي دولة؟", "options": ["نيوزيلندا", "أستراليا", "كندا", "بريطانيا"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_029",
+    "en": { "q": "Which is the coldest continent?", "options": ["Asia", "Europe", "North America", "Antarctica"] },
+    "ar": { "q": "إيه أبرد قارة في العالم؟", "options": ["آسيا", "أوروبا", "أمريكا الشمالية", "القارة القطبية الجنوبية"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_030",
+    "en": { "q": "Which river flows through London?", "options": ["The Seine", "The Thames", "The Danube", "The Rhine"] },
+    "ar": { "q": "أنهي نهر بيعدّي في لندن؟", "options": ["السين", "التايمز", "الدانوب", "الراين"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_031",
+    "en": { "q": "What's the capital of Germany?", "options": ["Munich", "Hamburg", "Berlin", "Frankfurt"] },
+    "ar": { "q": "إيه عاصمة ألمانيا؟", "options": ["ميونخ", "هامبورج", "برلين", "فرانكفورت"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_032",
+    "en": { "q": "Mount Fuji is in which country?", "options": ["Japan", "China", "South Korea", "Indonesia"] },
+    "ar": { "q": "جبل فوجي في أنهي دولة؟", "options": ["اليابان", "الصين", "كوريا الجنوبية", "إندونيسيا"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_033",
+    "en": { "q": "What's the capital of Turkey?", "options": ["Istanbul", "Izmir", "Ankara", "Antalya"] },
+    "ar": { "q": "إيه عاصمة تركيا؟", "options": ["إسطنبول", "إزمير", "أنقرة", "أنطاليا"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_034",
+    "en": { "q": "What's the capital of Canada?", "options": ["Toronto", "Vancouver", "Montreal", "Ottawa"] },
+    "ar": { "q": "إيه عاصمة كندا؟", "options": ["تورونتو", "فانكوفر", "مونتريال", "أوتاوا"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_035",
+    "en": { "q": "What's the capital of Australia?", "options": ["Sydney", "Canberra", "Melbourne", "Perth"] },
+    "ar": { "q": "إيه عاصمة أستراليا؟", "options": ["سيدني", "كانبرا", "ملبورن", "بيرث"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_036",
+    "en": { "q": "Which river flows through Paris?", "options": ["The Seine", "The Loire", "The Rhône", "The Rhine"] },
+    "ar": { "q": "أنهي نهر بيعدّي في باريس؟", "options": ["السين", "اللوار", "الرون", "الراين"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_037",
+    "en": { "q": "Mount Kilimanjaro is in which country?", "options": ["Kenya", "Uganda", "Tanzania", "Ethiopia"] },
+    "ar": { "q": "جبل كليمنجارو في أنهي دولة؟", "options": ["كينيا", "أوغندا", "تنزانيا", "إثيوبيا"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_038",
+    "en": { "q": "Which line divides the Earth into the northern and southern hemispheres?", "options": ["The Prime Meridian", "The Tropic of Cancer", "The Arctic Circle", "The Equator"] },
+    "ar": { "q": "أنهي خط بيقسم الأرض لنص شمالي ونص جنوبي؟", "options": ["خط جرينتش", "مدار السرطان", "الدائرة القطبية الشمالية", "خط الاستواء"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_039",
+    "en": { "q": "The Gobi Desert is in China and which other country?", "options": ["Kazakhstan", "Russia", "Nepal", "Mongolia"] },
+    "ar": { "q": "صحراء جوبي في الصين وأنهي دولة كمان؟", "options": ["كازاخستان", "روسيا", "نيبال", "منغوليا"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_040",
+    "en": { "q": "The Amazon River reaches the ocean in which country?", "options": ["Peru", "Brazil", "Colombia", "Venezuela"] },
+    "ar": { "q": "نهر الأمازون بيصب في المحيط في أنهي دولة؟", "options": ["بيرو", "البرازيل", "كولومبيا", "فنزويلا"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_041",
+    "en": { "q": "Which is the largest island in the world?", "options": ["New Guinea", "Borneo", "Madagascar", "Greenland"] },
+    "ar": { "q": "إيه أكبر جزيرة في العالم؟", "options": ["غينيا الجديدة", "بورنيو", "مدغشقر", "جرينلاند"] },
+    "answer": 3
+  },
+  {
+    "id": "geography_042",
+    "en": { "q": "The ruins of Machu Picchu are in which country?", "options": ["Bolivia", "Peru", "Chile", "Mexico"] },
+    "ar": { "q": "آثار ماتشو بيتشو في أنهي دولة؟", "options": ["بوليفيا", "بيرو", "تشيلي", "المكسيك"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_043",
+    "en": { "q": "What's the capital of South Korea?", "options": ["Seoul", "Busan", "Pyongyang", "Incheon"] },
+    "ar": { "q": "إيه عاصمة كوريا الجنوبية؟", "options": ["سول", "بوسان", "بيونغ يانغ", "إنتشون"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_044",
+    "en": { "q": "Which strait separates Asia from North America?", "options": ["The Strait of Malacca", "The Strait of Magellan", "The Bering Strait", "The Strait of Hormuz"] },
+    "ar": { "q": "أنهي مضيق بيفصل آسيا عن أمريكا الشمالية؟", "options": ["مضيق ملقا", "مضيق ماجلان", "مضيق بيرينغ", "مضيق هرمز"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_045",
+    "en": { "q": "What's the capital of New Zealand?", "options": ["Auckland", "Christchurch", "Wellington", "Hamilton"] },
+    "ar": { "q": "إيه عاصمة نيوزيلندا؟", "options": ["أوكلاند", "كرايستشرش", "ولينغتون", "هاملتون"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_046",
+    "en": { "q": "Which is the deepest lake in the world?", "options": ["Lake Baikal", "Lake Tanganyika", "Lake Superior", "Lake Victoria"] },
+    "ar": { "q": "إيه أعمق بحيرة في العالم؟", "options": ["بحيرة بايكال", "بحيرة تنجانيقا", "بحيرة سوبيريور", "بحيرة فيكتوريا"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_047",
+    "en": { "q": "The Mariana Trench is in which ocean?", "options": ["The Atlantic", "The Indian Ocean", "The Pacific", "The Arctic Ocean"] },
+    "ar": { "q": "خندق ماريانا في أنهي محيط؟", "options": ["الأطلسي", "الهندي", "الهادي", "المتجمد الشمالي"] },
+    "answer": 2
+  },
+  {
+    "id": "geography_048",
+    "en": { "q": "Which African country has three capital cities?", "options": ["South Africa", "Nigeria", "Kenya", "Ethiopia"] },
+    "ar": { "q": "أنهي دولة أفريقية ليها تلات عواصم؟", "options": ["جنوب أفريقيا", "نيجيريا", "كينيا", "إثيوبيا"] },
+    "answer": 0
+  },
+  {
+    "id": "geography_049",
+    "en": { "q": "Lake Titicaca lies on the border of Peru and which country?", "options": ["Chile", "Bolivia", "Ecuador", "Argentina"] },
+    "ar": { "q": "بحيرة تيتيكاكا على الحدود بين بيرو وأنهي دولة؟", "options": ["تشيلي", "بوليفيا", "الإكوادور", "الأرجنتين"] },
+    "answer": 1
+  },
+  {
+    "id": "geography_050",
+    "en": { "q": "Which river flows through Vienna, Budapest and Belgrade?", "options": ["The Danube", "The Rhine", "The Elbe", "The Vistula"] },
+    "ar": { "q": "أنهي نهر بيعدّي في فيينا وبودابست وبلجراد؟", "options": ["الدانوب", "الراين", "الإلبه", "الفيستولا"] },
+    "answer": 0
+  }
+]
