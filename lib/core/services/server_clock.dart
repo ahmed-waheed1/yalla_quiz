@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:firebase_database/firebase_database.dart';
 
+import 'clock.dart';
+
 /// Server-aligned clock from `.info/serverTimeOffset`. Game timers are
 /// computed from server timestamps with this, never from a local countdown.
-class ServerClock {
+class ServerClock implements Clock {
   ServerClock(FirebaseDatabase database) : _offsetRef = database.ref('.info/serverTimeOffset');
 
   final DatabaseReference _offsetRef;
@@ -20,6 +22,7 @@ class ServerClock {
 
   int get offsetMs => _offsetMs;
 
+  @override
   int nowMs() => DateTime.now().millisecondsSinceEpoch + _offsetMs;
 
   Future<void> dispose() async => _subscription?.cancel();

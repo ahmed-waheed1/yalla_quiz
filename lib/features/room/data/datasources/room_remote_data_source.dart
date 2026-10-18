@@ -5,7 +5,9 @@ import 'package:firebase_database/firebase_database.dart';
 import '../../../../core/utils/json.dart';
 import '../../../../core/utils/log.dart';
 import '../../../profile/domain/entities/player_profile.dart';
+import '../../domain/entities/game_command.dart';
 import '../../domain/entities/room.dart';
+import 'game_writes.dart';
 import '../models/room_model.dart';
 
 /// All RTDB access for `rooms/{code}`. Throws [FirebaseException]s; the
@@ -18,12 +20,13 @@ class RoomRemoteDataSource {
   DatabaseReference _room(String code) => _db.ref('rooms/$code');
   DatabaseReference _player(String code, String uid) => _db.ref('rooms/$code/players/$uid');
 
-  Map<String, Object?> _newPlayer(PlayerProfile profile) => {
+  Map<String, Object?> _newPlayer(PlayerProfile profile, {bool spectator = false}) => {
     'name': profile.name,
     'avatarSeed': profile.avatarSeed,
     'joinedAt': ServerValue.timestamp,
     'connected': true,
     'score': 0,
+    if (spectator) 'spectator': true,
   };
 
   /// Fails with `permission-denied` if a fresh room already uses [code].
@@ -32,13 +35,14 @@ class RoomRemoteDataSource {
     required String uid,
     required RoomSettings settings,
     required PlayerProfile profile,
+    required bool spectator,
   }) => _room(code).set({
     'hostId': uid,
     'status': RoomStatus.lobby.name,
     'createdAt': ServerValue.timestamp,
     'settings': RoomSettingsModel.fromEntity(settings).toJson(),
     'currentQuestionIndex': 0,
-    'players': {uid: _newPlayer(profile)},
+    'players': {uid: _newPlayer(profile, spectator: spectator)},
   });
 
   Future<RoomModel?> fetchRoom(String code) async {
@@ -84,6 +88,16 @@ class RoomRemoteDataSource {
     );
     return controller.stream;
   }
+
+  /// One phase change as a single atomic multi-path update.
+  Future<void> runGameCommand(String code, GameCommand command) =>
+      _room(code).update(gameCommandUpdate(command));
+
+  /// Fails with `permission-denied` if the answer is late, a repeat, or for
+  /// a question that isn't current.
+  Future<void> submitAnswer(String code, String uid, int questionIndex, int option) => _db
+      .ref('rooms/$code/answers/$questionIndex/$uid')
+      .set({'option': option, 'answeredAt': ServerValue.timestamp});
 
   /// Returns true if this client became host.
   Future<bool> claimHost(String code, String uid, String previousHostId) async {
