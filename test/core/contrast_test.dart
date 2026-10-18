@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yalla_quiz/core/theme/yq_colors.dart';
+import 'package:yalla_quiz/core/widgets/yq_leaderboard_row.dart';
 import 'package:yalla_quiz/features/home/presentation/pages/splash_page.dart';
 
 /// WCAG 2.x contrast ratio between two opaque colours.
@@ -67,9 +68,8 @@ final Map<String, (Color, Color, double) Function(YqColors)> _pairs = {
   'leaderboard: #1 badge (brandNight on accent)': (c) => (YqColors.brandNight, c.accent, _text),
   'leaderboard: #2–3 badge (bg on ink)': (c) => (c.bg, c.ink, _text),
   'leaderboard: up chip (success on successSoft)': (c) => (c.success, c.successSoft, _text),
-  // Design-specified pair; 4.43:1 in light, just under AA for 13/900 text.
-  // Pinned at its current value until the designer revisits it.
-  'leaderboard: down chip (danger on dangerSoft)': (c) => (c.danger, c.dangerSoft, 4.4),
+  'leaderboard: down chip (YqDeltaChip.downColor on dangerSoft)': (c) =>
+      (YqDeltaChip.downColor(c), c.dangerSoft, _text),
   'timer: calm arc vs track (timerCalm vs surfaceAlt)': (c) => (c.timerCalm, c.surfaceAlt, _ui),
   'timer: warn arc vs track (timerWarn vs surfaceAlt)': (c) => (c.timerWarn, c.surfaceAlt, _ui),
   'timer: panic arc vs track (timerPanic vs surfaceAlt)': (c) => (c.timerPanic, c.surfaceAlt, _ui),
