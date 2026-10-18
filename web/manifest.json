@@ -3,7 +3,7 @@
     "short_name": "Yalla Quiz",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#1E0F3D",
+    "background_color": "#FFF6EC",
     "theme_color": "#FF5A36",
     "description": "Real-time multiplayer trivia. Play live with your friends.",
     "orientation": "portrait-primary",
