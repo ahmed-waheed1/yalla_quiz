@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theme/yq_colors.dart';
 import '../../../../core/theme/yq_spacing.dart';
+import '../../../../core/theme/yq_typography.dart';
 import '../../../../core/utils/responsive.dart';
 import '../../../../core/widgets/yq_banner.dart';
 import '../../../../core/widgets/yq_spinner.dart';
@@ -42,39 +43,99 @@ class GameView extends StatelessWidget {
       builder: (context, constraints) {
         final size = screenSizeFor(constraints.maxWidth);
         final big = state.isSpectator && size != ScreenSize.phone;
+        // The game loop runs on the host, so its screen has to stay open.
+        // Not on the 4 s countdown, whose "Yalla!" panel is full bleed.
+        final hint = state.isHost && room.status != RoomStatus.countdown;
+        final phase = _PhaseSwitcher(
+          status: room.status,
+          phaseKey: '${room.status.name}-${room.currentQuestionIndex}',
+          child: switch (room.status) {
+            RoomStatus.countdown => GetReadyView(room: room, feedback: feedback),
+            RoomStatus.question =>
+              big
+                  ? HostQuestionView(state: state, size: size)
+                  : QuestionView(state: state, feedback: feedback),
+            RoomStatus.reveal =>
+              big
+                  ? HostRevealView(state: state, size: size)
+                  : RevealView(state: state, feedback: feedback),
+            RoomStatus.leaderboard =>
+              big
+                  ? HostLeaderboardView(state: state, size: size, feedback: feedback)
+                  : LeaderboardView(state: state, feedback: feedback),
+            RoomStatus.finished =>
+              big
+                  ? HostFinalResultsView(
+                      state: state,
+                      size: size,
+                      feedback: feedback,
+                      onHome: onHome,
+                    )
+                  : FinalResultsView(state: state, feedback: feedback, onHome: onHome),
+            RoomStatus.lobby => const Center(child: YqSpinner()),
+          },
+        );
         return _ConnectionOverlay(
           online: online,
-          child: _PhaseSwitcher(
-            status: room.status,
-            phaseKey: '${room.status.name}-${room.currentQuestionIndex}',
-            child: switch (room.status) {
-              RoomStatus.countdown => GetReadyView(room: room, feedback: feedback),
-              RoomStatus.question =>
-                big
-                    ? HostQuestionView(state: state, size: size)
-                    : QuestionView(state: state, feedback: feedback),
-              RoomStatus.reveal =>
-                big
-                    ? HostRevealView(state: state, size: size)
-                    : RevealView(state: state, feedback: feedback),
-              RoomStatus.leaderboard =>
-                big
-                    ? HostLeaderboardView(state: state, size: size, feedback: feedback)
-                    : LeaderboardView(state: state, feedback: feedback),
-              RoomStatus.finished =>
-                big
-                    ? HostFinalResultsView(
-                        state: state,
-                        size: size,
-                        feedback: feedback,
-                        onHome: onHome,
-                      )
-                    : FinalResultsView(state: state, feedback: feedback, onHome: onHome),
-              RoomStatus.lobby => const Center(child: YqSpinner()),
-            },
-          ),
+          child: hint
+              ? Column(
+                  children: [
+                    Expanded(
+                      // The hint below takes the bottom inset.
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeBottom: true,
+                        child: phase,
+                      ),
+                    ),
+                    const _KeepOpenHint(),
+                  ],
+                )
+              : phase,
         );
       },
+    );
+  }
+}
+
+/// "Keep this screen open", under the game on the host's device.
+class _KeepOpenHint extends StatelessWidget {
+  const _KeepOpenHint();
+
+  static const double _height = 32;
+  static const double _iconSize = 16;
+  static const double _textSize = 13;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.yqColors;
+    return ColoredBox(
+      color: c.bg,
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: _height,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.screen_lock_portrait_rounded, size: _iconSize, color: c.inkMuted),
+              const SizedBox(width: YqSpace.x1 + 2),
+              Flexible(
+                child: Text(
+                  'game.keep_open'.tr(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.yqText.label.copyWith(
+                    fontSize: _textSize,
+                    fontWeight: FontWeight.w700,
+                    color: c.inkMuted,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

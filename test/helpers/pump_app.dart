@@ -12,6 +12,7 @@ import 'package:yalla_quiz/core/di/injection.dart';
 import 'package:yalla_quiz/core/services/auth_service.dart';
 import 'package:yalla_quiz/core/services/clock.dart';
 import 'package:yalla_quiz/core/services/haptics.dart';
+import 'package:yalla_quiz/core/services/screen_awake.dart';
 import 'package:yalla_quiz/core/services/sound_service.dart';
 import 'package:yalla_quiz/core/theme/yq_theme.dart';
 import 'package:yalla_quiz/core/theme/yq_typography.dart';
@@ -55,11 +56,13 @@ void registerFakes({
   FakeRoomRepository? rooms,
   FakeQuestionRepository? questions,
   FakeClock? clock,
+  FakeScreenAwake? screenAwake,
 }) {
   getIt.reset(dispose: false);
   final fakeClock = clock ?? FakeClock();
   getIt
     ..registerSingleton<Haptics>(Haptics())
+    ..registerSingleton<ScreenAwake>(screenAwake ?? FakeScreenAwake())
     ..registerSingleton<SoundService>(SoundService()..enabled = false)
     ..registerSingleton<Clock>(fakeClock)
     ..registerSingleton<Scheduler>(fakeClock)

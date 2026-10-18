@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:fpdart/fpdart.dart';
 import 'package:yalla_quiz/core/services/auth_service.dart';
+import 'package:yalla_quiz/core/services/screen_awake.dart';
 import 'package:yalla_quiz/core/utils/failure.dart';
 import 'package:yalla_quiz/features/game/domain/entities/question.dart';
 import 'package:yalla_quiz/features/game/domain/repositories/question_repository.dart';
@@ -168,4 +169,14 @@ class FakeAuthService implements AuthService {
 
   @override
   Future<String> ensureSignedIn() async => kMyUid;
+}
+
+/// Records wake lock changes instead of calling the plugin.
+class FakeScreenAwake implements ScreenAwake {
+  final List<bool> calls = [];
+
+  bool get on => calls.isNotEmpty && calls.last;
+
+  @override
+  Future<void> set(bool on) async => calls.add(on);
 }
