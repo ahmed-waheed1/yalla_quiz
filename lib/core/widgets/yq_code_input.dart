@@ -42,7 +42,27 @@ class YqCodeInput extends StatelessWidget {
   final bool autofocus;
   final String? semanticLabel;
 
+  /// Wraps the hidden input so tests can check it paints nothing.
+  @visibleForTesting
+  static const Key hiddenFieldKey = Key('yq-code-input-hidden-field');
+
   static const double _glyphSize = 28;
+
+  /// Every state set explicitly: `InputDecoration.collapsed` only clears
+  /// `border`, so the theme's enabled/focused borders (1.5 line, 3 focus)
+  /// would still be drawn around the field.
+  static const InputDecoration _invisibleDecoration = InputDecoration(
+    isCollapsed: true,
+    filled: false,
+    contentPadding: EdgeInsetsDirectional.zero,
+    border: InputBorder.none,
+    enabledBorder: InputBorder.none,
+    focusedBorder: InputBorder.none,
+    disabledBorder: InputBorder.none,
+    errorBorder: InputBorder.none,
+    focusedErrorBorder: InputBorder.none,
+    counterText: '',
+  );
   static const double _caretHeight = 30;
 
   void _handleChanged(String value) {
@@ -65,7 +85,8 @@ class YqCodeInput extends StatelessWidget {
       color: c.ink,
     );
     final reduced = MediaQuery.disableAnimationsOf(context);
-    final hidden = TextStyle(color: c.ink.withValues(alpha: 0), fontSize: 1);
+    final invisible = c.ink.withValues(alpha: 0);
+    final hidden = TextStyle(color: invisible, fontSize: 1);
 
     return Directionality(
       textDirection: TextDirection.ltr,
@@ -95,23 +116,39 @@ class YqCodeInput extends StatelessWidget {
               },
             ),
             Positioned.fill(
-              child: Semantics(
-                label: semanticLabel,
-                child: TextField(
-                  controller: controller,
-                  focusNode: focusNode,
-                  autofocus: autofocus,
-                  enabled: enabled,
-                  showCursor: false,
-                  autocorrect: false,
-                  enableSuggestions: false,
-                  keyboardType: TextInputType.visiblePassword,
-                  textCapitalization: TextCapitalization.characters,
-                  textInputAction: TextInputAction.go,
-                  inputFormatters: const [_RoomCodeFormatter()],
-                  style: hidden,
-                  decoration: const InputDecoration.collapsed(hintText: null),
-                  onChanged: _handleChanged,
+              child: RepaintBoundary(
+                key: hiddenFieldKey,
+                // Nothing of the real field may show: the boxes are the UI.
+                child: TextSelectionTheme(
+                  data: TextSelectionThemeData(
+                    cursorColor: invisible,
+                    selectionColor: invisible,
+                    selectionHandleColor: invisible,
+                  ),
+                  child: Semantics(
+                    label: semanticLabel,
+                    child: TextField(
+                      controller: controller,
+                      focusNode: focusNode,
+                      autofocus: autofocus,
+                      enabled: enabled,
+                      showCursor: false,
+                      cursorColor: invisible,
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      keyboardType: TextInputType.visiblePassword,
+                      textCapitalization: TextCapitalization.characters,
+                      textInputAction: TextInputAction.go,
+                      inputFormatters: const [_RoomCodeFormatter()],
+                      style: hidden,
+                      // Fill the boxes' full height so every pixel of them
+                      // is the field (taps anywhere focus it).
+                      expands: true,
+                      maxLines: null,
+                      decoration: _invisibleDecoration,
+                      onChanged: _handleChanged,
+                    ),
+                  ),
                 ),
               ),
             ),
