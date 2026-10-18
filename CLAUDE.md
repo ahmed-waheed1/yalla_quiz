@@ -115,7 +115,12 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - The harness (`test/helpers/pump_app.dart`) loads the real Cairo font so overflow checks match devices.
 
 ## Workflow
+- **Branch per task.** Do each task on its own branch. When `flutter analyze` and `flutter test` are both clean, merge it into `main` (`--no-ff`) and delete the branch without asking.
+- **Exception:** stop and ask before merging if the change touches the RTDB schema, `database.rules.json`, or dependencies (`pubspec.yaml`).
 - Run `flutter analyze` and `flutter test` after every step; both must be clean.
 - After changing freezed/json models: `dart run build_runner build`.
 - **Local Firebase.** Run `firebase emulators:start --only auth,database` (uses `database.rules.json`) and `flutter run --dart-define=YQ_EMULATOR=true`. For a physical device, add `--dart-define=YQ_EMULATOR_HOST=<your LAN IP>`.
 - Don't edit the designer's theme files or the generated Firebase config.
+
+## Later
+- **iOS swipe-back:** in-flow pushes should use `CupertinoPage` on iOS so the swipe-back gesture works (`CupertinoPage` is from `package:flutter/cupertino.dart`, not material_ui). This can't be tested on Linux; do it when a Mac is available.
