@@ -23,6 +23,10 @@ abstract class CreateRoomState with _$CreateRoomState {
     String? category,
     @Default(RoomRules.defaultQuestionCount) int questionCount,
     @Default(RoomRules.defaultTimePerQuestion) int timePerQuestion,
+
+    /// "Host on big screen" (true) or "I'll play too" (false); null until
+    /// the host picks, so the page can default by screen size.
+    bool? spectator,
     @Default(false) bool creating,
     Failure? failure,
 
@@ -98,12 +102,20 @@ class CreateRoomCubit extends Cubit<CreateRoomState> {
 
   void selectTimePerQuestion(int value) => emit(state.copyWith(timePerQuestion: value));
 
-  Future<void> create() async {
+  void selectSpectator(bool value) => emit(state.copyWith(spectator: value));
+
+  /// [bigScreen]: the default when the host hasn't picked (spectate on
+  /// tablets and desktops, play on phones).
+  Future<void> create({required bool bigScreen}) async {
     final settings = state.settings;
     final profile = _profiles.state;
     if (!state.canCreate || settings == null || profile == null) return;
     emit(state.copyWith(creating: true, failure: null));
-    final result = await _rooms.createRoom(settings: settings, profile: profile);
+    final result = await _rooms.createRoom(
+      settings: settings,
+      profile: profile,
+      spectator: state.spectator ?? bigScreen,
+    );
     if (isClosed) return;
     result.match(
       (failure) => emit(state.copyWith(creating: false, failure: failure)),

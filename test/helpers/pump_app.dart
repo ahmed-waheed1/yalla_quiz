@@ -10,7 +10,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yalla_quiz/core/di/injection.dart';
 import 'package:yalla_quiz/core/services/auth_service.dart';
+import 'package:yalla_quiz/core/services/clock.dart';
 import 'package:yalla_quiz/core/services/haptics.dart';
+import 'package:yalla_quiz/core/services/sound_service.dart';
 import 'package:yalla_quiz/core/theme/yq_theme.dart';
 import 'package:yalla_quiz/core/theme/yq_typography.dart';
 import 'package:yalla_quiz/features/game/domain/repositories/question_repository.dart';
@@ -21,6 +23,7 @@ import 'package:yalla_quiz/features/room/domain/repositories/room_repository.dar
 import 'package:yalla_quiz/features/settings/domain/repositories/settings_repository.dart';
 import 'package:yalla_quiz/features/settings/presentation/cubit/settings_cubit.dart';
 
+import 'fake_clock.dart';
 import 'fakes.dart';
 
 const Size kPhone = Size(375, 812);
@@ -51,17 +54,22 @@ void registerFakes({
   PlayerProfile? profile = kNour,
   FakeRoomRepository? rooms,
   FakeQuestionRepository? questions,
+  FakeClock? clock,
 }) {
   getIt.reset(dispose: false);
+  final fakeClock = clock ?? FakeClock();
   getIt
     ..registerSingleton<Haptics>(Haptics())
+    ..registerSingleton<SoundService>(SoundService()..enabled = false)
+    ..registerSingleton<Clock>(fakeClock)
+    ..registerSingleton<Scheduler>(fakeClock)
     ..registerSingleton<AuthService>(FakeAuthService())
     ..registerSingleton<ProfileRepository>(FakeProfileRepository(profile))
     ..registerSingleton<SettingsRepository>(FakeSettingsRepository())
     ..registerSingleton<QuestionRepository>(questions ?? FakeQuestionRepository())
     ..registerSingleton<RoomRepository>(rooms ?? FakeRoomRepository())
     ..registerSingleton<ProfileCubit>(ProfileCubit(getIt())..load())
-    ..registerSingleton<SettingsCubit>(SettingsCubit(getIt(), getIt()));
+    ..registerSingleton<SettingsCubit>(SettingsCubit(getIt(), getIt(), getIt()));
 }
 
 /// Collects every FlutterError (layout overflow, missing ancestors, …) so a

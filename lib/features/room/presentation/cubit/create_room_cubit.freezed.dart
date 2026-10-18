@@ -16,7 +16,9 @@ T _$identity<T>(T value) => value;
 mixin _$CreateRoomState {
 
  List<String> get categories;/// Questions available per category; counts above this are disabled.
- Map<String, int> get available; bool get loadingCategories; String? get category; int get questionCount; int get timePerQuestion; bool get creating; Failure? get failure;/// Set once the room exists; the page navigates to its lobby.
+ Map<String, int> get available; bool get loadingCategories; String? get category; int get questionCount; int get timePerQuestion;/// "Host on big screen" (true) or "I'll play too" (false); null until
+/// the host picks, so the page can default by screen size.
+ bool? get spectator; bool get creating; Failure? get failure;/// Set once the room exists; the page navigates to its lobby.
  String? get createdCode;
 /// Create a copy of CreateRoomState
 /// with the given fields replaced by the non-null parameter values.
@@ -29,20 +31,20 @@ $CreateRoomStateCopyWith<CreateRoomState> get copyWith => _$CreateRoomStateCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as CreateRoomState;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateRoomState&&const DeepCollectionEquality().equals(other.categories, _this.categories)&&const DeepCollectionEquality().equals(other.available, _this.available)&&(identical(other.loadingCategories, _this.loadingCategories) || other.loadingCategories == _this.loadingCategories)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.questionCount, _this.questionCount) || other.questionCount == _this.questionCount)&&(identical(other.timePerQuestion, _this.timePerQuestion) || other.timePerQuestion == _this.timePerQuestion)&&(identical(other.creating, _this.creating) || other.creating == _this.creating)&&(identical(other.failure, _this.failure) || other.failure == _this.failure)&&(identical(other.createdCode, _this.createdCode) || other.createdCode == _this.createdCode));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateRoomState&&const DeepCollectionEquality().equals(other.categories, _this.categories)&&const DeepCollectionEquality().equals(other.available, _this.available)&&(identical(other.loadingCategories, _this.loadingCategories) || other.loadingCategories == _this.loadingCategories)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.questionCount, _this.questionCount) || other.questionCount == _this.questionCount)&&(identical(other.timePerQuestion, _this.timePerQuestion) || other.timePerQuestion == _this.timePerQuestion)&&(identical(other.spectator, _this.spectator) || other.spectator == _this.spectator)&&(identical(other.creating, _this.creating) || other.creating == _this.creating)&&(identical(other.failure, _this.failure) || other.failure == _this.failure)&&(identical(other.createdCode, _this.createdCode) || other.createdCode == _this.createdCode));
 }
 
 
 @override
 int get hashCode {
   final _this = this as CreateRoomState;
-  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.categories),const DeepCollectionEquality().hash(_this.available),_this.loadingCategories,_this.category,_this.questionCount,_this.timePerQuestion,_this.creating,_this.failure,_this.createdCode);
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.categories),const DeepCollectionEquality().hash(_this.available),_this.loadingCategories,_this.category,_this.questionCount,_this.timePerQuestion,_this.spectator,_this.creating,_this.failure,_this.createdCode);
 }
 
 @override
 String toString() {
   final _this = this as CreateRoomState;
-  return 'CreateRoomState(categories: ${_this.categories}, available: ${_this.available}, loadingCategories: ${_this.loadingCategories}, category: ${_this.category}, questionCount: ${_this.questionCount}, timePerQuestion: ${_this.timePerQuestion}, creating: ${_this.creating}, failure: ${_this.failure}, createdCode: ${_this.createdCode})';
+  return 'CreateRoomState(categories: ${_this.categories}, available: ${_this.available}, loadingCategories: ${_this.loadingCategories}, category: ${_this.category}, questionCount: ${_this.questionCount}, timePerQuestion: ${_this.timePerQuestion}, spectator: ${_this.spectator}, creating: ${_this.creating}, failure: ${_this.failure}, createdCode: ${_this.createdCode})';
 }
 
 
@@ -53,7 +55,7 @@ abstract mixin class $CreateRoomStateCopyWith<$Res>  {
   factory $CreateRoomStateCopyWith(CreateRoomState value, $Res Function(CreateRoomState) _then) = _$CreateRoomStateCopyWithImpl;
 @useResult
 $Res call({
- List<String> categories, Map<String, int> available, bool loadingCategories, String? category, int questionCount, int timePerQuestion, bool creating, Failure? failure, String? createdCode
+ List<String> categories, Map<String, int> available, bool loadingCategories, String? category, int questionCount, int timePerQuestion, bool? spectator, bool creating, Failure? failure, String? createdCode
 });
 
 
@@ -70,7 +72,7 @@ class _$CreateRoomStateCopyWithImpl<$Res>
 
 /// Create a copy of CreateRoomState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? categories = null,Object? available = null,Object? loadingCategories = null,Object? category = freezed,Object? questionCount = null,Object? timePerQuestion = null,Object? creating = null,Object? failure = freezed,Object? createdCode = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? categories = null,Object? available = null,Object? loadingCategories = null,Object? category = freezed,Object? questionCount = null,Object? timePerQuestion = null,Object? spectator = freezed,Object? creating = null,Object? failure = freezed,Object? createdCode = freezed,}) {
   return _then(CreateRoomState(
 categories: null == categories ? _self.categories : categories // ignore: cast_nullable_to_non_nullable
 as List<String>,available: null == available ? _self.available : available // ignore: cast_nullable_to_non_nullable
@@ -78,7 +80,8 @@ as Map<String, int>,loadingCategories: null == loadingCategories ? _self.loading
 as bool,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,questionCount: null == questionCount ? _self.questionCount : questionCount // ignore: cast_nullable_to_non_nullable
 as int,timePerQuestion: null == timePerQuestion ? _self.timePerQuestion : timePerQuestion // ignore: cast_nullable_to_non_nullable
-as int,creating: null == creating ? _self.creating : creating // ignore: cast_nullable_to_non_nullable
+as int,spectator: freezed == spectator ? _self.spectator : spectator // ignore: cast_nullable_to_non_nullable
+as bool?,creating: null == creating ? _self.creating : creating // ignore: cast_nullable_to_non_nullable
 as bool,failure: freezed == failure ? _self.failure : failure // ignore: cast_nullable_to_non_nullable
 as Failure?,createdCode: freezed == createdCode ? _self.createdCode : createdCode // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -166,10 +169,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool creating,  Failure? failure,  String? createdCode)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool? spectator,  bool creating,  Failure? failure,  String? createdCode)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateRoomState() when $default != null:
-return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.creating,_that.failure,_that.createdCode);case _:
+return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.spectator,_that.creating,_that.failure,_that.createdCode);case _:
   return orElse();
 
 }
@@ -187,10 +190,10 @@ return $default(_that.categories,_that.available,_that.loadingCategories,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool creating,  Failure? failure,  String? createdCode)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool? spectator,  bool creating,  Failure? failure,  String? createdCode)  $default,) {final _that = this;
 switch (_that) {
 case _CreateRoomState():
-return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.creating,_that.failure,_that.createdCode);case _:
+return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.spectator,_that.creating,_that.failure,_that.createdCode);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +210,10 @@ return $default(_that.categories,_that.available,_that.loadingCategories,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool creating,  Failure? failure,  String? createdCode)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> categories,  Map<String, int> available,  bool loadingCategories,  String? category,  int questionCount,  int timePerQuestion,  bool? spectator,  bool creating,  Failure? failure,  String? createdCode)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateRoomState() when $default != null:
-return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.creating,_that.failure,_that.createdCode);case _:
+return $default(_that.categories,_that.available,_that.loadingCategories,_that.category,_that.questionCount,_that.timePerQuestion,_that.spectator,_that.creating,_that.failure,_that.createdCode);case _:
   return null;
 
 }
@@ -222,7 +225,7 @@ return $default(_that.categories,_that.available,_that.loadingCategories,_that.c
 
 
 class _CreateRoomState extends CreateRoomState {
-  const _CreateRoomState({ List<String> categories = const <String>[],  Map<String, int> available = const <String, int>{}, this.loadingCategories = true, this.category, this.questionCount = RoomRules.defaultQuestionCount, this.timePerQuestion = RoomRules.defaultTimePerQuestion, this.creating = false, this.failure, this.createdCode}): _categories = categories,_available = available,super._();
+  const _CreateRoomState({ List<String> categories = const <String>[],  Map<String, int> available = const <String, int>{}, this.loadingCategories = true, this.category, this.questionCount = RoomRules.defaultQuestionCount, this.timePerQuestion = RoomRules.defaultTimePerQuestion, this.spectator, this.creating = false, this.failure, this.createdCode}): _categories = categories,_available = available,super._();
   
 
  final  List<String> _categories;
@@ -245,6 +248,9 @@ class _CreateRoomState extends CreateRoomState {
 @override final  String? category;
 @override@JsonKey() final  int questionCount;
 @override@JsonKey() final  int timePerQuestion;
+/// "Host on big screen" (true) or "I'll play too" (false); null until
+/// the host picks, so the page can default by screen size.
+@override final  bool? spectator;
 @override@JsonKey() final  bool creating;
 @override final  Failure? failure;
 /// Set once the room exists; the page navigates to its lobby.
@@ -260,18 +266,18 @@ _$CreateRoomStateCopyWith<_CreateRoomState> get copyWith => __$CreateRoomStateCo
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateRoomState&&const DeepCollectionEquality().equals(other.categories, _categories)&&const DeepCollectionEquality().equals(other.available, _available)&&(identical(other.loadingCategories, loadingCategories) || other.loadingCategories == loadingCategories)&&(identical(other.category, category) || other.category == category)&&(identical(other.questionCount, questionCount) || other.questionCount == questionCount)&&(identical(other.timePerQuestion, timePerQuestion) || other.timePerQuestion == timePerQuestion)&&(identical(other.creating, creating) || other.creating == creating)&&(identical(other.failure, failure) || other.failure == failure)&&(identical(other.createdCode, createdCode) || other.createdCode == createdCode));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateRoomState&&const DeepCollectionEquality().equals(other.categories, _categories)&&const DeepCollectionEquality().equals(other.available, _available)&&(identical(other.loadingCategories, loadingCategories) || other.loadingCategories == loadingCategories)&&(identical(other.category, category) || other.category == category)&&(identical(other.questionCount, questionCount) || other.questionCount == questionCount)&&(identical(other.timePerQuestion, timePerQuestion) || other.timePerQuestion == timePerQuestion)&&(identical(other.spectator, spectator) || other.spectator == spectator)&&(identical(other.creating, creating) || other.creating == creating)&&(identical(other.failure, failure) || other.failure == failure)&&(identical(other.createdCode, createdCode) || other.createdCode == createdCode));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_categories),const DeepCollectionEquality().hash(_available),loadingCategories,category,questionCount,timePerQuestion,creating,failure,createdCode);
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_categories),const DeepCollectionEquality().hash(_available),loadingCategories,category,questionCount,timePerQuestion,spectator,creating,failure,createdCode);
 }
 
 @override
 String toString() {
-    return 'CreateRoomState(categories: $categories, available: $available, loadingCategories: $loadingCategories, category: $category, questionCount: $questionCount, timePerQuestion: $timePerQuestion, creating: $creating, failure: $failure, createdCode: $createdCode)';
+    return 'CreateRoomState(categories: $categories, available: $available, loadingCategories: $loadingCategories, category: $category, questionCount: $questionCount, timePerQuestion: $timePerQuestion, spectator: $spectator, creating: $creating, failure: $failure, createdCode: $createdCode)';
 }
 
 
@@ -282,7 +288,7 @@ abstract mixin class _$CreateRoomStateCopyWith<$Res> implements $CreateRoomState
   factory _$CreateRoomStateCopyWith(_CreateRoomState value, $Res Function(_CreateRoomState) _then) = __$CreateRoomStateCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> categories, Map<String, int> available, bool loadingCategories, String? category, int questionCount, int timePerQuestion, bool creating, Failure? failure, String? createdCode
+ List<String> categories, Map<String, int> available, bool loadingCategories, String? category, int questionCount, int timePerQuestion, bool? spectator, bool creating, Failure? failure, String? createdCode
 });
 
 
@@ -299,7 +305,7 @@ class __$CreateRoomStateCopyWithImpl<$Res>
 
 /// Create a copy of CreateRoomState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? categories = null,Object? available = null,Object? loadingCategories = null,Object? category = freezed,Object? questionCount = null,Object? timePerQuestion = null,Object? creating = null,Object? failure = freezed,Object? createdCode = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? categories = null,Object? available = null,Object? loadingCategories = null,Object? category = freezed,Object? questionCount = null,Object? timePerQuestion = null,Object? spectator = freezed,Object? creating = null,Object? failure = freezed,Object? createdCode = freezed,}) {
   return _then(_CreateRoomState(
 categories: null == categories ? _self._categories : categories // ignore: cast_nullable_to_non_nullable
 as List<String>,available: null == available ? _self._available : available // ignore: cast_nullable_to_non_nullable
@@ -307,7 +313,8 @@ as Map<String, int>,loadingCategories: null == loadingCategories ? _self.loading
 as bool,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
 as String?,questionCount: null == questionCount ? _self.questionCount : questionCount // ignore: cast_nullable_to_non_nullable
 as int,timePerQuestion: null == timePerQuestion ? _self.timePerQuestion : timePerQuestion // ignore: cast_nullable_to_non_nullable
-as int,creating: null == creating ? _self.creating : creating // ignore: cast_nullable_to_non_nullable
+as int,spectator: freezed == spectator ? _self.spectator : spectator // ignore: cast_nullable_to_non_nullable
+as bool?,creating: null == creating ? _self.creating : creating // ignore: cast_nullable_to_non_nullable
 as bool,failure: freezed == failure ? _self.failure : failure // ignore: cast_nullable_to_non_nullable
 as Failure?,createdCode: freezed == createdCode ? _self.createdCode : createdCode // ignore: cast_nullable_to_non_nullable
 as String?,

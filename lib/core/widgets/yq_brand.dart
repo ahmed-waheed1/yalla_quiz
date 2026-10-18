@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../gen/assets.gen.dart';
+import '../theme/yq_typography.dart';
 
 /// The speech-bubble brand mark (light/dark variants).
 class YqBrandMark extends StatelessWidget {
@@ -47,4 +48,32 @@ class YqHeroIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Center(child: YqBrandMark(size: height, onDark: true));
+}
+
+/// The Lalezar "Yalla!" / "يلا!" artwork for the countdown (07).
+///
+/// Placeholder: until the artwork is exported to `assets/images/`, this sets
+/// [label] in Cairo Black at the artwork's height. Swap the body here only.
+class YqYallaArtwork extends StatelessWidget {
+  const YqYallaArtwork({super.key, required this.label, required this.height, required this.color});
+
+  final String label;
+  final double height;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    height: height,
+    child: FittedBox(
+      child: Text(
+        label,
+        style: context.yqText.display.copyWith(
+          fontWeight: FontWeight.w900,
+          fontSize: height,
+          height: 1,
+          color: color,
+        ),
+      ),
+    ),
+  );
 }

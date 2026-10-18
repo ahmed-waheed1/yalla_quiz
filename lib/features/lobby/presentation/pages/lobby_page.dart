@@ -23,21 +23,39 @@ import '../../../../core/widgets/yq_pressable.dart';
 import '../../../../core/widgets/yq_scaffold.dart';
 import '../../../../core/widgets/yq_spinner.dart';
 import '../../../../core/widgets/yq_toast.dart';
+import '../../../game/presentation/cubit/game_cubit.dart';
+import '../../../game/presentation/game_feedback.dart';
+import '../../../game/presentation/pages/game_view.dart';
 import '../../../room/domain/entities/room.dart';
 import '../cubit/lobby_cubit.dart';
 import '../widgets/lobby_parts.dart';
 import '../widgets/player_grid.dart';
 import '../widgets/room_qr.dart';
 
-/// 06 Lobby (phone) and 15 host lobby (tablet / desktop).
+/// The room for its whole life: 06 Lobby (phone) / 15 host lobby (tablet,
+/// desktop), then the game (07–11, 16–19) once the host starts. [LobbyCubit]
+/// keeps the session (room, presence, host takeover); [GameCubit] the game.
 class LobbyPage extends StatelessWidget {
   const LobbyPage({super.key, required this.code});
 
   final String code;
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (_) => LobbyCubit(code: code, rooms: getIt(), haptics: getIt())..start(),
+  Widget build(BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (_) => LobbyCubit(code: code, rooms: getIt(), haptics: getIt())..start(),
+      ),
+      BlocProvider(
+        create: (_) => GameCubit(
+          code: code,
+          rooms: getIt(),
+          questions: getIt(),
+          clock: getIt(),
+          scheduler: getIt(),
+        ),
+      ),
+    ],
     child: const _LobbyView(),
   );
 }
@@ -52,7 +70,16 @@ class _LobbyView extends StatelessWidget {
       context.go(Routes.home);
       return;
     }
-    if (state.isHost) {
+    if (_inGame(state.room!, context.read<GameCubit>().state)) {
+      final confirmed = await showYqConfirm(
+        context,
+        title: 'game.leave_title'.tr(),
+        body: 'game.leave_body'.tr(),
+        confirmLabel: 'lobby.leave_confirm'.tr(),
+        cancelLabel: 'lobby.leave_cancel'.tr(),
+      );
+      if (!confirmed) return;
+    } else if (state.isHost) {
       final confirmed = await showYqConfirm(
         context,
         title: 'lobby.leave_title'.tr(),
@@ -65,10 +92,37 @@ class _LobbyView extends StatelessWidget {
     await cubit.leave();
   }
 
-  void _start(BuildContext context) => YqToast.show(context, 'common.coming_next'.tr());
+  void _start(BuildContext context) => context.read<GameCubit>().startGame();
+
+  /// Everything but the lobby, unless this player already tapped "Play
+  /// again" and is waiting there for the host.
+  static bool _inGame(Room room, GameState game) =>
+      room.status != RoomStatus.lobby && !(room.status == RoomStatus.finished && game.rematch);
 
   @override
   Widget build(BuildContext context) {
+    final feedback = GameFeedback(getIt(), getIt());
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<LobbyCubit, LobbyState>(
+          listenWhen: (a, b) => a.room != b.room || a.myUid != b.myUid,
+          listener: (context, state) {
+            final room = state.room;
+            final uid = state.myUid;
+            if (room != null && uid != null) context.read<GameCubit>().onRoom(room, uid);
+          },
+        ),
+        BlocListener<GameCubit, GameState>(
+          listenWhen: (a, b) => a.failureCount != b.failureCount,
+          listener: (context, state) => YqToast.show(context, failureMessage(state.failure!)),
+        ),
+      ],
+      child: _build(context, feedback),
+    );
+  }
+
+  Widget _build(BuildContext context, GameFeedback feedback) {
+    final game = context.watch<GameCubit>().state;
     return BlocConsumer<LobbyCubit, LobbyState>(
       listenWhen: (a, b) => a.status != b.status || a.promotedCount != b.promotedCount,
       listener: (context, state) {
@@ -90,6 +144,15 @@ class _LobbyView extends StatelessWidget {
         final Widget content;
         if (room == null || state.myUid == null) {
           content = const YqDotGridBackground(child: Center(child: YqSpinner()));
+        } else if (_inGame(room, game)) {
+          content = game.room == null
+              ? const YqDotGridBackground(child: Center(child: YqSpinner()))
+              : GameView(
+                  state: game,
+                  feedback: feedback,
+                  online: state.online,
+                  onHome: () => context.read<LobbyCubit>().leave(),
+                );
         } else {
           content = LayoutBuilder(
             builder: (context, constraints) {

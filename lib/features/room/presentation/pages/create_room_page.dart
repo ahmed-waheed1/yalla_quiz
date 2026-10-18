@@ -56,6 +56,7 @@ class _CreateRoomView extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<CreateRoomCubit>();
         final settings = state.settings;
+        final bigScreen = MediaQuery.sizeOf(context).width >= Breakpoints.tablet;
         return YqScaffold(
           appBar: YqAppBar.back(context, title: 'create.title'.tr()),
           body: Column(
@@ -97,6 +98,29 @@ class _CreateRoomView extends StatelessWidget {
                 ],
                 onChanged: cubit.selectTimePerQuestion,
               ),
+              const SizedBox(height: _sectionGap + YqSpace.x1),
+              Text('create.hosting'.tr(), style: sectionLabel),
+              const SizedBox(height: YqSpace.x3),
+              YqSegmented<bool>(
+                semanticLabel: 'create.hosting'.tr(),
+                value: state.spectator ?? bigScreen,
+                segments: [
+                  YqSegment(
+                    false,
+                    'create.host_plays'.tr(),
+                    icon: Icons.sports_esports_rounded,
+                  ),
+                  YqSegment(true, 'create.host_screen'.tr(), icon: Icons.tv_rounded),
+                ],
+                onChanged: cubit.selectSpectator,
+              ),
+              const SizedBox(height: YqSpace.x2),
+              Text(
+                (state.spectator ?? bigScreen)
+                    ? 'create.host_screen_hint'.tr()
+                    : 'create.host_plays_hint'.tr(),
+                style: t.caption.copyWith(fontWeight: FontWeight.w600, color: c.inkMuted),
+              ),
             ],
           ),
           bottom: Column(
@@ -120,7 +144,7 @@ class _CreateRoomView extends StatelessWidget {
               YqButton(
                 label: 'create.go'.tr(),
                 loading: state.creating,
-                onPressed: state.canCreate ? cubit.create : null,
+                onPressed: state.canCreate ? () => cubit.create(bigScreen: bigScreen) : null,
               ),
             ],
           ),

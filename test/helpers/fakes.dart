@@ -63,17 +63,30 @@ class FakeQuestionRepository implements QuestionRepository {
       Question(
         id: '${category}_$i',
         category: category,
-        en: const LocalizedQuestion(text: 'Q', options: ['a', 'b', 'c', 'd']),
-        ar: const LocalizedQuestion(text: 'س', options: ['أ', 'ب', 'ج', 'د']),
+        en: kSampleQuestionEn,
+        ar: kSampleQuestionAr,
         answer: 0,
       ),
   ]);
 }
 
+/// The design's sample question (Rabat is option 0 here).
+const kSampleQuestionEn = LocalizedQuestion(
+  text: "What's the capital of Morocco?",
+  options: ['Rabat', 'Casablanca', 'Marrakesh', 'Fez'],
+);
+const kSampleQuestionAr = LocalizedQuestion(
+  text: 'إيه عاصمة المغرب؟',
+  options: ['الرباط', 'الدار البيضاء', 'مراكش', 'فاس'],
+);
+
 class FakeRoomRepository implements RoomRepository {
-  FakeRoomRepository({this.room, this.joinFailure});
+  FakeRoomRepository({this.room, this.joinFailure, this.online = true});
 
   Room? room;
+
+  /// What `maintainPresence` reports.
+  final bool online;
 
   /// What `joinRoom` returns; null means success.
   Failure? joinFailure;
@@ -105,7 +118,7 @@ class FakeRoomRepository implements RoomRepository {
   @override
   Stream<bool> maintainPresence(String code) {
     final controller = StreamController<bool>();
-    controller.add(true);
+    controller.add(online);
     return controller.stream;
   }
 
