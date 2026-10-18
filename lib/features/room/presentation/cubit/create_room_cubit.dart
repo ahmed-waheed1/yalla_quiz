@@ -16,6 +16,9 @@ abstract class CreateRoomState with _$CreateRoomState {
 
   const factory CreateRoomState({
     @Default(<String>[]) List<String> categories,
+
+    /// Questions available per category; counts above this are disabled.
+    @Default(<String, int>{}) Map<String, int> available,
     @Default(true) bool loadingCategories,
     String? category,
     @Default(RoomRules.defaultQuestionCount) int questionCount,
@@ -35,7 +38,11 @@ abstract class CreateRoomState with _$CreateRoomState {
           timePerQuestion: timePerQuestion,
         );
 
-  bool get canCreate => !creating && category != null;
+  int get availableInCategory => category == null ? 0 : available[category] ?? 0;
+
+  bool isCountAllowed(int count) => count <= availableInCategory;
+
+  bool get canCreate => !creating && category != null && isCountAllowed(questionCount);
 }
 
 class CreateRoomCubit extends Cubit<CreateRoomState> {
@@ -48,21 +55,46 @@ class CreateRoomCubit extends Cubit<CreateRoomState> {
   Future<void> load() async {
     final result = await _questions.categories();
     if (isClosed) return;
-    result.match(
-      (failure) => emit(state.copyWith(loadingCategories: false, failure: failure)),
-      (categories) => emit(
-        state.copyWith(
-          loadingCategories: false,
-          categories: categories,
-          category: categories.isEmpty ? null : categories.first,
-        ),
+    final categories = result.match((failure) {
+      emit(state.copyWith(loadingCategories: false, failure: failure));
+      return null;
+    }, (c) => c);
+    if (categories == null) return;
+
+    final available = <String, int>{};
+    for (final id in categories) {
+      final questions = await _questions.questions(id);
+      available[id] = questions.match((_) => 0, (q) => q.length);
+    }
+    if (isClosed) return;
+    // Prefer "general" (the design default), else the first category.
+    final initial = categories.contains(_defaultCategory)
+        ? _defaultCategory
+        : (categories.isEmpty ? null : categories.first);
+    _emitFitted(
+      state.copyWith(
+        loadingCategories: false,
+        categories: categories,
+        available: available,
+        category: initial,
       ),
     );
   }
 
-  void selectCategory(String id) => emit(state.copyWith(category: id));
+  void selectCategory(String id) => _emitFitted(state.copyWith(category: id));
 
-  void selectQuestionCount(int value) => emit(state.copyWith(questionCount: value));
+  void selectQuestionCount(int value) {
+    if (state.isCountAllowed(value)) emit(state.copyWith(questionCount: value));
+  }
+
+  /// Drops the question count to the largest one the category can fill.
+  void _emitFitted(CreateRoomState next) {
+    if (next.isCountAllowed(next.questionCount)) return emit(next);
+    final fitting = RoomRules.questionCounts.where(next.isCountAllowed);
+    emit(fitting.isEmpty ? next : next.copyWith(questionCount: fitting.last));
+  }
+
+  static const String _defaultCategory = 'general';
 
   void selectTimePerQuestion(int value) => emit(state.copyWith(timePerQuestion: value));
 

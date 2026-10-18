@@ -50,6 +50,7 @@ Future<void> _loadCairo() async {
 void registerFakes({
   PlayerProfile? profile = kNour,
   FakeRoomRepository? rooms,
+  FakeQuestionRepository? questions,
 }) {
   getIt.reset(dispose: false);
   getIt
@@ -57,7 +58,7 @@ void registerFakes({
     ..registerSingleton<AuthService>(FakeAuthService())
     ..registerSingleton<ProfileRepository>(FakeProfileRepository(profile))
     ..registerSingleton<SettingsRepository>(FakeSettingsRepository())
-    ..registerSingleton<QuestionRepository>(FakeQuestionRepository())
+    ..registerSingleton<QuestionRepository>(questions ?? FakeQuestionRepository())
     ..registerSingleton<RoomRepository>(rooms ?? FakeRoomRepository())
     ..registerSingleton<ProfileCubit>(ProfileCubit(getIt())..load())
     ..registerSingleton<SettingsCubit>(SettingsCubit(getIt(), getIt()));
