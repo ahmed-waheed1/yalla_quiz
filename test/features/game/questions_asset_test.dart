@@ -56,4 +56,27 @@ void main() {
     final raw = jsonDecode(File('assets/questions/general.json').readAsStringSync()) as List;
     expect(raw, hasLength(30));
   });
+
+  test('geography has 50 questions with the correct answer spread across positions', () {
+    final raw = jsonDecode(File('assets/questions/geography.json').readAsStringSync()) as List;
+    expect(raw, hasLength(50));
+    final perPosition = List.filled(4, 0);
+    for (final q in raw) {
+      perPosition[(q as Map)['answer'] as int]++;
+    }
+    for (final n in perPosition) {
+      expect(n, inInclusiveRange(12, 13), reason: '$perPosition');
+    }
+  });
+
+  test('no question is repeated across categories', () {
+    final seen = <String, String>{};
+    for (final file in files) {
+      for (final q in jsonDecode(file.readAsStringSync()) as List) {
+        final text = ((q as Map)['en'] as Map)['q'] as String;
+        expect(seen.containsKey(text), isFalse, reason: '"$text" in ${seen[text]} and ${q['id']}');
+        seen[text] = q['id'] as String;
+      }
+    }
+  });
 }
