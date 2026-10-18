@@ -31,12 +31,12 @@ class YqPlayerTile extends StatelessWidget {
     this.avatarSize = 44,
     this.nameSize = 13,
     this.badgeSize = 22,
-  })  : avatarSeed = 0,
-        nameSuffix = null,
-        host = false,
-        you = false,
-        connected = true,
-        joining = true;
+  }) : avatarSeed = 0,
+       nameSuffix = null,
+       host = false,
+       you = false,
+       connected = true,
+       joining = true;
 
   final String name;
 
@@ -73,10 +73,7 @@ class YqPlayerTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: joining ? c.surface.withValues(alpha: 0.5) : c.surface,
         borderRadius: YqRadius.all(_radius),
-        border: Border.all(
-          color: you ? c.primary : c.line,
-          width: you ? 3 : (joining ? 2 : 1.5),
-        ),
+        border: Border.all(color: you ? c.primary : c.line, width: you ? 3 : (joining ? 2 : 1.5)),
       ),
       child: Stack(
         children: [
@@ -88,15 +85,7 @@ class YqPlayerTile extends StatelessWidget {
                     ? YqAvatar.ghost(size: avatarSize)
                     : YqAvatar(seed: avatarSeed, size: avatarSize),
                 SizedBox(height: avatarSize * 0.12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: Text(name, maxLines: 1, overflow: TextOverflow.ellipsis, style: nameStyle),
-                    ),
-                    if (nameSuffix != null) Text(nameSuffix!, maxLines: 1, style: nameStyle),
-                  ],
-                ),
+                _TileName(name: name, suffix: nameSuffix, style: nameStyle),
               ],
             ),
           ),
@@ -130,6 +119,64 @@ class YqPlayerTile extends StatelessWidget {
       opacity: connected ? 1 : _disconnectedOpacity,
       duration: YqMotion.fast,
       child: tile,
+    );
+  }
+}
+
+/// Name with an optional suffix (" (You)"). The name ellipsizes first so the
+/// suffix stays readable; if even the suffix can't fit, the whole label
+/// ellipsizes as one line instead of overflowing.
+class _TileName extends StatelessWidget {
+  const _TileName({required this.name, required this.suffix, required this.style});
+
+  final String name;
+  final String? suffix;
+  final TextStyle style;
+
+  /// The suffix may take at most this share of the width before falling back.
+  static const double _maxSuffixShare = 0.6;
+
+  @override
+  Widget build(BuildContext context) {
+    final suffix = this.suffix;
+    if (suffix == null) {
+      return Text(
+        name,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.center,
+        style: style,
+      );
+    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final painter = TextPainter(
+          text: TextSpan(text: suffix, style: style),
+          maxLines: 1,
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+        )..layout();
+        final suffixWidth = painter.width;
+        painter.dispose();
+        if (suffixWidth > constraints.maxWidth * _maxSuffixShare) {
+          return Text(
+            '$name$suffix',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: style,
+          );
+        }
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Text(name, maxLines: 1, overflow: TextOverflow.ellipsis, style: style),
+            ),
+            Text(suffix, maxLines: 1, style: style),
+          ],
+        );
+      },
     );
   }
 }
