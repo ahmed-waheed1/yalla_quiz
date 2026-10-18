@@ -151,13 +151,20 @@ class YqDeltaChip extends StatelessWidget {
   final double width;
   final double textSize;
 
+  /// How far the "down" text moves from `danger` toward `ink`: enough for
+  /// 4.5:1 on `dangerSoft` (4.72:1 in light), visually the same red.
+  static const double _downInkBlend = 0.05;
+
+  /// Text and arrow colour on the "down" chip.
+  static Color downColor(YqColors c) => Color.lerp(c.danger, c.ink, _downInkBlend)!;
+
   @override
   Widget build(BuildContext context) {
     final c = context.yqColors;
     final (Color fill, Color fg) = delta > 0
         ? (c.successSoft, c.success)
         : delta < 0
-        ? (c.dangerSoft, c.danger)
+        ? (c.dangerSoft, downColor(c))
         : (c.surfaceAlt, c.inkMuted);
     return Container(
       width: width,
