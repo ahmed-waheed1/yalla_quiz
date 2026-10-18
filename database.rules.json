@@ -49,11 +49,11 @@
         },
         "questionStartedAt": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
-          ".validate": "newData.isNumber() && newData.val() === now"
+          ".validate": "newData.isNumber() && newData.val() === now && newData.parent().child('status').val() === 'question' && data.parent().child('status').val() !== 'question'"
         },
         "phaseStartedAt": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
-          ".validate": "newData.isNumber() && newData.val() === now"
+          ".validate": "newData.isNumber() && newData.val() === now && newData.parent().child('status').val() !== data.parent().child('status').val()"
         },
 
         "players": {
