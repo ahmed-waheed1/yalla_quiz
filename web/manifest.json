@@ -1,11 +1,11 @@
 {
-    "name": "yalla_quiz",
-    "short_name": "yalla_quiz",
+    "name": "Yalla Quiz",
+    "short_name": "Yalla Quiz",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#1E0F3D",
     "theme_color": "#FF5A36",
-    "description": "A new Flutter project.",
+    "description": "Real-time multiplayer trivia. Play live with your friends.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
