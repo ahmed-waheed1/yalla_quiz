@@ -1,0 +1,13 @@
+{
+  "name": "yalla-quiz-e2e",
+  "private": true,
+  "description": "A full game in the Firebase emulators with three browser sessions.",
+  "type": "module",
+  "scripts": {
+    "build": "cd ../.. && flutter build web --release --dart-define=YQ_EMULATOR=true",
+    "test": "firebase emulators:exec --project yalla-quiz-8b2a9 --only auth,database --config ../../firebase.json \"node game.mjs\""
+  },
+  "devDependencies": {
+    "playwright-core": "1.48.2"
+  }
+}
