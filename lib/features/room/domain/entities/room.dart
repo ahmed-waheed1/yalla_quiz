@@ -35,7 +35,19 @@ abstract class RoomPlayer with _$RoomPlayer {
     @Default(0) int score,
     @Default(0) int streak,
     @Default(0) int lastPoints,
+
+    /// Hosts the game on a big screen: doesn't answer and isn't ranked.
+    @Default(false) bool spectator,
   }) = _RoomPlayer;
+}
+
+/// A player's pick for one question. [answeredAt] is a server timestamp.
+@freezed
+abstract class PlayerAnswer with _$PlayerAnswer {
+  const factory PlayerAnswer({
+    required int option,
+    required int answeredAt,
+  }) = _PlayerAnswer;
 }
 
 @freezed
@@ -55,6 +67,15 @@ abstract class Room with _$Room {
     @Default(0) int currentQuestionIndex,
     int? questionStartedAt,
     int? phaseStartedAt,
+
+    /// The last question whose scores were written; guards against scoring twice.
+    int? scoredQuestionIndex,
+
+    /// Every question id this room has played, so "Play again" avoids repeats.
+    @Default(<String>{}) Set<String> usedQuestionIds,
+
+    /// Question index → player uid → answer.
+    @Default(<int, Map<String, PlayerAnswer>>{}) Map<int, Map<String, PlayerAnswer>> answers,
   }) = _Room;
 
   RoomPlayer? player(String uid) {
@@ -70,5 +91,11 @@ abstract class Room with _$Room {
 
   bool get isFull => players.length >= settings.maxPlayers;
 
-  bool get canStart => players.length >= RoomRules.minPlayersToStart;
+  /// Players who answer and are ranked (everyone but a big-screen host).
+  List<RoomPlayer> get contestants => [for (final p in players) if (!p.spectator) p];
+
+  bool get canStart => contestants.length >= RoomRules.minPlayersToStart;
+
+  Map<String, PlayerAnswer> answersFor(int questionIndex) =>
+      answers[questionIndex] ?? const <String, PlayerAnswer>{};
 }

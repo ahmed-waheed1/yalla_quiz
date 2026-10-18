@@ -15,13 +15,13 @@
         },
         "status": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
-          ".validate": "newData.isString() && newData.val().matches(/^(lobby|countdown|question|reveal|leaderboard|finished)$/)"
+          ".validate": "newData.isString() && newData.val().matches(/^(lobby|countdown|question|reveal|leaderboard|finished)$/) && (!data.exists() || newData.val() === data.val() || (newData.val() === 'lobby' && newData.parent().child('currentQuestionIndex').val() === 0 && (data.val() === 'finished' || data.parent().child('createdAt').val() < now - 7200000)) || (data.val() === 'lobby' && newData.val() === 'countdown' && newData.parent().child('currentQuestionIndex').val() === 0 && newData.parent().child('questionIds').hasChild('' + (newData.parent().child('settings').child('questionCount').val() - 1)) && !newData.parent().child('questionIds').hasChild('' + newData.parent().child('settings').child('questionCount').val()) && newData.parent().child('phaseStartedAt').val() === now) || (data.val() === 'countdown' && newData.val() === 'question' && newData.parent().child('currentQuestionIndex').val() === 0 && newData.parent().child('questionStartedAt').val() === now && newData.parent().child('phaseStartedAt').val() === now) || (data.val() === 'question' && newData.val() === 'reveal' && newData.parent().child('currentQuestionIndex').val() === data.parent().child('currentQuestionIndex').val() && newData.parent().child('scoredQuestionIndex').val() === newData.parent().child('currentQuestionIndex').val() && data.parent().child('scoredQuestionIndex').val() !== data.parent().child('currentQuestionIndex').val() && newData.parent().child('phaseStartedAt').val() === now) || (data.val() === 'reveal' && newData.val() === 'leaderboard' && newData.parent().child('currentQuestionIndex').val() === data.parent().child('currentQuestionIndex').val() && newData.parent().child('currentQuestionIndex').val() + 1 < newData.parent().child('settings').child('questionCount').val() && newData.parent().child('phaseStartedAt').val() === now) || (data.val() === 'reveal' && newData.val() === 'finished' && newData.parent().child('currentQuestionIndex').val() === data.parent().child('currentQuestionIndex').val() && newData.parent().child('currentQuestionIndex').val() + 1 === newData.parent().child('settings').child('questionCount').val() && newData.parent().child('phaseStartedAt').val() === now) || (data.val() === 'leaderboard' && newData.val() === 'question' && newData.parent().child('currentQuestionIndex').val() === data.parent().child('currentQuestionIndex').val() + 1 && newData.parent().child('questionStartedAt').val() === now && newData.parent().child('phaseStartedAt').val() === now))"
         },
         "createdAt": {
           ".validate": "newData.isNumber() && (newData.val() === now || newData.val() === data.val())"
         },
         "settings": {
-          ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
+          ".write": "auth != null && data.parent().child('hostId').val() === auth.uid && data.parent().child('status').val() === 'lobby'",
           ".validate": "newData.hasChildren(['category', 'questionCount', 'timePerQuestion', 'maxPlayers'])",
           "category": { ".validate": "newData.isString() && newData.val().matches(/^[a-z0-9_]{1,32}$/)" },
           "questionCount": { ".validate": "newData.val() === 5 || newData.val() === 10 || newData.val() === 15" },
@@ -31,11 +31,21 @@
         },
         "questionIds": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
-          "$i": { ".validate": "newData.isString() && newData.val().length <= 64" }
+          ".validate": "data.parent().child('status').val() === 'lobby' && newData.parent().child('status').val() === 'countdown'",
+          "$i": { ".validate": "newData.isString() && newData.val().matches(/^[a-z0-9_]{1,64}$/)" }
+        },
+        "usedQuestionIds": {
+          ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
+          ".validate": "data.parent().child('status').val() === 'lobby' && newData.parent().child('status').val() === 'countdown'",
+          "$id": { ".validate": "$id.matches(/^[a-z0-9_]{1,64}$/) && newData.val() === true" }
         },
         "currentQuestionIndex": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
-          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() < 15"
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() < newData.parent().child('settings').child('questionCount').val() && (!data.exists() || newData.val() === data.val() || newData.parent().child('status').val() !== data.parent().child('status').val() || newData.parent().child('createdAt').val() !== data.parent().child('createdAt').val())"
+        },
+        "scoredQuestionIndex": {
+          ".write": "auth != null && data.parent().child('hostId').val() === auth.uid && (newData.exists() || newData.parent().child('status').val() === 'lobby' || newData.parent().child('status').val() === 'countdown')",
+          ".validate": "newData.isNumber() && newData.val() === newData.parent().child('currentQuestionIndex').val() && (!data.exists() || newData.val() > data.val()) && newData.parent().child('status').val() === 'reveal'"
         },
         "questionStartedAt": {
           ".write": "auth != null && data.parent().child('hostId').val() === auth.uid",
@@ -48,7 +58,7 @@
 
         "players": {
           "$uid": {
-            ".write": "auth != null && auth.uid === $uid && ((!data.exists() && newData.exists() && data.parent().parent().child('status').val() === 'lobby') || !newData.exists())",
+            ".write": "auth != null && ((auth.uid === $uid && ((!data.exists() && newData.exists() && data.parent().parent().child('status').val() === 'lobby') || !newData.exists())) || (!newData.exists() && data.child('connected').val() === false && data.parent().parent().child('hostId').val() === auth.uid && newData.parent().parent().child('status').val() === 'lobby'))",
             ".validate": "newData.hasChildren(['name', 'avatarSeed', 'joinedAt', 'connected', 'score'])",
 
             "name": {
@@ -63,12 +73,16 @@
               ".write": "auth != null && auth.uid === $uid",
               ".validate": "newData.isBoolean()"
             },
+            "spectator": {
+              ".write": "auth != null && auth.uid === $uid && root.child('rooms').child($code).child('status').val() === 'lobby'",
+              ".validate": "newData.isBoolean() && (newData.val() === false || newData.parent().parent().parent().child('hostId').val() === $uid)"
+            },
             "joinedAt": {
               ".validate": "newData.isNumber() && (data.exists() ? newData.val() === data.val() : newData.val() === now)"
             },
             "score": {
               ".write": "auth != null && root.child('rooms').child($code).child('hostId').val() === auth.uid",
-              ".validate": "newData.isNumber() && newData.val() >= 0 && (data.exists() || newData.val() === 0)"
+              ".validate": "newData.isNumber() && newData.val() >= 0 && ((!data.exists() && newData.val() === 0) || (newData.val() === 0 && (newData.parent().parent().parent().child('status').val() === 'lobby' || newData.parent().parent().parent().child('status').val() === 'countdown')) || (newData.val() === data.val() + newData.parent().child('lastPoints').val() && newData.parent().parent().parent().child('scoredQuestionIndex').val() !== data.parent().parent().parent().child('scoredQuestionIndex').val()))"
             },
             "streak": {
               ".write": "auth != null && root.child('rooms').child($code).child('hostId').val() === auth.uid",
@@ -83,9 +97,10 @@
         },
 
         "answers": {
+          ".write": "auth != null && !newData.exists() && data.parent().child('hostId').val() === auth.uid",
           "$q": {
             "$uid": {
-              ".write": "auth != null && auth.uid === $uid && !data.exists() && newData.exists() && root.child('rooms').child($code).child('players').child($uid).exists() && root.child('rooms').child($code).child('status').val() === 'question' && '' + root.child('rooms').child($code).child('currentQuestionIndex').val() === $q && now <= root.child('rooms').child($code).child('questionStartedAt').val() + root.child('rooms').child($code).child('settings').child('timePerQuestion').val() * 1000 + 1000",
+              ".write": "auth != null && auth.uid === $uid && !data.exists() && newData.exists() && root.child('rooms').child($code).child('players').child($uid).exists() && root.child('rooms').child($code).child('players').child($uid).child('spectator').val() !== true && root.child('rooms').child($code).child('status').val() === 'question' && '' + root.child('rooms').child($code).child('currentQuestionIndex').val() === $q && now <= root.child('rooms').child($code).child('questionStartedAt').val() + root.child('rooms').child($code).child('settings').child('timePerQuestion').val() * 1000 + 1000",
               ".validate": "newData.hasChildren(['option', 'answeredAt'])",
               "option": { ".validate": "newData.isNumber() && (newData.val() === 0 || newData.val() === 1 || newData.val() === 2 || newData.val() === 3)" },
               "answeredAt": { ".validate": "newData.isNumber() && newData.val() === now" },

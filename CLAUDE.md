@@ -64,14 +64,19 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
   createdAt: server timestamp
   settings: { category, questionCount: 5|10|15, timePerQuestion: 10|15|20, maxPlayers: 8 }
   questionIds: [questionId, ...]          host picks at game start; clients read the bundled asset by id
+  usedQuestionIds/{questionId}: true      every id this room has played; "Play again" avoids them
   currentQuestionIndex: int
+  scoredQuestionIndex: int                last question whose scores were written (scoring guard)
   questionStartedAt: server timestamp     timer source of truth
   phaseStartedAt: server timestamp        countdown / reveal / leaderboard timing
   players/{uid}
     name (1–12), avatarSeed (0–7), joinedAt (server ts), connected   ← written by the player
+    spectator                                                         ← the host only, in the lobby
     score, streak, lastPoints                                         ← written by the host only
   answers/{qIndex}/{uid}: { option: 0–3, answeredAt: server timestamp }
 ```
+- **Spectator host.** A host who chose "Host on big screen" has `spectator: true`: they can't answer and are left out of early advance, the leaderboard, the podium and the "2+ players to start" count (`Room.contestants`).
+- **Answers** stay for the whole game (vote counts, fastest player) and are cleared when a game starts or restarts. RTDB returns `answers` as a list when the question keys are dense; `RoomModel` handles both shapes.
 - **No question language in the room.** Every question has `en` and `ar`, and each player sees their own app language (`context.locale`), so mixed-language rooms work.
 - **Profile is local.** Name and avatar live on the device in shared_preferences, not in RTDB.
 - **Question files.** `assets/questions/<category>.json` is a list of `{ "id", "en": { "q", "options": [4] }, "ar": { "q", "options": [4] }, "answer": 0–3 }`. The available categories are the files listed in the asset manifest.
@@ -85,12 +90,16 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - **Rejoining.** An existing player can rejoin at any status by setting `connected: true`, and keeps their score.
 - **Leaving.** A player can delete their own node.
 - **`hostId` changes.** The current host can hand over to an existing player. Any player can claim host when the current host's node is gone or has `connected == false`.
+- **Phases.** `status` only moves lobby → countdown → question → reveal → leaderboard → question … and reveal → finished on the last question, then finished → lobby ("Play again"). Every change needs a fresh `phaseStartedAt` (and `questionStartedAt` when entering a question). Countdown needs exactly `questionCount` `questionIds` and index 0; leaderboard → question needs index + 1. `currentQuestionIndex` only changes with a status change. `questionIds`/`usedQuestionIds` only change on lobby → countdown; `settings` only in the lobby.
+- **Scoring (idempotent).** question → reveal must set `scoredQuestionIndex = currentQuestionIndex` in the same write, and `scoredQuestionIndex` only ever increases, so a question can be scored once. Each `score` must be its old value + the new `lastPoints`, in a write that moves `scoredQuestionIndex`, or 0 when the status becomes lobby/countdown.
+- **Play again.** The host may delete players with `connected == false` in the write that returns to the lobby, and may delete the whole `answers` node (never single answers).
 - **Answers.** `answers/$q/$uid` is accepted only when all of these hold:
-  - it's written by that uid, who is a player, and no answer exists yet (one per player);
+  - it's written by that uid, who is a non-spectator player, and no answer exists yet (one per player);
   - `status == 'question'` and `$q == currentQuestionIndex`;
   - `answeredAt == now`;
   - `now <= questionStartedAt + timePerQuestion*1000 + 1000` (1 s grace; scoring floors `timeLeft` at 0).
 - **Validation.** Unknown fields are rejected everywhere.
+- **Tests.** `cd test/rules && npm install && npm test` runs `test/rules/rooms.test.js` against the RTDB emulator. Add a case for every rule change.
 - **Client-side checks.** The 8-player cap is checked when joining; a rare race can let a 9th player in, which is accepted. The answer key ships in the bundled assets, which is also accepted for now.
 
 ### Presence and host takeover
@@ -124,4 +133,5 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 - Don't edit the designer's theme files or the generated Firebase config.
 
 ## Later
+- **Answer privacy:** players can read `answers/` during a question, so a technical player could see others' picks. Accepted for a casual game; move answers server-side with Cloud Functions on Blaze.
 - **iOS swipe-back:** in-flow pushes should use `CupertinoPage` on iOS so the swipe-back gesture works (`CupertinoPage` is from `package:flutter/cupertino.dart`, not material_ui). This can't be tested on Linux; do it when a Mac is available.

@@ -30,6 +30,7 @@ _PlayerModel _$PlayerModelFromJson(Map<String, dynamic> json) => _PlayerModel(
   score: (json['score'] as num?)?.toInt() ?? 0,
   streak: (json['streak'] as num?)?.toInt() ?? 0,
   lastPoints: (json['lastPoints'] as num?)?.toInt() ?? 0,
+  spectator: json['spectator'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$PlayerModelToJson(_PlayerModel instance) =>
@@ -41,6 +42,18 @@ Map<String, dynamic> _$PlayerModelToJson(_PlayerModel instance) =>
       'score': instance.score,
       'streak': instance.streak,
       'lastPoints': instance.lastPoints,
+      'spectator': instance.spectator,
+    };
+
+_AnswerModel _$AnswerModelFromJson(Map<String, dynamic> json) => _AnswerModel(
+  option: (json['option'] as num).toInt(),
+  answeredAt: (json['answeredAt'] as num).toInt(),
+);
+
+Map<String, dynamic> _$AnswerModelToJson(_AnswerModel instance) =>
+    <String, dynamic>{
+      'option': instance.option,
+      'answeredAt': instance.answeredAt,
     };
 
 _RoomModel _$RoomModelFromJson(Map<String, dynamic> json) => _RoomModel(
@@ -67,6 +80,13 @@ _RoomModel _$RoomModelFromJson(Map<String, dynamic> json) => _RoomModel(
   currentQuestionIndex: (json['currentQuestionIndex'] as num?)?.toInt() ?? 0,
   questionStartedAt: (json['questionStartedAt'] as num?)?.toInt(),
   phaseStartedAt: (json['phaseStartedAt'] as num?)?.toInt(),
+  scoredQuestionIndex: (json['scoredQuestionIndex'] as num?)?.toInt(),
+  usedQuestionIds: json['usedQuestionIds'] == null
+      ? const <String>{}
+      : _usedIdsFromJson(json['usedQuestionIds']),
+  answers: json['answers'] == null
+      ? const <int, Map<String, AnswerModel>>{}
+      : _answersFromJson(json['answers']),
 );
 
 Map<String, dynamic> _$RoomModelToJson(_RoomModel instance) =>
@@ -80,6 +100,9 @@ Map<String, dynamic> _$RoomModelToJson(_RoomModel instance) =>
       'currentQuestionIndex': instance.currentQuestionIndex,
       'questionStartedAt': instance.questionStartedAt,
       'phaseStartedAt': instance.phaseStartedAt,
+      'scoredQuestionIndex': instance.scoredQuestionIndex,
+      'usedQuestionIds': _usedIdsToJson(instance.usedQuestionIds),
+      'answers': _answersToJson(instance.answers),
     };
 
 const _$RoomStatusEnumMap = {
