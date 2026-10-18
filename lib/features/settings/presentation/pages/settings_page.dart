@@ -13,6 +13,7 @@ import '../../../../core/widgets/yq_avatar.dart';
 import '../../../../core/widgets/yq_card.dart';
 import '../../../../core/widgets/yq_scaffold.dart';
 import '../../../../core/widgets/yq_segmented.dart';
+import '../../../../core/widgets/yq_switch.dart';
 import '../../../profile/presentation/cubit/profile_cubit.dart';
 import '../../domain/entities/app_settings.dart';
 import '../cubit/settings_cubit.dart';
@@ -179,7 +180,7 @@ class _ToggleRow extends StatelessWidget {
                 ],
               ),
             ),
-            Switch(value: value, onChanged: onChanged),
+            YqSwitch(value: value, onChanged: onChanged),
           ],
         ),
       ),

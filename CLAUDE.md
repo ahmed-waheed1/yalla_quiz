@@ -102,6 +102,7 @@ rooms/{code}                     code: 6 chars, A–Z and 2–9 without O/0, I/1
 ## UI conventions
 - Screens use `YqScaffold` (dot grid, x14 top inset, gutter, bottom actions pinned below scrolling content). Phone-style screens are centred at 480 wide on tablet and desktop. Lobby switches to the host big-screen layout (spec 15) at ≥ 600.
 - Component dimensions from `screens.md` that aren't tokens (e.g. tile 92, segment radius 14) are named constants inside the component, never inline magic numbers in screens.
+- Toggles use `YqSwitch` (the "on" thumb is `surface` for contrast in dark).
 - Avatar artwork data is in `lib/core/theme/yq_avatar_palette.dart` (extracted from the design source); category colours are in `features/room/presentation/widgets/category_style.dart`.
 - **Placeholders.** `YqWordmark` and `YqHeroIllustration` (`core/widgets/yq_brand.dart`) show the brand mark until the Lalezar wordmark and the hero SVG land in `assets/images/`; swap them there only. The splash shows no wordmark until then.
 - **Image assets.** Use the generated `Assets` (`lib/gen/assets.gen.dart`, flutter_gen) for image files.
