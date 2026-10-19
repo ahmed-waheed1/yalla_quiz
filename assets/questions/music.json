@@ -1,0 +1,302 @@
+[
+  {
+    "id": "music_001",
+    "en": { "q": "Who was nicknamed \"Kawkab al-Sharq\" (Star of the East)?", "options": ["Asmahan", "Laila Mourad", "Fairuz", "Umm Kulthum"] },
+    "ar": { "q": "مين اللي اتلقبت بـ\"كوكب الشرق\"؟", "options": ["أسمهان", "ليلى مراد", "فيروز", "أم كلثوم"] },
+    "answer": 3
+  },
+  {
+    "id": "music_002",
+    "en": { "q": "Which singer is known as \"Jarat al-Qamar\" (the Moon's Neighbour)?", "options": ["Sabah", "Fairuz", "Majida El Roumi", "Warda"] },
+    "ar": { "q": "مين المطربة اللي اتلقبت بـ\"جارة القمر\"؟", "options": ["صباح", "فيروز", "ماجدة الرومي", "وردة"] },
+    "answer": 1
+  },
+  {
+    "id": "music_003",
+    "en": { "q": "Who was nicknamed \"Al-Andaleeb Al-Asmar\" (the Dark Nightingale)?", "options": ["Abdel Halim Hafez", "Farid al-Atrash", "Mohamed Fawzi", "Mohamed Abdel Wahab"] },
+    "ar": { "q": "مين اللي اتلقب بـ\"العندليب الأسمر\"؟", "options": ["عبد الحليم حافظ", "فريد الأطرش", "محمد فوزي", "محمد عبد الوهاب"] },
+    "answer": 0
+  },
+  {
+    "id": "music_004",
+    "en": { "q": "What kind of instrument is the oud?", "options": ["A wind instrument", "A percussion instrument", "A keyboard instrument", "A string instrument"] },
+    "ar": { "q": "العود نوعه إيه من الآلات؟", "options": ["آلة نفخ", "آلة إيقاع", "آلة بمفاتيح", "آلة وترية"] },
+    "answer": 3
+  },
+  {
+    "id": "music_005",
+    "en": { "q": "What kind of instrument is the ney?", "options": ["A percussion instrument", "A wind instrument", "A string instrument", "A keyboard instrument"] },
+    "ar": { "q": "الناي نوعه إيه من الآلات؟", "options": ["آلة إيقاع", "آلة نفخ", "آلة وترية", "آلة بمفاتيح"] },
+    "answer": 1
+  },
+  {
+    "id": "music_006",
+    "en": { "q": "How is the tabla (darbuka) played?", "options": ["With a bow", "By blowing into it", "Struck with the hands", "With a plectrum"] },
+    "ar": { "q": "الطبلة بتتعزف إزاي؟", "options": ["بالقوس", "بالنفخ", "بالخبط بالإيد", "بالريشة"] },
+    "answer": 2
+  },
+  {
+    "id": "music_007",
+    "en": { "q": "Which Egyptian singer is nicknamed \"El-Hadaba\" (the Plateau)?", "options": ["Mohamed Mounir", "Hany Shaker", "Amr Diab", "Ehab Tawfik"] },
+    "ar": { "q": "مين المطرب المصري اللي اتلقب بـ\"الهضبة\"؟", "options": ["محمد منير", "هاني شاكر", "عمرو دياب", "إيهاب توفيق"] },
+    "answer": 2
+  },
+  {
+    "id": "music_008",
+    "en": { "q": "Who first sang \"Enta Omri\" (1964)?", "options": ["Warda", "Umm Kulthum", "Najat Al Saghira", "Fayza Ahmed"] },
+    "ar": { "q": "مين أول من غنّى \"إنت عمري\" (1964)؟", "options": ["وردة", "أم كلثوم", "نجاة الصغيرة", "فايزة أحمد"] },
+    "answer": 1
+  },
+  {
+    "id": "music_009",
+    "en": { "q": "Who first sang \"Batwanes Beek\"?", "options": ["Warda", "Najat Al Saghira", "Mayada El Hennawy", "Latifa"] },
+    "ar": { "q": "مين أول من غنّى \"بتونس بيك\"؟", "options": ["وردة", "نجاة الصغيرة", "ميادة الحناوي", "لطيفة"] },
+    "answer": 0
+  },
+  {
+    "id": "music_010",
+    "en": { "q": "Which Egyptian singer is nicknamed \"El-King\"?", "options": ["Amr Diab", "Ali El-Haggar", "Hany Shaker", "Mohamed Mounir"] },
+    "ar": { "q": "مين المطرب المصري اللي اتلقب بـ\"الكينج\"؟", "options": ["عمرو دياب", "علي الحجار", "هاني شاكر", "محمد منير"] },
+    "answer": 3
+  },
+  {
+    "id": "music_011",
+    "en": { "q": "Which country is the singer Latifa from?", "options": ["Morocco", "Algeria", "Lebanon", "Tunisia"] },
+    "ar": { "q": "المطربة لطيفة من أنهي دولة؟", "options": ["المغرب", "الجزائر", "لبنان", "تونس"] },
+    "answer": 3
+  },
+  {
+    "id": "music_012",
+    "en": { "q": "Which singer is nicknamed \"Sultan al-Tarab\"?", "options": ["Wadih El Safi", "George Wassouf", "Assi El Hallani", "Melhem Barakat"] },
+    "ar": { "q": "مين المطرب اللي اتلقب بـ\"سلطان الطرب\"؟", "options": ["وديع الصافي", "جورج وسوف", "عاصي الحلاني", "ملحم بركات"] },
+    "answer": 1
+  },
+  {
+    "id": "music_013",
+    "en": { "q": "Which country was Wadih El Safi from?", "options": ["Syria", "Lebanon", "Palestine", "Jordan"] },
+    "ar": { "q": "وديع الصافي كان من أنهي دولة؟", "options": ["سوريا", "لبنان", "فلسطين", "الأردن"] },
+    "answer": 1
+  },
+  {
+    "id": "music_014",
+    "en": { "q": "Which country is Kadim Al Sahir from?", "options": ["Syria", "Lebanon", "Iraq", "Kuwait"] },
+    "ar": { "q": "كاظم الساهر من أنهي دولة؟", "options": ["سوريا", "لبنان", "العراق", "الكويت"] },
+    "answer": 2
+  },
+  {
+    "id": "music_015",
+    "en": { "q": "Which country is the singer Mohammed Abdu from?", "options": ["Saudi Arabia", "Kuwait", "The UAE", "Bahrain"] },
+    "ar": { "q": "المطرب محمد عبده من أنهي دولة؟", "options": ["السعودية", "الكويت", "الإمارات", "البحرين"] },
+    "answer": 0
+  },
+  {
+    "id": "music_016",
+    "en": { "q": "Who was nicknamed \"Mousiqar El-Agyal\" (the Musician of the Generations)?", "options": ["Baligh Hamdi", "Mohamed Abdel Wahab", "Riad Al Sunbati", "Sayed Darwish"] },
+    "ar": { "q": "مين اللي اتلقب بـ\"موسيقار الأجيال\"؟", "options": ["بليغ حمدي", "محمد عبد الوهاب", "رياض السنباطي", "سيد درويش"] },
+    "answer": 1
+  },
+  {
+    "id": "music_017",
+    "en": { "q": "How is the qanun played?", "options": ["Played with a bow", "Struck with hammers", "Pressed with keys", "Plucked with finger picks"] },
+    "ar": { "q": "القانون بيتعزف إزاي؟", "options": ["بالقوس", "بمطارق", "بمفاتيح", "بريش في الصوابع"] },
+    "answer": 3
+  },
+  {
+    "id": "music_018",
+    "en": { "q": "Who was nicknamed \"Fannan El-Shaab\" (the People's Artist)?", "options": ["Sayed Darwish", "Mohamed Abdel Wahab", "Baligh Hamdi", "Riad Al Sunbati"] },
+    "ar": { "q": "مين اللي اتلقب بـ\"فنان الشعب\"؟", "options": ["سيد درويش", "محمد عبد الوهاب", "بليغ حمدي", "رياض السنباطي"] },
+    "answer": 0
+  },
+  {
+    "id": "music_019",
+    "en": { "q": "Which city was the singer Sabah Fakhri from?", "options": ["Aleppo", "Damascus", "Homs", "Latakia"] },
+    "ar": { "q": "المطرب صباح فخري كان من أنهي مدينة؟", "options": ["حلب", "دمشق", "حمص", "اللاذقية"] },
+    "answer": 0
+  },
+  {
+    "id": "music_020",
+    "en": { "q": "Who first sang \"Ya Bint El Sultan\"?", "options": ["Hakim", "Shaaban Abdel Rahim", "Ahmed Adaweya", "Mohamed Rushdi"] },
+    "ar": { "q": "مين أول من غنّى \"يا بنت السلطان\"؟", "options": ["حكيم", "شعبان عبد الرحيم", "أحمد عدوية", "محمد رشدي"] },
+    "answer": 2
+  },
+  {
+    "id": "music_021",
+    "en": { "q": "Who sang \"Thriller\"?", "options": ["Michael Jackson", "Prince", "Lionel Richie", "Stevie Wonder"] },
+    "ar": { "q": "مين غنّى \"Thriller\"؟", "options": ["مايكل جاكسون", "برنس", "ليونيل ريتشي", "ستيفي وندر"] },
+    "answer": 0
+  },
+  {
+    "id": "music_022",
+    "en": { "q": "Which band was John Lennon in?", "options": ["The Rolling Stones", "The Who", "Queen", "The Beatles"] },
+    "ar": { "q": "جون لينون كان في أنهي فرقة؟", "options": ["رولينج ستونز", "ذا هو", "كوين", "البيتلز"] },
+    "answer": 3
+  },
+  {
+    "id": "music_023",
+    "en": { "q": "How many strings does a standard guitar have?", "options": ["4", "5", "7", "6"] },
+    "ar": { "q": "الجيتار العادي فيه كام وتر؟", "options": ["4", "5", "7", "6"] },
+    "answer": 3
+  },
+  {
+    "id": "music_024",
+    "en": { "q": "Who composed \"Für Elise\"?", "options": ["Mozart", "Bach", "Beethoven", "Chopin"] },
+    "ar": { "q": "مين ألّف مقطوعة \"إلى إليز\"؟", "options": ["موتسارت", "باخ", "بيتهوفن", "شوبان"] },
+    "answer": 2
+  },
+  {
+    "id": "music_025",
+    "en": { "q": "Freddie Mercury was the lead singer of which band?", "options": ["The Beatles", "Queen", "Led Zeppelin", "The Rolling Stones"] },
+    "ar": { "q": "فريدي ميركوري كان المغني الرئيسي لأنهي فرقة؟", "options": ["البيتلز", "كوين", "ليد زيبلين", "رولينج ستونز"] },
+    "answer": 1
+  },
+  {
+    "id": "music_026",
+    "en": { "q": "Who is known as \"the King of Rock and Roll\"?", "options": ["Elvis Presley", "Chuck Berry", "Little Richard", "Buddy Holly"] },
+    "ar": { "q": "مين اللي اتلقب بـ\"ملك الروك آند رول\"؟", "options": ["إلفيس بريسلي", "تشاك بيري", "ليتل ريتشارد", "بادي هولي"] },
+    "answer": 0
+  },
+  {
+    "id": "music_027",
+    "en": { "q": "Which country is the band ABBA from?", "options": ["Norway", "Denmark", "Sweden", "Finland"] },
+    "ar": { "q": "فرقة آبا من أنهي دولة؟", "options": ["النرويج", "الدنمارك", "السويد", "فنلندا"] },
+    "answer": 2
+  },
+  {
+    "id": "music_028",
+    "en": { "q": "Bob Marley is famous for which kind of music?", "options": ["Jazz", "Blues", "Country", "Reggae"] },
+    "ar": { "q": "بوب مارلي مشهور بأنهي نوع موسيقى؟", "options": ["الجاز", "البلوز", "الكانتري", "الريجي"] },
+    "answer": 3
+  },
+  {
+    "id": "music_029",
+    "en": { "q": "Who composed \"The Four Seasons\"?", "options": ["Bach", "Handel", "Vivaldi", "Haydn"] },
+    "ar": { "q": "مين ألّف \"الفصول الأربعة\"؟", "options": ["باخ", "هاندل", "فيفالدي", "هايدن"] },
+    "answer": 2
+  },
+  {
+    "id": "music_030",
+    "en": { "q": "Which family of instruments does the violin belong to?", "options": ["Woodwind", "Strings", "Brass", "Percussion"] },
+    "ar": { "q": "الكمنجة من أنهي عيلة آلات؟", "options": ["آلات النفخ الخشبية", "الوتريات", "آلات النفخ النحاسية", "آلات الإيقاع"] },
+    "answer": 1
+  },
+  {
+    "id": "music_031",
+    "en": { "q": "Who sang \"Rolling in the Deep\"?", "options": ["Adele", "Amy Winehouse", "Duffy", "Lady Gaga"] },
+    "ar": { "q": "مين غنّت \"Rolling in the Deep\"؟", "options": ["أديل", "إيمي واينهاوس", "دافي", "ليدي جاجا"] },
+    "answer": 0
+  },
+  {
+    "id": "music_032",
+    "en": { "q": "Which instrument did Jimi Hendrix play?", "options": ["Drums", "Bass guitar", "Electric guitar", "Saxophone"] },
+    "ar": { "q": "جيمي هندريكس كان بيعزف على أنهي آلة؟", "options": ["الدرامز", "الباص جيتار", "الجيتار الكهربا", "الساكسفون"] },
+    "answer": 2
+  },
+  {
+    "id": "music_033",
+    "en": { "q": "Who sang \"Hips Don't Lie\"?", "options": ["Jennifer Lopez", "Beyoncé", "Rihanna", "Shakira"] },
+    "ar": { "q": "مين غنّت \"Hips Don't Lie\"؟", "options": ["جينيفر لوبيز", "بيونسيه", "ريهانا", "شاكيرا"] },
+    "answer": 3
+  },
+  {
+    "id": "music_034",
+    "en": { "q": "In which city was Mozart born?", "options": ["Vienna", "Salzburg", "Prague", "Munich"] },
+    "ar": { "q": "موتسارت اتولد في أنهي مدينة؟", "options": ["فيينا", "سالزبورج", "براغ", "ميونخ"] },
+    "answer": 1
+  },
+  {
+    "id": "music_035",
+    "en": { "q": "Who composed the ballet \"The Nutcracker\"?", "options": ["Tchaikovsky", "Rimsky-Korsakov", "Prokofiev", "Stravinsky"] },
+    "ar": { "q": "مين ألّف باليه \"كسارة البندق\"؟", "options": ["تشايكوفسكي", "ريمسكي كورساكوف", "بروكوفييف", "سترافينسكي"] },
+    "answer": 0
+  },
+  {
+    "id": "music_036",
+    "en": { "q": "In which city was Beethoven born?", "options": ["Vienna", "Bonn", "Berlin", "Hamburg"] },
+    "ar": { "q": "بيتهوفن اتولد في أنهي مدينة؟", "options": ["فيينا", "بون", "برلين", "هامبورج"] },
+    "answer": 1
+  },
+  {
+    "id": "music_037",
+    "en": { "q": "Which band released the album \"The Dark Side of the Moon\" (1973)?", "options": ["Led Zeppelin", "Genesis", "Pink Floyd", "Deep Purple"] },
+    "ar": { "q": "أنهي فرقة أصدرت ألبوم \"The Dark Side of the Moon\" (1973)؟", "options": ["ليد زيبلين", "جينيسيس", "بينك فلويد", "ديب بربل"] },
+    "answer": 2
+  },
+  {
+    "id": "music_038",
+    "en": { "q": "Which instrument is Yo-Yo Ma famous for?", "options": ["Violin", "Piano", "Viola", "Cello"] },
+    "ar": { "q": "يو-يو ما مشهور بالعزف على أنهي آلة؟", "options": ["الكمنجة", "البيانو", "الفيولا", "التشيلو"] },
+    "answer": 3
+  },
+  {
+    "id": "music_039",
+    "en": { "q": "Who sang \"Like a Prayer\" (1989)?", "options": ["Cyndi Lauper", "Whitney Houston", "Madonna", "Janet Jackson"] },
+    "ar": { "q": "مين غنّت \"Like a Prayer\" (1989)؟", "options": ["سيندي لوبر", "ويتني هيوستن", "مادونا", "جانيت جاكسون"] },
+    "answer": 2
+  },
+  {
+    "id": "music_040",
+    "en": { "q": "Who has been the Rolling Stones' lead singer since the band formed?", "options": ["Keith Richards", "Mick Jagger", "Charlie Watts", "Ronnie Wood"] },
+    "ar": { "q": "مين المغني الرئيسي لفرقة رولينج ستونز من ساعة ما اتأسست؟", "options": ["كيث ريتشاردز", "ميك جاجر", "تشارلي واتس", "روني وود"] },
+    "answer": 1
+  },
+  {
+    "id": "music_041",
+    "en": { "q": "In which country was Frédéric Chopin born?", "options": ["France", "Austria", "Hungary", "Poland"] },
+    "ar": { "q": "فريدريك شوبان اتولد في أنهي دولة؟", "options": ["فرنسا", "النمسا", "المجر", "بولندا"] },
+    "answer": 3
+  },
+  {
+    "id": "music_042",
+    "en": { "q": "The saxophone belongs to which family of instruments?", "options": ["Brass", "Woodwind", "Strings", "Percussion"] },
+    "ar": { "q": "الساكسفون من أنهي عيلة آلات؟", "options": ["آلات النفخ النحاسية", "آلات النفخ الخشبية", "الوتريات", "آلات الإيقاع"] },
+    "answer": 1
+  },
+  {
+    "id": "music_043",
+    "en": { "q": "Who composed the opera \"The Magic Flute\"?", "options": ["Mozart", "Beethoven", "Wagner", "Verdi"] },
+    "ar": { "q": "مين ألّف أوبرا \"الناي السحري\"؟", "options": ["موتسارت", "بيتهوفن", "فاجنر", "فيردي"] },
+    "answer": 0
+  },
+  {
+    "id": "music_044",
+    "en": { "q": "Who composed the opera \"Aida\", which premiered in Cairo in 1871?", "options": ["Puccini", "Rossini", "Verdi", "Wagner"] },
+    "ar": { "q": "مين ألّف أوبرا \"عايدة\" اللي اتعرضت لأول مرة في القاهرة سنة 1871؟", "options": ["بوتشيني", "روسيني", "فيردي", "فاجنر"] },
+    "answer": 2
+  },
+  {
+    "id": "music_045",
+    "en": { "q": "How many symphonies did Beethoven complete?", "options": ["9", "7", "10", "12"] },
+    "ar": { "q": "بيتهوفن كمّل كام سيمفونية؟", "options": ["9", "7", "10", "12"] },
+    "answer": 0
+  },
+  {
+    "id": "music_046",
+    "en": { "q": "In which country was Johann Sebastian Bach born?", "options": ["Germany", "Austria", "Italy", "The Netherlands"] },
+    "ar": { "q": "يوهان سباستيان باخ اتولد في أنهي دولة؟", "options": ["ألمانيا", "النمسا", "إيطاليا", "هولندا"] },
+    "answer": 0
+  },
+  {
+    "id": "music_047",
+    "en": { "q": "Robert Plant and Jimmy Page were founding members of which band?", "options": ["Deep Purple", "Black Sabbath", "The Who", "Led Zeppelin"] },
+    "ar": { "q": "روبرت بلانت وجيمي بيدج كانوا من مؤسسين أنهي فرقة؟", "options": ["ديب بربل", "بلاك ساباث", "ذا هو", "ليد زيبلين"] },
+    "answer": 3
+  },
+  {
+    "id": "music_048",
+    "en": { "q": "Which jazz trumpeter was nicknamed \"Satchmo\"?", "options": ["Miles Davis", "Dizzy Gillespie", "Louis Armstrong", "Chet Baker"] },
+    "ar": { "q": "أنهي عازف ترومبيت جاز اتلقب بـ\"ساتشمو\"؟", "options": ["مايلز ديفيس", "ديزي جيليسبي", "لويس أرمسترونج", "تشيت بيكر"] },
+    "answer": 2
+  },
+  {
+    "id": "music_049",
+    "en": { "q": "Who composed \"Boléro\" (1928)?", "options": ["Claude Debussy", "Maurice Ravel", "Erik Satie", "Camille Saint-Saëns"] },
+    "ar": { "q": "مين ألّف \"بوليرو\" (1928)؟", "options": ["كلود ديبوسي", "موريس رافيل", "إريك ساتي", "كاميل سان صانز"] },
+    "answer": 1
+  },
+  {
+    "id": "music_050",
+    "en": { "q": "Which city did the Beatles come from?", "options": ["Liverpool", "Manchester", "London", "Birmingham"] },
+    "ar": { "q": "فرقة البيتلز أصلها من أنهي مدينة؟", "options": ["ليفربول", "مانشستر", "لندن", "برمنجهام"] },
+    "answer": 0
+  }
+]
