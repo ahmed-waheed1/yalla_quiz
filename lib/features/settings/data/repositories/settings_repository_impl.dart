@@ -17,6 +17,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
     return AppSettings(
       themeMode: mode ?? AppThemeMode.system,
       sound: _prefs.getBool(PrefsKeys.sound) ?? true,
+      voice: _prefs.getBool(PrefsKeys.voice) ?? true,
       vibration: _prefs.getBool(PrefsKeys.vibration) ?? true,
     );
   }
@@ -27,6 +28,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
       await Future.wait([
         _prefs.setString(PrefsKeys.themeMode, settings.themeMode.name),
         _prefs.setBool(PrefsKeys.sound, settings.sound),
+        _prefs.setBool(PrefsKeys.voice, settings.voice),
         _prefs.setBool(PrefsKeys.vibration, settings.vibration),
       ]);
       return right(unit);

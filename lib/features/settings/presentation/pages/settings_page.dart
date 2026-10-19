@@ -114,6 +114,13 @@ class SettingsPage extends StatelessWidget {
                 ),
                 Divider(height: 1.5, thickness: 1.5, color: c.line),
                 _ToggleRow(
+                  title: 'settings.voice'.tr(),
+                  subtitle: 'settings.voice_hint'.tr(),
+                  value: settings.voice,
+                  onChanged: cubit.setVoice,
+                ),
+                Divider(height: 1.5, thickness: 1.5, color: c.line),
+                _ToggleRow(
                   title: 'settings.vibration'.tr(),
                   value: settings.vibration,
                   onChanged: cubit.setVibration,

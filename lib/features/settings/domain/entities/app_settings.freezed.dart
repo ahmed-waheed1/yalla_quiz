@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppSettings {
 
- AppThemeMode get themeMode; bool get sound; bool get vibration;
+ AppThemeMode get themeMode; bool get sound; bool get voice; bool get vibration;
 /// Create a copy of AppSettings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -27,20 +27,20 @@ $AppSettingsCopyWith<AppSettings> get copyWith => _$AppSettingsCopyWithImpl<AppS
 @override
 bool operator ==(Object other) {
   final _this = this as AppSettings;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppSettings&&(identical(other.themeMode, _this.themeMode) || other.themeMode == _this.themeMode)&&(identical(other.sound, _this.sound) || other.sound == _this.sound)&&(identical(other.vibration, _this.vibration) || other.vibration == _this.vibration));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppSettings&&(identical(other.themeMode, _this.themeMode) || other.themeMode == _this.themeMode)&&(identical(other.sound, _this.sound) || other.sound == _this.sound)&&(identical(other.voice, _this.voice) || other.voice == _this.voice)&&(identical(other.vibration, _this.vibration) || other.vibration == _this.vibration));
 }
 
 
 @override
 int get hashCode {
   final _this = this as AppSettings;
-  return Object.hash(runtimeType,_this.themeMode,_this.sound,_this.vibration);
+  return Object.hash(runtimeType,_this.themeMode,_this.sound,_this.voice,_this.vibration);
 }
 
 @override
 String toString() {
   final _this = this as AppSettings;
-  return 'AppSettings(themeMode: ${_this.themeMode}, sound: ${_this.sound}, vibration: ${_this.vibration})';
+  return 'AppSettings(themeMode: ${_this.themeMode}, sound: ${_this.sound}, voice: ${_this.voice}, vibration: ${_this.vibration})';
 }
 
 
@@ -51,7 +51,7 @@ abstract mixin class $AppSettingsCopyWith<$Res>  {
   factory $AppSettingsCopyWith(AppSettings value, $Res Function(AppSettings) _then) = _$AppSettingsCopyWithImpl;
 @useResult
 $Res call({
- AppThemeMode themeMode, bool sound, bool vibration
+ AppThemeMode themeMode, bool sound, bool voice, bool vibration
 });
 
 
@@ -68,10 +68,11 @@ class _$AppSettingsCopyWithImpl<$Res>
 
 /// Create a copy of AppSettings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? themeMode = null,Object? sound = null,Object? vibration = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? themeMode = null,Object? sound = null,Object? voice = null,Object? vibration = null,}) {
   return _then(AppSettings(
 themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
 as AppThemeMode,sound: null == sound ? _self.sound : sound // ignore: cast_nullable_to_non_nullable
+as bool,voice: null == voice ? _self.voice : voice // ignore: cast_nullable_to_non_nullable
 as bool,vibration: null == vibration ? _self.vibration : vibration // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -158,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( AppThemeMode themeMode,  bool sound,  bool vibration)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( AppThemeMode themeMode,  bool sound,  bool voice,  bool vibration)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppSettings() when $default != null:
-return $default(_that.themeMode,_that.sound,_that.vibration);case _:
+return $default(_that.themeMode,_that.sound,_that.voice,_that.vibration);case _:
   return orElse();
 
 }
@@ -179,10 +180,10 @@ return $default(_that.themeMode,_that.sound,_that.vibration);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( AppThemeMode themeMode,  bool sound,  bool vibration)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( AppThemeMode themeMode,  bool sound,  bool voice,  bool vibration)  $default,) {final _that = this;
 switch (_that) {
 case _AppSettings():
-return $default(_that.themeMode,_that.sound,_that.vibration);case _:
+return $default(_that.themeMode,_that.sound,_that.voice,_that.vibration);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +200,10 @@ return $default(_that.themeMode,_that.sound,_that.vibration);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( AppThemeMode themeMode,  bool sound,  bool vibration)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( AppThemeMode themeMode,  bool sound,  bool voice,  bool vibration)?  $default,) {final _that = this;
 switch (_that) {
 case _AppSettings() when $default != null:
-return $default(_that.themeMode,_that.sound,_that.vibration);case _:
+return $default(_that.themeMode,_that.sound,_that.voice,_that.vibration);case _:
   return null;
 
 }
@@ -214,11 +215,12 @@ return $default(_that.themeMode,_that.sound,_that.vibration);case _:
 
 
 class _AppSettings implements AppSettings {
-  const _AppSettings({this.themeMode = AppThemeMode.system, this.sound = true, this.vibration = true});
+  const _AppSettings({this.themeMode = AppThemeMode.system, this.sound = true, this.voice = true, this.vibration = true});
   
 
 @override@JsonKey() final  AppThemeMode themeMode;
 @override@JsonKey() final  bool sound;
+@override@JsonKey() final  bool voice;
 @override@JsonKey() final  bool vibration;
 
 /// Create a copy of AppSettings
@@ -231,18 +233,18 @@ _$AppSettingsCopyWith<_AppSettings> get copyWith => __$AppSettingsCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppSettings&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.sound, sound) || other.sound == sound)&&(identical(other.vibration, vibration) || other.vibration == vibration));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppSettings&&(identical(other.themeMode, themeMode) || other.themeMode == themeMode)&&(identical(other.sound, sound) || other.sound == sound)&&(identical(other.voice, voice) || other.voice == voice)&&(identical(other.vibration, vibration) || other.vibration == vibration));
 }
 
 
 @override
 int get hashCode {
-    return Object.hash(runtimeType,themeMode,sound,vibration);
+    return Object.hash(runtimeType,themeMode,sound,voice,vibration);
 }
 
 @override
 String toString() {
-    return 'AppSettings(themeMode: $themeMode, sound: $sound, vibration: $vibration)';
+    return 'AppSettings(themeMode: $themeMode, sound: $sound, voice: $voice, vibration: $vibration)';
 }
 
 
@@ -253,7 +255,7 @@ abstract mixin class _$AppSettingsCopyWith<$Res> implements $AppSettingsCopyWith
   factory _$AppSettingsCopyWith(_AppSettings value, $Res Function(_AppSettings) _then) = __$AppSettingsCopyWithImpl;
 @override @useResult
 $Res call({
- AppThemeMode themeMode, bool sound, bool vibration
+ AppThemeMode themeMode, bool sound, bool voice, bool vibration
 });
 
 
@@ -270,10 +272,11 @@ class __$AppSettingsCopyWithImpl<$Res>
 
 /// Create a copy of AppSettings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? themeMode = null,Object? sound = null,Object? vibration = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? themeMode = null,Object? sound = null,Object? voice = null,Object? vibration = null,}) {
   return _then(_AppSettings(
 themeMode: null == themeMode ? _self.themeMode : themeMode // ignore: cast_nullable_to_non_nullable
 as AppThemeMode,sound: null == sound ? _self.sound : sound // ignore: cast_nullable_to_non_nullable
+as bool,voice: null == voice ? _self.voice : voice // ignore: cast_nullable_to_non_nullable
 as bool,vibration: null == vibration ? _self.vibration : vibration // ignore: cast_nullable_to_non_nullable
 as bool,
   ));

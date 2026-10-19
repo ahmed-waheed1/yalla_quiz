@@ -120,6 +120,8 @@
     "system": "System",
     "sound": "Sound effects",
     "sound_hint": "Countdown ticks, lock-in, celebrations",
+    "voice": "Voice",
+    "voice_hint": "Spoken countdown and cheers",
     "vibration": "Vibration",
     "edit_profile": "Edit name & avatar",
     "version": "Yalla Quiz · v{}"

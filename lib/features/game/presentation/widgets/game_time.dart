@@ -9,10 +9,20 @@ import '../cubit/game_cubit.dart';
 /// this only decides when to repaint. [onChange] runs side effects (haptics,
 /// sounds) when the value changes.
 class GameTimeSelector<T> extends StatefulWidget {
-  const GameTimeSelector({super.key, required this.select, required this.builder, this.onChange});
+  const GameTimeSelector({
+    super.key,
+    required this.select,
+    required this.builder,
+    this.onStart,
+    this.onChange,
+  });
 
   final T Function(int nowMs) select;
   final Widget Function(BuildContext context, T value) builder;
+
+  /// Runs once with the first value (e.g. the countdown digit on screen when
+  /// it appears).
+  final void Function(T value)? onStart;
   final void Function(T previous, T next)? onChange;
 
   @override
@@ -30,20 +40,28 @@ class _GameTimeSelectorState<T> extends State<GameTimeSelector<T>>
   void initState() {
     super.initState();
     _value = widget.select(_now());
+    widget.onStart?.call(_value);
     _ticker.start();
   }
 
   @override
   void didUpdateWidget(GameTimeSelector<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _value = widget.select(_now());
+    // A rebuild can land on the frame where the value changes; still report it.
+    _update(rebuild: false);
   }
 
-  void _tick(Duration _) {
+  void _tick(Duration _) => _update(rebuild: true);
+
+  void _update({required bool rebuild}) {
     final next = widget.select(_now());
     if (next == _value) return;
     final previous = _value;
-    setState(() => _value = next);
+    if (rebuild) {
+      setState(() => _value = next);
+    } else {
+      _value = next;
+    }
     widget.onChange?.call(previous, next);
   }
 

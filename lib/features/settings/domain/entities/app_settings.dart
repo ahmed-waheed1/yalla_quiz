@@ -10,6 +10,7 @@ abstract class AppSettings with _$AppSettings {
   const factory AppSettings({
     @Default(AppThemeMode.system) AppThemeMode themeMode,
     @Default(true) bool sound,
+    @Default(true) bool voice,
     @Default(true) bool vibration,
   }) = _AppSettings;
 }

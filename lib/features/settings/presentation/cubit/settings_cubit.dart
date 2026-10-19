@@ -8,7 +8,9 @@ import '../../domain/repositories/settings_repository.dart';
 class SettingsCubit extends Cubit<AppSettings> {
   SettingsCubit(this._repository, this._haptics, this._sound) : super(_repository.load()) {
     _haptics.enabled = state.vibration;
-    _sound.enabled = state.sound;
+    _sound
+      ..enabled = state.sound
+      ..voiceEnabled = state.voice;
   }
 
   final SettingsRepository _repository;
@@ -19,11 +21,15 @@ class SettingsCubit extends Cubit<AppSettings> {
 
   void setSound(bool value) => _update(state.copyWith(sound: value));
 
+  void setVoice(bool value) => _update(state.copyWith(voice: value));
+
   void setVibration(bool value) => _update(state.copyWith(vibration: value));
 
   void _update(AppSettings next) {
     _haptics.enabled = next.vibration;
-    _sound.enabled = next.sound;
+    _sound
+      ..enabled = next.sound
+      ..voiceEnabled = next.voice;
     emit(next);
     _repository.save(next);
   }

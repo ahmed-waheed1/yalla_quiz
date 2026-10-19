@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:fpdart/fpdart.dart';
 import 'package:yalla_quiz/core/services/auth_service.dart';
 import 'package:yalla_quiz/core/services/screen_awake.dart';
+import 'package:yalla_quiz/core/services/sound_service.dart';
 import 'package:yalla_quiz/core/utils/failure.dart';
 import 'package:yalla_quiz/features/game/domain/entities/question.dart';
 import 'package:yalla_quiz/features/game/domain/repositories/question_repository.dart';
@@ -179,4 +180,17 @@ class FakeScreenAwake implements ScreenAwake {
 
   @override
   Future<void> set(bool on) async => calls.add(on);
+}
+
+/// Records what would play instead of calling the audio plugin.
+class FakeSoundOutput implements SoundOutput {
+  final List<(String channel, String asset)> played = [];
+
+  List<String> get assets => [for (final p in played) p.$2];
+
+  @override
+  Future<void> play(String channel, String assetPath) async => played.add((channel, assetPath));
+
+  @override
+  Future<void> dispose() async {}
 }
