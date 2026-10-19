@@ -43,6 +43,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   static const Duration _intro = Duration(milliseconds: 1100);
   static const Duration _signInTimeout = Duration(seconds: 6);
   static const double _markSize = 180;
+  static const double _markToWordmark = 18;
+
+  /// English height; the Arabic wordmark scales to 50 (brand README).
+  static const double _wordmarkHeight = 51;
+
+  /// The wordmark rises this far as it fades in.
+  static const double _wordmarkRise = 28;
   static const double _starSize = 620;
 
   late final AnimationController _introController = AnimationController(
@@ -64,6 +71,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   );
 
   late final Animation<double> _mark = _interval(0, 220, YqMotion.snap);
+  late final Animation<double> _wordmark = _interval(180, 360, YqMotion.out);
   late final Animation<double> _tagline = _interval(330, 480, YqMotion.out);
 
   @override
@@ -146,7 +154,23 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   },
                   child: const YqBrandMark(size: _markSize),
                 ),
-                const SizedBox(height: 18 + YqSpace.x6),
+                const SizedBox(height: _markToWordmark),
+                AnimatedBuilder(
+                  animation: _wordmark,
+                  builder: (context, child) {
+                    final v = _wordmark.value;
+                    final rise = MediaQuery.disableAnimationsOf(context) ? 0.0 : 1 - v;
+                    return Opacity(
+                      opacity: v.clamp(0, 1),
+                      child: Transform.translate(
+                        offset: Offset(0, _wordmarkRise * rise),
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: const YqWordmark(height: _wordmarkHeight),
+                ),
+                const SizedBox(height: YqSpace.x8),
                 FadeTransition(
                   opacity: _tagline,
                   child: Text(

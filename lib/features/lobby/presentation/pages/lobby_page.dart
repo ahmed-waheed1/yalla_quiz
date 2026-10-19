@@ -258,7 +258,6 @@ class _HostScreenLobby extends StatelessWidget {
   final _LobbyArgs args;
   final ScreenSize size;
 
-  static const double _brandHeight = 44;
   static const double _qrSize = 96;
   static const double _startHeight = 76;
   static const double _startWidth = 320;
@@ -292,7 +291,7 @@ class _HostScreenLobby extends StatelessWidget {
                   children: [
                     _CloseButton(args: args),
                     const SizedBox(width: YqSpace.x4),
-                    const YqWordmark(height: _brandHeight),
+                    const YqBrandRow(),
                     const Spacer(),
                     _RoomChip(code: room.code),
                   ],
