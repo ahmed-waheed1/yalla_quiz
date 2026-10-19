@@ -38,7 +38,7 @@ Nothing marked LOW.
 | `geography_019` | hard | Egypt & Arab world | Egypt's lowest point is in which depression? | أوطى نقطة في مصر في أنهي منخفض؟ | The Qattara Depression / منخفض القطارة | HIGH | About 133 m below sea level. |
 | `geography_020` | hard | Egypt & Arab world | The island of Socotra belongs to which country? | جزيرة سقطرى تبع أنهي دولة؟ | Yemen / اليمن | HIGH |  |
 | `geography_021` | easy | International | What's the capital of France? | إيه عاصمة فرنسا؟ | Paris / باريس | HIGH |  |
-| `geography_022` | easy | International | What's the highest mountain in the world? | إيه أعلى جبل في العالم؟ | Mount Everest / إيفرست | HIGH | Highest above sea level. |
+| `geography_022` | easy | International | What's the highest mountain in the world above sea level? | إيه أعلى جبل في العالم فوق سطح البحر؟ | Mount Everest / إيفرست | HIGH | Highest above sea level. |
 | `geography_023` | easy | International | Which continent is Brazil in? | البرازيل في أنهي قارة؟ | South America / أمريكا الجنوبية | HIGH |  |
 | `geography_024` | easy | International | What's the capital of Italy? | إيه عاصمة إيطاليا؟ | Rome / روما | HIGH |  |
 | `geography_025` | easy | International | Which ocean lies between Africa and the Americas? | أنهي محيط بين أفريقيا والأمريكتين؟ | The Atlantic / الأطلسي | HIGH |  |
@@ -57,7 +57,7 @@ Nothing marked LOW.
 | `geography_038` | medium | International | Which line divides the Earth into the northern and southern hemispheres? | أنهي خط بيقسم الأرض لنص شمالي ونص جنوبي؟ | The Equator / خط الاستواء | HIGH |  |
 | `geography_039` | medium | International | The Gobi Desert is in China and which other country? | صحراء جوبي في الصين وأنهي دولة كمان؟ | Mongolia / منغوليا | HIGH |  |
 | `geography_040` | medium | International | The Amazon River reaches the ocean in which country? | نهر الأمازون بيصب في المحيط في أنهي دولة؟ | Brazil / البرازيل | HIGH |  |
-| `geography_041` | medium | International | Which is the largest island in the world? | إيه أكبر جزيرة في العالم؟ | Greenland / جرينلاند | HIGH | Australia counts as a continent, not an island. |
+| `geography_041` | medium | International | Not counting continents, which is the largest island in the world? | من غير ما نحسب القارات، إيه أكبر جزيرة في العالم؟ | Greenland / جرينلاند | HIGH | Australia counts as a continent, not an island. |
 | `geography_042` | medium | International | The ruins of Machu Picchu are in which country? | آثار ماتشو بيتشو في أنهي دولة؟ | Peru / بيرو | HIGH |  |
 | `geography_043` | medium | International | What's the capital of South Korea? | إيه عاصمة كوريا الجنوبية؟ | Seoul / سول | HIGH | Arabic spelling إنتشون confirmed in review. |
 | `geography_044` | hard | International | Which strait separates Asia from North America? | أنهي مضيق بيفصل آسيا عن أمريكا الشمالية؟ | The Bering Strait / مضيق بيرينغ | HIGH |  |

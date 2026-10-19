@@ -28,15 +28,15 @@ Difficulty and region are for review only; they aren't stored in the asset.
 | `food_007` | easy | Egyptian & Arab cuisine | Kabsa is built on which grain? | الكبسة أساسها أنهي حبوب؟ | Rice / الرز | HIGH |  |
 | `food_008` | easy | Egyptian & Arab cuisine | Qatayef are mostly eaten in which month? | القطايف بتتاكل أكتر في أنهي شهر؟ | Ramadan / رمضان | HIGH |  |
 | `food_009` | medium | Egyptian & Arab cuisine | Egyptian ta'meya is made mainly from which legume? | الطعمية المصرية معمولة أساسًا من إيه؟ | Fava beans / الفول | HIGH | Asks only what the Egyptian version is made of, not where falafel comes from. |
-| `food_010` | medium | Egyptian & Arab cuisine | Which spice gives Gulf Arabic coffee (qahwa) its aroma? | القهوة العربية الخليجية بيتحط فيها أنهي بهار عشان ريحتها؟ | Cardamom / الحبهان | HIGH | Some recipes add saffron or cloves too, but cardamom is the defining spice. |
+| `food_010` | medium | Egyptian & Arab cuisine | Which spice mainly gives Gulf Arabic coffee (qahwa) its aroma? | القهوة العربية الخليجية ريحتها جاية أساسًا من أنهي بهار؟ | Cardamom / الحبهان | HIGH | Some recipes add saffron or cloves too, but cardamom is the defining spice. |
 | `food_011` | medium | Egyptian & Arab cuisine | Basbousa is made mainly from what? | البسبوسة معمولة أساسًا من إيه؟ | Semolina / السميد | HIGH |  |
-| `food_012` | medium | Egyptian & Arab cuisine | Couscous is made from what? | الكسكسي بيتعمل من إيه؟ | Semolina / السميد | HIGH | Durum wheat semolina; barley couscous also exists, but none of the other options do. |
+| `food_012` | medium | Egyptian & Arab cuisine | Couscous is traditionally made from what? | الكسكسي بيتعمل تقليديًا من إيه؟ | Semolina / السميد | HIGH | Durum wheat semolina; barley couscous also exists, but none of the other options do. |
 | `food_013` | medium | Egyptian & Arab cuisine | What does sumac taste like? | السماق طعمه إيه؟ | Sour / حامض | HIGH | Tangy, lemony. |
 | `food_014` | medium | Egyptian & Arab cuisine | Labneh is made by straining what? | اللبنة بتتعمل من تصفية إيه؟ | Yogurt / الزبادي | HIGH |  |
 | `food_015` | medium | Egyptian & Arab cuisine | Bulgur is made from which grain? | البرغل معمول من أنهي حبوب؟ | Wheat / القمح | HIGH |  |
 | `food_016` | medium | Egyptian & Arab cuisine | On which occasion do Egyptians traditionally eat fesikh? | الفسيخ بيتاكل في مصر في أنهي مناسبة؟ | Sham El-Nessim / شم النسيم | HIGH |  |
 | `food_017` | medium | Egyptian & Arab cuisine | Medjool is a variety of what? | المجدول نوع من إيه؟ | Dates / البلح | HIGH |  |
-| `food_018` | hard | Egyptian & Arab cuisine | Freekeh is made from which grain, harvested while still green? | الفريك بيتعمل من أنهي حبوب بتتحصد وهي لسه خضرا؟ | Wheat / القمح | HIGH | Young green wheat, roasted. |
+| `food_018` | hard | Egyptian & Arab cuisine | Freekeh is usually made from which grain, harvested while still green? | الفريك بيتعمل عادةً من أنهي حبوب بتتحصد وهي لسه خضرا؟ | Wheat / القمح | HIGH | Young green wheat, roasted. |
 | `food_019` | hard | Egyptian & Arab cuisine | Fesikh is traditionally made from which fish? | الفسيخ بيتعمل تقليديًا من أنهي سمك؟ | Grey mullet / البوري | HIGH | Salted, fermented grey mullet. |
 | `food_020` | hard | Egyptian & Arab cuisine | In Moroccan cooking, "tagine" is also the name of what? | في المطبخ المغربي، "الطاجين" كمان اسم إيه؟ | A clay cooking pot / إناء طبخ فخار | HIGH |  |
 | `food_021` | easy | International | What's the main ingredient of guacamole? | إيه المكون الأساسي في الجواكامولي؟ | Avocado / الأفوكادو | **LOW** | Fact is certain; check the Arabic spelling الجواكامولي (also written جواكامول). |
@@ -46,16 +46,16 @@ Difficulty and region are for review only; they aren't stored in the asset.
 | `food_025` | easy | International | Raisins are dried versions of which fruit? | الزبيب بيتعمل من تجفيف أنهي فاكهة؟ | Grapes / العنب | HIGH |  |
 | `food_026` | easy | International | Popcorn is made from which grain? | الفشار بيتعمل من أنهي حبوب؟ | Corn / الدرة | HIGH |  |
 | `food_027` | easy | International | Chocolate is made from the seeds of which plant? | الشوكولاتة بتتعمل من بذور أنهي نبات؟ | Cacao / الكاكاو | HIGH |  |
-| `food_028` | easy | International | Which ingredient makes bread dough rise? | أنهي مكون بيخلي عجينة العيش تنفش وتعلى؟ | Yeast / الخميرة | HIGH | Arabic avoids 'يخمّر', which would give away الخميرة. |
-| `food_029` | easy | International | Tofu is made from what? | التوفو بيتعمل من إيه؟ | Soybeans / فول الصويا | HIGH |  |
+| `food_028` | easy | International | Which ingredient usually makes bread dough rise? | أنهي مكون بيخلي عجينة العيش عادةً تنفش وتعلى؟ | Yeast / الخميرة | HIGH | Arabic avoids 'يخمّر', which would give away الخميرة. |
+| `food_029` | easy | International | Tofu is usually made from what? | التوفو بيتعمل عادةً من إيه؟ | Soybeans / فول الصويا | HIGH |  |
 | `food_030` | easy | International | Which cheese is traditionally used on a Margherita pizza? | أنهي جبنة بتتحط تقليديًا على بيتزا مارجريتا؟ | Mozzarella / الموتزاريلا | HIGH |  |
 | `food_031` | easy | International | Tacos come from the cuisine of which country? | التاكو أكلة من مطبخ أنهي دولة؟ | Mexico / المكسيك | HIGH |  |
-| `food_032` | easy | International | What gives ketchup its red colour? | الكاتشب لونه أحمر بسبب إيه؟ | Tomatoes / الطماطم | HIGH |  |
+| `food_032` | easy | International | What gives classic ketchup its red colour? | الكاتشب العادي لونه أحمر بسبب إيه؟ | Tomatoes / الطماطم | HIGH |  |
 | `food_033` | medium | International | Marzipan is made from which nut? | المرزبان بيتعمل من أنهي مكسرات؟ | Almonds / اللوز | HIGH |  |
 | `food_034` | medium | International | Pho is a noodle soup from which country? | شوربة الفو من مطبخ أنهي دولة؟ | Vietnam / فيتنام | **LOW** | Fact is certain; check the Arabic name شوربة الفو. |
-| `food_035` | medium | International | Feta cheese is traditionally made from which milk? | جبنة الفيتا بتتعمل تقليديًا من لبن إيه؟ | Sheep's milk / لبن الغنم | HIGH | Sheep's milk, with up to 30% goat's milk allowed. |
-| `food_036` | medium | International | Which spice gives curry its yellow colour? | أنهي بهار بيدي الكاري لونه الأصفر؟ | Turmeric / الكركم | HIGH |  |
-| `food_037` | medium | International | In Japanese food, what is wasabi? | في الأكل الياباني، الواسابي يبقى إيه؟ | A spicy green paste / معجون أخضر حرّاق | HIGH |  |
+| `food_035` | medium | International | Feta cheese is traditionally made mainly from which milk? | جبنة الفيتا بتتعمل تقليديًا وأساسًا من لبن إيه؟ | Sheep's milk / لبن الغنم | HIGH | Sheep's milk, with up to 30% goat's milk allowed. |
+| `food_036` | medium | International | Which spice mainly gives curry its yellow colour? | أنهي بهار بيدي الكاري لونه الأصفر أساسًا؟ | Turmeric / الكركم | HIGH |  |
+| `food_037` | medium | International | In Japanese food, how is wasabi usually served? | في الأكل الياباني، الواسابي بيتقدّم عادةً على شكل إيه؟ | As a spicy green paste / معجون أخضر حرّاق | HIGH |  |
 | `food_038` | medium | International | Goulash is a famous dish from which country? | الجولاش أكلة مشهورة من أنهي دولة؟ | Hungary / المجر | HIGH |  |
 | `food_039` | medium | International | Gazpacho is a cold soup from which country? | الجازباتشو شوربة باردة من أنهي دولة؟ | Spain / إسبانيا | HIGH | From Andalusia. |
 | `food_040` | medium | International | Quinoa originally comes from which region? | الكينوا أصلها من أنهي منطقة؟ | The Andes / جبال الأنديز | HIGH |  |
