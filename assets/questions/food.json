@@ -55,8 +55,8 @@
   },
   {
     "id": "food_010",
-    "en": { "q": "Which spice gives Gulf Arabic coffee (qahwa) its aroma?", "options": ["Cinnamon", "Cloves", "Cardamom", "Nutmeg"] },
-    "ar": { "q": "القهوة العربية الخليجية بيتحط فيها أنهي بهار عشان ريحتها؟", "options": ["القرفة", "القرنفل", "الحبهان", "جوزة الطيب"] },
+    "en": { "q": "Which spice mainly gives Gulf Arabic coffee (qahwa) its aroma?", "options": ["Cinnamon", "Cloves", "Cardamom", "Nutmeg"] },
+    "ar": { "q": "القهوة العربية الخليجية ريحتها جاية أساسًا من أنهي بهار؟", "options": ["القرفة", "القرنفل", "الحبهان", "جوزة الطيب"] },
     "answer": 2
   },
   {
@@ -67,8 +67,8 @@
   },
   {
     "id": "food_012",
-    "en": { "q": "Couscous is made from what?", "options": ["Semolina", "Rice", "Corn", "Lentils"] },
-    "ar": { "q": "الكسكسي بيتعمل من إيه؟", "options": ["السميد", "الرز", "الدرة", "العدس"] },
+    "en": { "q": "Couscous is traditionally made from what?", "options": ["Semolina", "Rice", "Corn", "Lentils"] },
+    "ar": { "q": "الكسكسي بيتعمل تقليديًا من إيه؟", "options": ["السميد", "الرز", "الدرة", "العدس"] },
     "answer": 0
   },
   {
@@ -103,8 +103,8 @@
   },
   {
     "id": "food_018",
-    "en": { "q": "Freekeh is made from which grain, harvested while still green?", "options": ["Wheat", "Rice", "Barley", "Corn"] },
-    "ar": { "q": "الفريك بيتعمل من أنهي حبوب بتتحصد وهي لسه خضرا؟", "options": ["القمح", "الرز", "الشعير", "الدرة"] },
+    "en": { "q": "Freekeh is usually made from which grain, harvested while still green?", "options": ["Wheat", "Rice", "Barley", "Corn"] },
+    "ar": { "q": "الفريك بيتعمل عادةً من أنهي حبوب بتتحصد وهي لسه خضرا؟", "options": ["القمح", "الرز", "الشعير", "الدرة"] },
     "answer": 0
   },
   {
@@ -163,14 +163,14 @@
   },
   {
     "id": "food_028",
-    "en": { "q": "Which ingredient makes bread dough rise?", "options": ["Salt", "Sugar", "Starch", "Yeast"] },
-    "ar": { "q": "أنهي مكون بيخلي عجينة العيش تنفش وتعلى؟", "options": ["الملح", "السكر", "النشا", "الخميرة"] },
+    "en": { "q": "Which ingredient usually makes bread dough rise?", "options": ["Salt", "Sugar", "Starch", "Yeast"] },
+    "ar": { "q": "أنهي مكون بيخلي عجينة العيش عادةً تنفش وتعلى؟", "options": ["الملح", "السكر", "النشا", "الخميرة"] },
     "answer": 3
   },
   {
     "id": "food_029",
-    "en": { "q": "Tofu is made from what?", "options": ["Soybeans", "Rice", "Chickpeas", "Peanuts"] },
-    "ar": { "q": "التوفو بيتعمل من إيه؟", "options": ["فول الصويا", "الرز", "الحمص", "الفول السوداني"] },
+    "en": { "q": "Tofu is usually made from what?", "options": ["Soybeans", "Rice", "Chickpeas", "Peanuts"] },
+    "ar": { "q": "التوفو بيتعمل عادةً من إيه؟", "options": ["فول الصويا", "الرز", "الحمص", "الفول السوداني"] },
     "answer": 0
   },
   {
@@ -187,8 +187,8 @@
   },
   {
     "id": "food_032",
-    "en": { "q": "What gives ketchup its red colour?", "options": ["Red peppers", "Tomatoes", "Beetroot", "Carrots"] },
-    "ar": { "q": "الكاتشب لونه أحمر بسبب إيه؟", "options": ["الفلفل الأحمر", "الطماطم", "البنجر", "الجزر"] },
+    "en": { "q": "What gives classic ketchup its red colour?", "options": ["Red peppers", "Tomatoes", "Beetroot", "Carrots"] },
+    "ar": { "q": "الكاتشب العادي لونه أحمر بسبب إيه؟", "options": ["الفلفل الأحمر", "الطماطم", "البنجر", "الجزر"] },
     "answer": 1
   },
   {
@@ -205,20 +205,20 @@
   },
   {
     "id": "food_035",
-    "en": { "q": "Feta cheese is traditionally made from which milk?", "options": ["Sheep's milk", "Cow's milk", "Buffalo milk", "Camel's milk"] },
-    "ar": { "q": "جبنة الفيتا بتتعمل تقليديًا من لبن إيه؟", "options": ["لبن الغنم", "لبن البقر", "لبن الجاموس", "لبن الجمل"] },
+    "en": { "q": "Feta cheese is traditionally made mainly from which milk?", "options": ["Sheep's milk", "Cow's milk", "Buffalo milk", "Camel's milk"] },
+    "ar": { "q": "جبنة الفيتا بتتعمل تقليديًا وأساسًا من لبن إيه؟", "options": ["لبن الغنم", "لبن البقر", "لبن الجاموس", "لبن الجمل"] },
     "answer": 0
   },
   {
     "id": "food_036",
-    "en": { "q": "Which spice gives curry its yellow colour?", "options": ["Turmeric", "Saffron", "Paprika", "Cumin"] },
-    "ar": { "q": "أنهي بهار بيدي الكاري لونه الأصفر؟", "options": ["الكركم", "الزعفران", "البابريكا", "الكمون"] },
+    "en": { "q": "Which spice mainly gives curry its yellow colour?", "options": ["Turmeric", "Saffron", "Paprika", "Cumin"] },
+    "ar": { "q": "أنهي بهار بيدي الكاري لونه الأصفر أساسًا؟", "options": ["الكركم", "الزعفران", "البابريكا", "الكمون"] },
     "answer": 0
   },
   {
     "id": "food_037",
-    "en": { "q": "In Japanese food, what is wasabi?", "options": ["Pickled ginger", "Dried seaweed", "A fish sauce", "A spicy green paste"] },
-    "ar": { "q": "في الأكل الياباني، الواسابي يبقى إيه؟", "options": ["زنجبيل مخلل", "طحالب بحرية ناشفة", "صوص سمك", "معجون أخضر حرّاق"] },
+    "en": { "q": "In Japanese food, how is wasabi usually served?", "options": ["As pickled slices", "As dried sheets", "As a thin sauce", "As a spicy green paste"] },
+    "ar": { "q": "في الأكل الياباني، الواسابي بيتقدّم عادةً على شكل إيه؟", "options": ["شرايح مخللة", "ورق ناشف", "صوص خفيف", "معجون أخضر حرّاق"] },
     "answer": 3
   },
   {

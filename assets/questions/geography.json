@@ -127,8 +127,8 @@
   },
   {
     "id": "geography_022",
-    "en": { "q": "What's the highest mountain in the world?", "options": ["K2", "Kilimanjaro", "Mont Blanc", "Mount Everest"] },
-    "ar": { "q": "إيه أعلى جبل في العالم؟", "options": ["كي 2", "كليمنجارو", "مون بلان", "إيفرست"] },
+    "en": { "q": "What's the highest mountain in the world above sea level?", "options": ["K2", "Kilimanjaro", "Mont Blanc", "Mount Everest"] },
+    "ar": { "q": "إيه أعلى جبل في العالم فوق سطح البحر؟", "options": ["كي 2", "كليمنجارو", "مون بلان", "إيفرست"] },
     "answer": 3
   },
   {
@@ -241,8 +241,8 @@
   },
   {
     "id": "geography_041",
-    "en": { "q": "Which is the largest island in the world?", "options": ["New Guinea", "Borneo", "Madagascar", "Greenland"] },
-    "ar": { "q": "إيه أكبر جزيرة في العالم؟", "options": ["غينيا الجديدة", "بورنيو", "مدغشقر", "جرينلاند"] },
+    "en": { "q": "Not counting continents, which is the largest island in the world?", "options": ["New Guinea", "Borneo", "Madagascar", "Greenland"] },
+    "ar": { "q": "من غير ما نحسب القارات، إيه أكبر جزيرة في العالم؟", "options": ["غينيا الجديدة", "بورنيو", "مدغشقر", "جرينلاند"] },
     "answer": 3
   },
   {

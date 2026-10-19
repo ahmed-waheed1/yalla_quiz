@@ -49,20 +49,20 @@
   },
   {
     "id": "general_009",
-    "en": { "q": "Which country has the most pyramids?", "options": ["Egypt", "Sudan", "Mexico", "Peru"] },
-    "ar": { "q": "أنهي دولة فيها أكبر عدد من الأهرامات؟", "options": ["مصر", "السودان", "المكسيك", "بيرو"] },
+    "en": { "q": "Which of these countries has more pyramids than Egypt?", "options": ["Jordan", "Sudan", "Libya", "Tunisia"] },
+    "ar": { "q": "أنهي دولة من الدول دي فيها أهرامات أكتر من مصر؟", "options": ["الأردن", "السودان", "ليبيا", "تونس"] },
     "answer": 1
   },
   {
     "id": "general_010",
-    "en": { "q": "What's the hardest natural material?", "options": ["Gold", "Iron", "Diamond", "Quartz"] },
-    "ar": { "q": "إيه أصلب مادة في الطبيعة؟", "options": ["الدهب", "الحديد", "الألماس", "الكوارتز"] },
+    "en": { "q": "What's usually considered the hardest natural material?", "options": ["Gold", "Iron", "Diamond", "Quartz"] },
+    "ar": { "q": "إيه المادة الطبيعية اللي بتتعتبر عادةً الأصلب؟", "options": ["الدهب", "الحديد", "الألماس", "الكوارتز"] },
     "answer": 2
   },
   {
     "id": "general_011",
-    "en": { "q": "How many continents are there?", "options": ["5", "6", "7", "8"] },
-    "ar": { "q": "كام قارة في العالم؟", "options": ["5", "6", "7", "8"] },
+    "en": { "q": "In the most common model, how many continents are there?", "options": ["5", "6", "7", "8"] },
+    "ar": { "q": "في التقسيم الأشهر، كام قارة في العالم؟", "options": ["5", "6", "7", "8"] },
     "answer": 2
   },
   {
@@ -91,8 +91,8 @@
   },
   {
     "id": "general_016",
-    "en": { "q": "How many players does each football team have on the pitch?", "options": ["9", "10", "11", "12"] },
-    "ar": { "q": "كل فريق كورة بيلعب بكام لاعب في الملعب؟", "options": ["9", "10", "11", "12"] },
+    "en": { "q": "At kick-off, how many players does each football team have on the pitch?", "options": ["9", "10", "11", "12"] },
+    "ar": { "q": "في أول الماتش، كل فريق كورة بيلعب بكام لاعب في الملعب؟", "options": ["9", "10", "11", "12"] },
     "answer": 2
   },
   {
@@ -127,8 +127,8 @@
   },
   {
     "id": "general_022",
-    "en": { "q": "How many bones are in an adult human body?", "options": ["206", "186", "226", "246"] },
-    "ar": { "q": "جسم الإنسان البالغ فيه كام عضمة؟", "options": ["206", "186", "226", "246"] },
+    "en": { "q": "How many bones does an adult human body usually have?", "options": ["206", "186", "226", "246"] },
+    "ar": { "q": "جسم الإنسان البالغ فيه عادةً كام عضمة؟", "options": ["206", "186", "226", "246"] },
     "answer": 0
   },
   {
