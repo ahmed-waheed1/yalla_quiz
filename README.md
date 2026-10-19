@@ -198,9 +198,13 @@ Each category except General has a review table in `design/content/<category>_re
 - **No giveaways.** The Arabic wording and options don't reveal the answer, and wrong options are plausible.
 - **Balance.** About 40% Egyptian and Arab content, and the correct answer spread evenly across the four positions.
 
-### Adding a category
+### Editing questions and adding a category
 
-1. Add `assets/questions/<id>.json` with ids `<id>_001`, `<id>_002`, …
+The generated categories have a source file in `tool/content/`. Edit a question there, then rebuild the JSON and the review table with `python3 tool/content/build.py <category>`. See [tool/content/README.md](tool/content/README.md).
+
+To add a category:
+
+1. Add `assets/questions/<id>.json` with ids `<id>_001`, `<id>_002`, … The easiest way is a new source file in `tool/content/`, built with `build.py`.
 2. Add the name under `categories.<id>` in `assets/translations/en.json` and `ar.json`.
 3. Optionally, give it a colour and shape in `lib/features/room/presentation/widgets/category_style.dart`. Otherwise it uses the default style.
 4. Run `flutter test`. `test/features/game/questions_asset_test.dart` checks the ids, that both languages have text and 4 distinct options, that the answer index is valid, and that no question repeats across categories.
