@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: _heroIllustrationHeight.shrinkH,
                   width: double.infinity,
-                  child: YqHeroIllustration(height: (_heroIllustrationHeight * 0.75).shrinkH),
+                  child: const YqHeroIllustration(),
                 ),
                 const SizedBox(height: YqSpace.x4),
                 Text(

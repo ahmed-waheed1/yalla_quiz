@@ -110,13 +110,11 @@ class HostTopBar extends StatelessWidget {
   final String? progress;
   final Widget? leading;
 
-  static const double _brandHeight = 44;
-
   @override
   Widget build(BuildContext context) => Row(
     children: [
       if (leading != null) ...[leading!, const SizedBox(width: YqSpace.x4)],
-      const YqWordmark(height: _brandHeight),
+      const YqBrandRow(),
       const Spacer(),
       _HostChip(
         child: Row(

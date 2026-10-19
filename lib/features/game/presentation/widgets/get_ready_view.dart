@@ -280,8 +280,6 @@ class _CountdownRingPainter extends CustomPainter {
 class _YallaPanel extends StatelessWidget {
   const _YallaPanel({super.key});
 
-  static const double _artHeight = 150;
-  static const double _restAngle = -4 * math.pi / 180;
   static const double _enterAngle = -8 * math.pi / 180;
   static const double _starAlpha = 0.14;
   static const double _starSize = 360;
@@ -331,21 +329,17 @@ class _YallaPanel extends StatelessWidget {
                     tween: Tween(begin: reduced ? 1 : 0, end: 1),
                     duration: reduced ? YqMotion.reducedFade : _pop,
                     builder: (context, v, child) {
-                      // 0 → 1.15 → 1 and −8° → 0° on top of the −4° rest tilt.
+                      // 0 → 1.15 → 1 and −8° → 0°, on top of the artwork's own −4° tilt.
                       final scale = v < 0.7 ? v / 0.7 * 1.15 : 1.15 - (v - 0.7) / 0.3 * 0.15;
                       return Opacity(
                         opacity: v.clamp(0.0, 1.0),
                         child: Transform.rotate(
-                          angle: _restAngle + _enterAngle * (1 - v),
+                          angle: _enterAngle * (1 - v),
                           child: Transform.scale(scale: scale, child: child),
                         ),
                       );
                     },
-                    child: YqYallaArtwork(
-                      label: 'game.yalla'.tr(),
-                      height: _artHeight,
-                      color: night,
-                    ),
+                    child: YqYallaArtwork(semanticsLabel: 'game.yalla'.tr()),
                   ),
                   const SizedBox(height: YqSpace.x6),
                   Text(

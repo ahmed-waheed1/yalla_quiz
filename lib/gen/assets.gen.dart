@@ -18,14 +18,68 @@ class $AssetsBrandingGen {
   $AssetsBrandingPngGen get png => const $AssetsBrandingPngGen();
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/hero_dark.svg
+  String get heroDark => 'assets/images/hero_dark.svg';
+
+  /// File path: assets/images/hero_light.svg
+  String get heroLight => 'assets/images/hero_light.svg';
+
+  /// File path: assets/images/lockup_dark.svg
+  String get lockupDark => 'assets/images/lockup_dark.svg';
+
+  /// File path: assets/images/lockup_light.svg
+  String get lockupLight => 'assets/images/lockup_light.svg';
+
+  /// File path: assets/images/wordmark_ar_dark.svg
+  String get wordmarkArDark => 'assets/images/wordmark_ar_dark.svg';
+
+  /// File path: assets/images/wordmark_ar_light.svg
+  String get wordmarkArLight => 'assets/images/wordmark_ar_light.svg';
+
+  /// File path: assets/images/wordmark_en_dark.svg
+  String get wordmarkEnDark => 'assets/images/wordmark_en_dark.svg';
+
+  /// File path: assets/images/wordmark_en_light.svg
+  String get wordmarkEnLight => 'assets/images/wordmark_en_light.svg';
+
+  /// File path: assets/images/yalla_ar.svg
+  String get yallaAr => 'assets/images/yalla_ar.svg';
+
+  /// File path: assets/images/yalla_en.svg
+  String get yallaEn => 'assets/images/yalla_en.svg';
+
+  /// List of all assets
+  List<String> get values => [
+    heroDark,
+    heroLight,
+    lockupDark,
+    lockupLight,
+    wordmarkArDark,
+    wordmarkArLight,
+    wordmarkEnDark,
+    wordmarkEnLight,
+    yallaAr,
+    yallaEn,
+  ];
+}
+
 class $AssetsQuestionsGen {
   const $AssetsQuestionsGen();
+
+  /// File path: assets/questions/food.json
+  String get food => 'assets/questions/food.json';
 
   /// File path: assets/questions/general.json
   String get general => 'assets/questions/general.json';
 
+  /// File path: assets/questions/geography.json
+  String get geography => 'assets/questions/geography.json';
+
   /// List of all assets
-  List<String> get values => [general];
+  List<String> get values => [food, general, geography];
 }
 
 class $AssetsTranslationsGen {
@@ -91,6 +145,7 @@ class $AssetsBrandingPngSplashGen {
 
 abstract final class Assets {
   static const $AssetsBrandingGen branding = $AssetsBrandingGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsQuestionsGen questions = $AssetsQuestionsGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
