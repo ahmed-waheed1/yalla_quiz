@@ -57,7 +57,7 @@ void main() {
     expect(raw, hasLength(30));
   });
 
-  for (final category in ['geography', 'food', 'movies_tv', 'music']) {
+  for (final category in ['geography', 'food', 'movies_tv', 'music', 'football']) {
     test('$category has 50 questions with the correct answer spread across positions', () {
       final raw = jsonDecode(File('assets/questions/$category.json').readAsStringSync()) as List;
       expect(raw, hasLength(50));
