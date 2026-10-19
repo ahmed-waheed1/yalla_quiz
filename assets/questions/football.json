@@ -1,0 +1,302 @@
+[
+  {
+    "id": "football_001",
+    "en": { "q": "Which national team is nicknamed \"the Pharaohs\"?", "options": ["Sudan", "Egypt", "Tunisia", "Saudi Arabia"] },
+    "ar": { "q": "أنهي منتخب اسمه \"الفراعنة\"؟", "options": ["السودان", "مصر", "تونس", "السعودية"] },
+    "answer": 1
+  },
+  {
+    "id": "football_002",
+    "en": { "q": "Which national team is nicknamed \"the Atlas Lions\"?", "options": ["Algeria", "Tunisia", "Morocco", "Libya"] },
+    "ar": { "q": "أنهي منتخب اسمه \"أسود الأطلس\"؟", "options": ["الجزائر", "تونس", "المغرب", "ليبيا"] },
+    "answer": 2
+  },
+  {
+    "id": "football_003",
+    "en": { "q": "Which Arab team reached the semi-finals of the 2022 World Cup?", "options": ["Tunisia", "Saudi Arabia", "Morocco", "Qatar"] },
+    "ar": { "q": "أنهي منتخب عربي وصل لنص نهائي كاس العالم 2022؟", "options": ["تونس", "السعودية", "المغرب", "قطر"] },
+    "answer": 2
+  },
+  {
+    "id": "football_004",
+    "en": { "q": "Saudi Arabia beat which team 2–1 in the group stage of the 2022 World Cup?", "options": ["Mexico", "Poland", "France", "Argentina"] },
+    "ar": { "q": "السعودية كسبت أنهي منتخب 2–1 في دور المجموعات في كاس العالم 2022؟", "options": ["المكسيك", "بولندا", "فرنسا", "الأرجنتين"] },
+    "answer": 3
+  },
+  {
+    "id": "football_005",
+    "en": { "q": "Which national team is nicknamed \"the Desert Warriors\"?", "options": ["Algeria", "Morocco", "Libya", "Mauritania"] },
+    "ar": { "q": "أنهي منتخب اسمه \"محاربو الصحراء\"؟", "options": ["الجزائر", "المغرب", "ليبيا", "موريتانيا"] },
+    "answer": 0
+  },
+  {
+    "id": "football_006",
+    "en": { "q": "Which Egyptian club is nicknamed \"the White Knight\"?", "options": ["Al Ahly", "Ismaily", "Al-Masry", "Zamalek"] },
+    "ar": { "q": "أنهي نادي مصري اسمه \"الفارس الأبيض\"؟", "options": ["الأهلي", "الإسماعيلي", "المصري", "الزمالك"] },
+    "answer": 3
+  },
+  {
+    "id": "football_007",
+    "en": { "q": "Which Egyptian club is nicknamed \"the Red Devils\"?", "options": ["Zamalek", "Al Ahly", "Al Ittihad Alexandria", "Al-Masry"] },
+    "ar": { "q": "أنهي نادي مصري اسمه \"الشياطين الحمر\"؟", "options": ["الزمالك", "الأهلي", "الاتحاد السكندري", "المصري"] },
+    "answer": 1
+  },
+  {
+    "id": "football_008",
+    "en": { "q": "In which year was Al Ahly founded?", "options": ["1911", "1920", "1907", "1898"] },
+    "ar": { "q": "النادي الأهلي اتأسس سنة كام؟", "options": ["1911", "1920", "1907", "1898"] },
+    "answer": 2
+  },
+  {
+    "id": "football_009",
+    "en": { "q": "In which year was Zamalek founded?", "options": ["1911", "1907", "1925", "1899"] },
+    "ar": { "q": "نادي الزمالك اتأسس سنة كام؟", "options": ["1911", "1907", "1925", "1899"] },
+    "answer": 0
+  },
+  {
+    "id": "football_010",
+    "en": { "q": "Which country won the 2019 Africa Cup of Nations, held in Egypt?", "options": ["Algeria", "Senegal", "Nigeria", "Tunisia"] },
+    "ar": { "q": "أنهي منتخب كسب كاس الأمم الأفريقية 2019 اللي اتلعبت في مصر؟", "options": ["الجزائر", "السنغال", "نيجيريا", "تونس"] },
+    "answer": 0
+  },
+  {
+    "id": "football_011",
+    "en": { "q": "Which country won the 2021 Africa Cup of Nations (played in Cameroon in 2022)?", "options": ["Egypt", "Cameroon", "Senegal", "Burkina Faso"] },
+    "ar": { "q": "أنهي منتخب كسب كاس الأمم الأفريقية 2021 (اللي اتلعبت في الكاميرون سنة 2022)؟", "options": ["مصر", "الكاميرون", "السنغال", "بوركينا فاسو"] },
+    "answer": 2
+  },
+  {
+    "id": "football_012",
+    "en": { "q": "Wydad and Raja are both clubs from which city?", "options": ["Rabat", "Marrakesh", "Fez", "Casablanca"] },
+    "ar": { "q": "الوداد والرجاء الاتنين أندية من أنهي مدينة؟", "options": ["الرباط", "مراكش", "فاس", "الدار البيضاء"] },
+    "answer": 3
+  },
+  {
+    "id": "football_013",
+    "en": { "q": "Al-Masry club is based in which city?", "options": ["Suez", "Port Said", "Ismailia", "Damietta"] },
+    "ar": { "q": "النادي المصري مقره في أنهي مدينة؟", "options": ["السويس", "بورسعيد", "الإسماعيلية", "دمياط"] },
+    "answer": 1
+  },
+  {
+    "id": "football_014",
+    "en": { "q": "Which Egyptian club is nicknamed \"Al-Darawish\"?", "options": ["Ismaily", "Al-Masry", "Al Ittihad Alexandria", "El Mokawloon"] },
+    "ar": { "q": "أنهي نادي مصري اسمه \"الدراويش\"؟", "options": ["الإسماعيلي", "المصري", "الاتحاد السكندري", "المقاولون العرب"] },
+    "answer": 0
+  },
+  {
+    "id": "football_015",
+    "en": { "q": "The Saudi club Al-Ittihad is based in which city?", "options": ["Riyadh", "Dammam", "Mecca", "Jeddah"] },
+    "ar": { "q": "نادي الاتحاد السعودي مقره في أنهي مدينة؟", "options": ["الرياض", "الدمام", "مكة", "جدة"] },
+    "answer": 3
+  },
+  {
+    "id": "football_016",
+    "en": { "q": "Lusail Stadium, where the 2022 World Cup final was played, is in which country?", "options": ["Qatar", "The UAE", "Saudi Arabia", "Bahrain"] },
+    "ar": { "q": "استاد لوسيل اللي اتلعب فيه نهائي كاس العالم 2022 في أنهي دولة؟", "options": ["قطر", "الإمارات", "السعودية", "البحرين"] },
+    "answer": 0
+  },
+  {
+    "id": "football_017",
+    "en": { "q": "Which national team is nicknamed \"the Eagles of Carthage\"?", "options": ["Libya", "Algeria", "Lebanon", "Tunisia"] },
+    "ar": { "q": "أنهي منتخب اسمه \"نسور قرطاج\"؟", "options": ["ليبيا", "الجزائر", "لبنان", "تونس"] },
+    "answer": 3
+  },
+  {
+    "id": "football_018",
+    "en": { "q": "In which year did Egypt first play at a World Cup?", "options": ["1930", "1950", "1934", "1990"] },
+    "ar": { "q": "مصر لعبت في كاس العالم لأول مرة سنة كام؟", "options": ["1930", "1950", "1934", "1990"] },
+    "answer": 2
+  },
+  {
+    "id": "football_019",
+    "en": { "q": "The first Africa Cup of Nations (1957), won by Egypt, was held in which country?", "options": ["Egypt", "Ethiopia", "Ghana", "Sudan"] },
+    "ar": { "q": "أول كاس أمم أفريقية (1957)، اللي كسبتها مصر، اتلعبت في أنهي دولة؟", "options": ["مصر", "إثيوبيا", "غانا", "السودان"] },
+    "answer": 3
+  },
+  {
+    "id": "football_020",
+    "en": { "q": "Who scored the only goal for Egypt in the 2008 Africa Cup of Nations final against Cameroon?", "options": ["Amr Zaki", "Mohamed Zidan", "Ahmed Hassan", "Mohamed Aboutrika"] },
+    "ar": { "q": "مين جاب هدف مصر الوحيد في نهائي كاس الأمم الأفريقية 2008 قدام الكاميرون؟", "options": ["عمرو زكي", "محمد زيدان", "أحمد حسن", "محمد أبو تريكة"] },
+    "answer": 3
+  },
+  {
+    "id": "football_021",
+    "en": { "q": "Which country won the 2022 World Cup?", "options": ["Argentina", "France", "Croatia", "Morocco"] },
+    "ar": { "q": "أنهي منتخب كسب كاس العالم 2022؟", "options": ["الأرجنتين", "فرنسا", "كرواتيا", "المغرب"] },
+    "answer": 0
+  },
+  {
+    "id": "football_022",
+    "en": { "q": "Which country hosted the 2014 World Cup?", "options": ["Germany", "Brazil", "South Africa", "Russia"] },
+    "ar": { "q": "أنهي دولة استضافت كاس العالم 2014؟", "options": ["ألمانيا", "البرازيل", "جنوب أفريقيا", "روسيا"] },
+    "answer": 1
+  },
+  {
+    "id": "football_023",
+    "en": { "q": "Who scored the \"Hand of God\" goal?", "options": ["Pelé", "Zico", "Mario Kempes", "Diego Maradona"] },
+    "ar": { "q": "مين جاب هدف \"يد الله\"؟", "options": ["بيليه", "زيكو", "ماريو كيمبس", "دييجو مارادونا"] },
+    "answer": 3
+  },
+  {
+    "id": "football_024",
+    "en": { "q": "How long is a standard football match, without added time?", "options": ["80 minutes", "100 minutes", "120 minutes", "90 minutes"] },
+    "ar": { "q": "الماتش العادي مدته قد إيه من غير الوقت بدل الضايع؟", "options": ["80 دقيقة", "100 دقيقة", "120 دقيقة", "90 دقيقة"] },
+    "answer": 3
+  },
+  {
+    "id": "football_025",
+    "en": { "q": "Which card does the referee show to send a player off?", "options": ["Yellow", "Blue", "Red", "Green"] },
+    "ar": { "q": "الحكم بيطلّع أنهي كارت عشان يطرد لاعب؟", "options": ["الأصفر", "الأزرق", "الأحمر", "الأخضر"] },
+    "answer": 2
+  },
+  {
+    "id": "football_026",
+    "en": { "q": "Which national team is nicknamed \"the Three Lions\"?", "options": ["Netherlands", "Belgium", "Cameroon", "England"] },
+    "ar": { "q": "أنهي منتخب اسمه \"الأسود الثلاثة\"؟", "options": ["هولندا", "بلجيكا", "الكاميرون", "إنجلترا"] },
+    "answer": 3
+  },
+  {
+    "id": "football_027",
+    "en": { "q": "Which national team is nicknamed \"the Azzurri\"?", "options": ["Italy", "France", "Uruguay", "Greece"] },
+    "ar": { "q": "أنهي منتخب اسمه \"الأزوري\"؟", "options": ["إيطاليا", "فرنسا", "أوروجواي", "اليونان"] },
+    "answer": 0
+  },
+  {
+    "id": "football_028",
+    "en": { "q": "In which city is the Camp Nou stadium?", "options": ["Madrid", "Barcelona", "Valencia", "Seville"] },
+    "ar": { "q": "استاد كامب نو في أنهي مدينة؟", "options": ["مدريد", "برشلونة", "فالنسيا", "إشبيلية"] },
+    "answer": 1
+  },
+  {
+    "id": "football_029",
+    "en": { "q": "In which city is the Santiago Bernabéu stadium?", "options": ["Madrid", "Barcelona", "Seville", "Bilbao"] },
+    "ar": { "q": "استاد سانتياجو برنابيو في أنهي مدينة؟", "options": ["مدريد", "برشلونة", "إشبيلية", "بلباو"] },
+    "answer": 0
+  },
+  {
+    "id": "football_030",
+    "en": { "q": "Which national team did Pelé play for?", "options": ["Brazil", "Argentina", "Uruguay", "Portugal"] },
+    "ar": { "q": "بيليه لعب لأنهي منتخب؟", "options": ["البرازيل", "الأرجنتين", "أوروجواي", "البرتغال"] },
+    "answer": 0
+  },
+  {
+    "id": "football_031",
+    "en": { "q": "How is play restarted when the ball goes out over the touchline (sideline)?", "options": ["A corner kick", "A throw-in", "A goal kick", "A free kick"] },
+    "ar": { "q": "اللعب بيرجع إزاي لما الكورة تخرج من خط التماس؟", "options": ["ضربة ركنية", "رمية تماس", "ضربة مرمى", "ضربة حرة"] },
+    "answer": 1
+  },
+  {
+    "id": "football_032",
+    "en": { "q": "Which two countries co-hosted the 2002 World Cup?", "options": ["China and Japan", "South Korea and Japan", "South Korea and China", "Japan and Australia"] },
+    "ar": { "q": "أنهي دولتين استضافوا كاس العالم 2002 مع بعض؟", "options": ["الصين واليابان", "كوريا الجنوبية واليابان", "كوريا الجنوبية والصين", "اليابان وأستراليا"] },
+    "answer": 1
+  },
+  {
+    "id": "football_033",
+    "en": { "q": "Which country hosted the 2010 World Cup, the first in Africa?", "options": ["Egypt", "Nigeria", "South Africa", "Morocco"] },
+    "ar": { "q": "أنهي دولة استضافت كاس العالم 2010، أول كاس عالم في أفريقيا؟", "options": ["مصر", "نيجيريا", "جنوب أفريقيا", "المغرب"] },
+    "answer": 2
+  },
+  {
+    "id": "football_034",
+    "en": { "q": "Which country won the first World Cup, in 1930?", "options": ["Argentina", "Uruguay", "Brazil", "Italy"] },
+    "ar": { "q": "أنهي منتخب كسب أول كاس عالم سنة 1930؟", "options": ["الأرجنتين", "أوروجواي", "البرازيل", "إيطاليا"] },
+    "answer": 1
+  },
+  {
+    "id": "football_035",
+    "en": { "q": "Which country won the 1966 World Cup on home soil?", "options": ["West Germany", "Brazil", "England", "Portugal"] },
+    "ar": { "q": "أنهي منتخب كسب كاس العالم 1966 على أرضه؟", "options": ["ألمانيا الغربية", "البرازيل", "إنجلترا", "البرتغال"] },
+    "answer": 2
+  },
+  {
+    "id": "football_036",
+    "en": { "q": "Which country won the 2010 World Cup?", "options": ["Netherlands", "Spain", "Germany", "Italy"] },
+    "ar": { "q": "أنهي منتخب كسب كاس العالم 2010؟", "options": ["هولندا", "إسبانيا", "ألمانيا", "إيطاليا"] },
+    "answer": 1
+  },
+  {
+    "id": "football_037",
+    "en": { "q": "By what score did Germany beat Brazil in the 2014 World Cup semi-final?", "options": ["7–1", "5–0", "4–2", "6–1"] },
+    "ar": { "q": "ألمانيا كسبت البرازيل بكام في نص نهائي كاس العالم 2014؟", "options": ["7–1", "5–0", "4–2", "6–1"] },
+    "answer": 0
+  },
+  {
+    "id": "football_038",
+    "en": { "q": "In which city is the Maracanã stadium?", "options": ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"] },
+    "ar": { "q": "استاد ماراكانا في أنهي مدينة؟", "options": ["ريو دي جانيرو", "ساو باولو", "برازيليا", "سلفادور"] },
+    "answer": 0
+  },
+  {
+    "id": "football_039",
+    "en": { "q": "Which country won Euro 2004?", "options": ["Portugal", "Greece", "Czech Republic", "Netherlands"] },
+    "ar": { "q": "أنهي منتخب كسب بطولة أمم أوروبا 2004؟", "options": ["البرتغال", "اليونان", "التشيك", "هولندا"] },
+    "answer": 1
+  },
+  {
+    "id": "football_040",
+    "en": { "q": "Which country won Euro 2016, held in France?", "options": ["France", "Germany", "Portugal", "Wales"] },
+    "ar": { "q": "أنهي منتخب كسب بطولة أمم أوروبا 2016 اللي اتلعبت في فرنسا؟", "options": ["فرنسا", "ألمانيا", "البرتغال", "ويلز"] },
+    "answer": 2
+  },
+  {
+    "id": "football_041",
+    "en": { "q": "In which city is the San Siro stadium?", "options": ["Rome", "Turin", "Milan", "Naples"] },
+    "ar": { "q": "استاد سان سيرو في أنهي مدينة؟", "options": ["روما", "تورينو", "ميلانو", "نابولي"] },
+    "answer": 2
+  },
+  {
+    "id": "football_042",
+    "en": { "q": "How far is the penalty spot from the goal line?", "options": ["9 metres", "11 metres", "13 metres", "16 metres"] },
+    "ar": { "q": "نقطة الجزاء بعيدة عن خط المرمى قد إيه؟", "options": ["9 متر", "11 متر", "13 متر", "16 متر"] },
+    "answer": 1
+  },
+  {
+    "id": "football_043",
+    "en": { "q": "Which national team is nicknamed \"the Indomitable Lions\"?", "options": ["Senegal", "Nigeria", "Cameroon", "Ghana"] },
+    "ar": { "q": "أنهي منتخب اسمه \"الأسود غير المروضة\"؟", "options": ["السنغال", "نيجيريا", "الكاميرون", "غانا"] },
+    "answer": 2
+  },
+  {
+    "id": "football_044",
+    "en": { "q": "Which club won the first European Cup, in 1956?", "options": ["Real Madrid", "Benfica", "AC Milan", "Stade de Reims"] },
+    "ar": { "q": "أنهي نادي كسب أول كاس أوروبا سنة 1956؟", "options": ["ريال مدريد", "بنفيكا", "إيه سي ميلان", "ستاد دي ريمس"] },
+    "answer": 0
+  },
+  {
+    "id": "football_045",
+    "en": { "q": "Who scored a hat-trick in the 2022 World Cup final?", "options": ["Lionel Messi", "Kylian Mbappé", "Ángel Di María", "Olivier Giroud"] },
+    "ar": { "q": "مين جاب هاتريك في نهائي كاس العالم 2022؟", "options": ["ليونيل ميسي", "كيليان مبابي", "أنخيل دي ماريا", "أوليفييه جيرو"] },
+    "answer": 1
+  },
+  {
+    "id": "football_046",
+    "en": { "q": "Who scored the winning goal in the 2010 World Cup final?", "options": ["David Villa", "Xavi", "Andrés Iniesta", "Fernando Torres"] },
+    "ar": { "q": "مين جاب هدف الفوز في نهائي كاس العالم 2010؟", "options": ["ديفيد فيا", "تشافي", "أندريس إنييستا", "فرناندو توريس"] },
+    "answer": 2
+  },
+  {
+    "id": "football_047",
+    "en": { "q": "Who scored two headers in the 1998 World Cup final?", "options": ["Thierry Henry", "Emmanuel Petit", "Youri Djorkaeff", "Zinedine Zidane"] },
+    "ar": { "q": "مين جاب هدفين بالراس في نهائي كاس العالم 1998؟", "options": ["تييري هنري", "إيمانويل بيتي", "يوري جوركاييف", "زين الدين زيدان"] },
+    "answer": 3
+  },
+  {
+    "id": "football_048",
+    "en": { "q": "In which year was FC Barcelona founded?", "options": ["1902", "1899", "1910", "1886"] },
+    "ar": { "q": "نادي برشلونة اتأسس سنة كام؟", "options": ["1902", "1899", "1910", "1886"] },
+    "answer": 1
+  },
+  {
+    "id": "football_049",
+    "en": { "q": "Who was the first African player to win the Ballon d'Or, in 1995?", "options": ["George Weah", "Roger Milla", "Abedi Pele", "Samuel Eto'o"] },
+    "ar": { "q": "مين أول لاعب أفريقي يكسب الكورة الدهبية سنة 1995؟", "options": ["جورج وياه", "روجيه ميلا", "عبيدي بيليه", "صامويل إيتو"] },
+    "answer": 0
+  },
+  {
+    "id": "football_050",
+    "en": { "q": "In which city is the Allianz Arena?", "options": ["Berlin", "Dortmund", "Hamburg", "Munich"] },
+    "ar": { "q": "استاد أليانز أرينا في أنهي مدينة؟", "options": ["برلين", "دورتموند", "هامبورج", "ميونخ"] },
+    "answer": 3
+  }
+]
