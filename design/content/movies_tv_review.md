@@ -11,11 +11,7 @@ Difficulty and region are for review only; they aren't stored in the asset.
 
 ## Check first (LOW)
 
-- `movies_tv_024` — Which school of witchcraft and wizardry does Harry Potter attend? — Fact is certain; check the Arabic spellings of the school names (هوجوورتس is the common one).
-- `movies_tv_039` — In "The Matrix" (1999), which pill does Neo take? — Fact is certain; check the Arabic title ذا ماتريكس (also المصفوفة).
-- `movies_tv_042` — Who directed "Pulp Fiction" (1994)? — Fact is certain; check the Arabic title بالب فيكشن (sometimes translated خيال رخيص).
-- `movies_tv_043` — Which studio made "Spirited Away" (2001)? — Fact is certain; check the Arabic title المخطوفة for Spirited Away.
-- `movies_tv_049` — Which was the first James Bond film from Eon Productions? — Fact is certain (1962). Names Eon because a 1954 TV version of Casino Royale exists. Check the Arabic titles, especially كرة الرعد for Thunderball.
+Nothing marked LOW.
 
 ## All questions
 
@@ -44,7 +40,7 @@ Difficulty and region are for review only; they aren't stored in the asset.
 | `movies_tv_021` | easy | International | Who directed "Jurassic Park" (1993)? | مين أخرج فيلم "الحديقة الجوراسية" (1993)؟ | Steven Spielberg / ستيفن سبيلبرج | HIGH |  |
 | `movies_tv_022` | easy | International | In "The Lion King" (1994), what's the name of Simba's father? | في فيلم "الأسد الملك" (1994)، إيه اسم أبو سيمبا؟ | Mufasa / موفاسا | HIGH |  |
 | `movies_tv_023` | easy | International | Who played Jack in "Titanic" (1997)? | مين لعب دور جاك في فيلم "تايتانيك" (1997)؟ | Leonardo DiCaprio / ليوناردو دي كابريو | HIGH |  |
-| `movies_tv_024` | easy | International | Which school of witchcraft and wizardry does Harry Potter attend? | هاري بوتر بيدرس في أنهي مدرسة سحر؟ | Hogwarts / هوجوورتس | **LOW** | Fact is certain; check the Arabic spellings of the school names (هوجوورتس is the common one). |
+| `movies_tv_024` | easy | International | Which school of witchcraft and wizardry does Harry Potter attend? | هاري بوتر بيدرس في أنهي مدرسة سحر؟ | Hogwarts / هوجوورتس | HIGH | Arabic spellings confirmed in review. |
 | `movies_tv_025` | easy | International | Captain Majid (Captain Tsubasa in Japan) plays which sport? | كابتن ماجد بيلعب أنهي رياضة؟ | Football / كورة القدم | HIGH |  |
 | `movies_tv_026` | easy | International | In "Finding Nemo" (2003), what kind of fish is Nemo? | في فيلم "البحث عن نيمو" (2003)، نيمو نوعه إيه من السمك؟ | A clownfish / سمكة المهرج | HIGH |  |
 | `movies_tv_027` | easy | International | What's the real name of Batman? | إيه الاسم الحقيقي لباتمان؟ | Bruce Wayne / بروس واين | HIGH |  |
@@ -59,15 +55,15 @@ Difficulty and region are for review only; they aren't stored in the asset.
 | `movies_tv_036` | medium | International | Who played Vito Corleone in "The Godfather" (1972)? | مين لعب دور فيتو كورليوني في فيلم "العراب" (1972)؟ | Marlon Brando / مارلون براندو | HIGH | Robert De Niro (young Vito in Part II) is deliberately not an option. |
 | `movies_tv_037` | medium | International | Which film has the line "Here's looking at you, kid"? | أنهي فيلم فيه الجملة الشهيرة "Here's looking at you, kid"؟ | Casablanca / كازابلانكا | HIGH | The line stays in English in the Arabic question, as it's usually quoted. |
 | `movies_tv_038` | medium | International | In "The Lord of the Rings" films, which wizard is first known as "the Grey"? | في أفلام "سيد الخواتم"، أنهي ساحر بيتعرف في الأول بـ"الرمادي"؟ | Gandalf / جاندالف | HIGH | Gandalf the Grey becomes Gandalf the White; Saruman is the White at first. |
-| `movies_tv_039` | medium | International | In "The Matrix" (1999), which pill does Neo take? | في فيلم "ذا ماتريكس" (1999)، نيو بياخد أنهي حباية؟ | The red pill / الحباية الحمرا | **LOW** | Fact is certain; check the Arabic title ذا ماتريكس (also المصفوفة). |
+| `movies_tv_039` | medium | International | In "The Matrix" (1999), which pill does Neo take? | في فيلم "ذا ماتريكس" (1999)، نيو بياخد أنهي حباية؟ | The red pill / الحباية الحمرا | HIGH | Arabic title ذا ماتريكس confirmed in review. |
 | `movies_tv_040` | medium | International | In which city is the TV series "Friends" set? | مسلسل "فريندز" أحداثه في أنهي مدينة؟ | New York / نيويورك | HIGH |  |
 | `movies_tv_041` | medium | International | At the start of "Breaking Bad", what is Walter White's job? | في بداية مسلسل "بريكنج باد"، والتر وايت بيشتغل إيه؟ | Chemistry teacher / مدرس كيميا | HIGH |  |
-| `movies_tv_042` | medium | International | Who directed "Pulp Fiction" (1994)? | مين أخرج فيلم "بالب فيكشن" (1994)؟ | Quentin Tarantino / كوينتن تارانتينو | **LOW** | Fact is certain; check the Arabic title بالب فيكشن (sometimes translated خيال رخيص). |
-| `movies_tv_043` | medium | International | Which studio made "Spirited Away" (2001)? | أنهي ستوديو عمل فيلم "المخطوفة" (2001)؟ | Studio Ghibli / ستوديو جيبلي | **LOW** | Fact is certain; check the Arabic title المخطوفة for Spirited Away. |
+| `movies_tv_042` | medium | International | Who directed "Pulp Fiction" (1994)? | مين أخرج فيلم "بالب فيكشن" (1994)؟ | Quentin Tarantino / كوينتن تارانتينو | HIGH | Arabic title بالب فيكشن confirmed in review. |
+| `movies_tv_043` | medium | International | Which studio made "Spirited Away" (2001)? | أنهي ستوديو عمل فيلم "المخطوفة" (2001)؟ | Studio Ghibli / ستوديو جيبلي | HIGH | Arabic title المخطوفة confirmed in review. |
 | `movies_tv_044` | hard | International | Who directed "Lawrence of Arabia" (1962)? | مين أخرج فيلم "لورنس العرب" (1962)؟ | David Lean / ديفيد لين | HIGH |  |
 | `movies_tv_045` | hard | International | In "Citizen Kane" (1941), what is "Rosebud"? | في فيلم "المواطن كين" (1941)، "روزباد" يبقى إيه؟ | A sled / زلّاجة | HIGH | His childhood sled. |
 | `movies_tv_046` | hard | International | In which year was "The Wizard of Oz" (with Judy Garland) released? | فيلم "ساحر أوز" (بطولة جودي جارلاند) نزل سنة كام؟ | 1939 / 1939 | HIGH | Names the Judy Garland film, since earlier Oz films exist. |
 | `movies_tv_047` | hard | International | Who directed "Seven Samurai" (1954)? | مين أخرج فيلم "الساموراي السبعة" (1954)؟ | Akira Kurosawa / أكيرا كوروساوا | HIGH |  |
 | `movies_tv_048` | hard | International | Who played Rick in "Casablanca" (1942)? | مين لعب دور ريك في فيلم "كازابلانكا" (1942)؟ | Humphrey Bogart / همفري بوجارت | HIGH |  |
-| `movies_tv_049` | hard | International | Which was the first James Bond film from Eon Productions? | إيه أول فيلم جيمس بوند من إنتاج إيون؟ | Dr. No / دكتور نو | **LOW** | Fact is certain (1962). Names Eon because a 1954 TV version of Casino Royale exists. Check the Arabic titles, especially كرة الرعد for Thunderball. |
+| `movies_tv_049` | hard | International | Which was the first James Bond film from Eon Productions? | إيه أول فيلم جيمس بوند من إنتاج إيون؟ | Dr. No / دكتور نو | HIGH | First Eon film: 1962. Names Eon because a 1954 TV version of Casino Royale exists. Arabic titles (including كرة الرعد) confirmed in review. |
 | `movies_tv_050` | hard | International | Who directed "2001: A Space Odyssey" (1968)? | مين أخرج فيلم "2001: أوديسا الفضاء" (1968)؟ | Stanley Kubrick / ستانلي كوبريك | HIGH | Clarke co-wrote the screenplay but didn't direct. |
