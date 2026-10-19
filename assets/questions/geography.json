@@ -266,7 +266,7 @@
   {
     "id": "geography_045",
     "en": { "q": "What's the capital of New Zealand?", "options": ["Auckland", "Christchurch", "Wellington", "Hamilton"] },
-    "ar": { "q": "إيه عاصمة نيوزيلندا؟", "options": ["أوكلاند", "كرايستشرش", "ولينغتون", "هاملتون"] },
+    "ar": { "q": "إيه عاصمة نيوزيلندا؟", "options": ["أوكلاند", "كرايستشرش", "ويلينغتون", "هاملتون"] },
     "answer": 2
   },
   {
@@ -296,7 +296,7 @@
   {
     "id": "geography_050",
     "en": { "q": "Which river flows through Vienna, Budapest and Belgrade?", "options": ["The Danube", "The Rhine", "The Elbe", "The Vistula"] },
-    "ar": { "q": "أنهي نهر بيعدّي في فيينا وبودابست وبلجراد؟", "options": ["الدانوب", "الراين", "الإلبه", "الفيستولا"] },
+    "ar": { "q": "أنهي نهر بيعدّي في فيينا وبودابست وبلجراد؟", "options": ["الدانوب", "الراين", "الإلبه", "فيستولا"] },
     "answer": 0
   }
 ]
