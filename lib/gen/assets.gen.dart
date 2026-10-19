@@ -72,14 +72,37 @@ class $AssetsQuestionsGen {
   /// File path: assets/questions/food.json
   String get food => 'assets/questions/food.json';
 
+  /// File path: assets/questions/football.json
+  String get football => 'assets/questions/football.json';
+
   /// File path: assets/questions/general.json
   String get general => 'assets/questions/general.json';
 
   /// File path: assets/questions/geography.json
   String get geography => 'assets/questions/geography.json';
 
+  /// File path: assets/questions/movies_tv.json
+  String get moviesTv => 'assets/questions/movies_tv.json';
+
+  /// File path: assets/questions/music.json
+  String get music => 'assets/questions/music.json';
+
   /// List of all assets
-  List<String> get values => [food, general, geography];
+  List<String> get values => [
+    food,
+    football,
+    general,
+    geography,
+    moviesTv,
+    music,
+  ];
+}
+
+class $AssetsSoundsGen {
+  const $AssetsSoundsGen();
+
+  /// Directory path: assets/sounds/voice
+  $AssetsSoundsVoiceGen get voice => const $AssetsSoundsVoiceGen();
 }
 
 class $AssetsTranslationsGen {
@@ -111,6 +134,46 @@ class $AssetsBrandingPngGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [yallaIcon1024, yallaPlay512];
+}
+
+class $AssetsSoundsVoiceGen {
+  const $AssetsSoundsVoiceGen();
+
+  /// File path: assets/sounds/voice/voice_correct_ar_1.mp3
+  String get voiceCorrectAr1 => 'assets/sounds/voice/voice_correct_ar_1.mp3';
+
+  /// File path: assets/sounds/voice/voice_correct_ar_2.mp3
+  String get voiceCorrectAr2 => 'assets/sounds/voice/voice_correct_ar_2.mp3';
+
+  /// File path: assets/sounds/voice/voice_count_1_ar.mp3
+  String get voiceCount1Ar => 'assets/sounds/voice/voice_count_1_ar.mp3';
+
+  /// File path: assets/sounds/voice/voice_count_2_ar.mp3
+  String get voiceCount2Ar => 'assets/sounds/voice/voice_count_2_ar.mp3';
+
+  /// File path: assets/sounds/voice/voice_count_3_ar.mp3
+  String get voiceCount3Ar => 'assets/sounds/voice/voice_count_3_ar.mp3';
+
+  /// File path: assets/sounds/voice/voice_time_up_ar.mp3
+  String get voiceTimeUpAr => 'assets/sounds/voice/voice_time_up_ar.mp3';
+
+  /// File path: assets/sounds/voice/voice_victory_ar.mp3
+  String get voiceVictoryAr => 'assets/sounds/voice/voice_victory_ar.mp3';
+
+  /// File path: assets/sounds/voice/voice_yalla_ar.mp3
+  String get voiceYallaAr => 'assets/sounds/voice/voice_yalla_ar.mp3';
+
+  /// List of all assets
+  List<String> get values => [
+    voiceCorrectAr1,
+    voiceCorrectAr2,
+    voiceCount1Ar,
+    voiceCount2Ar,
+    voiceCount3Ar,
+    voiceTimeUpAr,
+    voiceVictoryAr,
+    voiceYallaAr,
+  ];
 }
 
 class $AssetsBrandingPngSplashGen {
@@ -147,6 +210,7 @@ abstract final class Assets {
   static const $AssetsBrandingGen branding = $AssetsBrandingGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsQuestionsGen questions = $AssetsQuestionsGen();
+  static const $AssetsSoundsGen sounds = $AssetsSoundsGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 

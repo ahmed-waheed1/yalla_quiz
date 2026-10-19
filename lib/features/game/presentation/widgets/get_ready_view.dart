@@ -33,7 +33,8 @@ class GetReadyView extends StatelessWidget {
     final start = room.phaseStartedAt ?? 0;
     return GameTimeSelector<int>(
       select: (now) => digitAt(now - start),
-      onChange: (_, digit) => digit == 0 ? feedback.yalla() : feedback.countdownDigit(),
+      onStart: feedback.countdown,
+      onChange: (_, digit) => feedback.countdown(digit),
       builder: (context, digit) => AnimatedSwitcher(
         duration: MediaQuery.disableAnimationsOf(context) ? YqMotion.reducedFade : YqMotion.fast,
         child: digit == 0

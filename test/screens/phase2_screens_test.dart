@@ -213,6 +213,50 @@ void main() {
     ),
   ];
 
+  group('07 spoken countdown', () {
+    const voice = 'assets/sounds/voice';
+
+    Future<FakeSoundOutput> countdown(WidgetTester tester, Locale locale) async {
+      final sound = FakeSoundOutput();
+      final clock = FakeClock(now);
+      registerFakes(
+        rooms: FakeRoomRepository(room: gameRoom(RoomStatus.countdown, phaseAgoMs: 200)),
+        clock: clock,
+        sound: sound,
+      );
+      await pumpScreen(tester, lobby(tester), locale: locale, settleAfter: false);
+      // Let the room load and the countdown mount; server time stands still meanwhile.
+      await settle(tester, const Duration(milliseconds: 500));
+      expect(find.text('3'), findsOneWidget);
+      for (var i = 0; i < 3; i++) {
+        // The fake clock flushes with zero-length timers, which run as the test pumps.
+        final advanced = clock.advance(const Duration(seconds: 1));
+        await tester.pump(const Duration(milliseconds: 100));
+        await advanced;
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+      await settle(tester, const Duration(seconds: 3));
+      return sound;
+    }
+
+    testWidgets('Arabic speaks 3, 2, 1, Yalla as each appears, starting with the first', (
+      tester,
+    ) async {
+      final sound = await countdown(tester, const Locale('ar'));
+      expect(sound.assets, [
+        '$voice/voice_count_3_ar.mp3',
+        '$voice/voice_count_2_ar.mp3',
+        '$voice/voice_count_1_ar.mp3',
+        '$voice/voice_yalla_ar.mp3',
+      ]);
+    });
+
+    testWidgets('English has no voice files yet, so nothing is spoken', (tester) async {
+      final sound = await countdown(tester, const Locale('en'));
+      expect(sound.assets.where((a) => a.startsWith(voice)), isEmpty);
+    });
+  });
+
   for (final brightness in Brightness.values) {
     for (final locale in const [Locale('en'), Locale('ar')]) {
       group('${brightness.name} ${locale.languageCode}', () {

@@ -97,6 +97,7 @@ flutter:
     - assets/translations/
     - assets/questions/
     - assets/sounds/
+    - assets/sounds/voice/
     - assets/images/
     - assets/icons/
     - assets/animations/

@@ -57,13 +57,14 @@ void registerFakes({
   FakeQuestionRepository? questions,
   FakeClock? clock,
   FakeScreenAwake? screenAwake,
+  FakeSoundOutput? sound,
 }) {
   getIt.reset(dispose: false);
   final fakeClock = clock ?? FakeClock();
   getIt
     ..registerSingleton<Haptics>(Haptics())
     ..registerSingleton<ScreenAwake>(screenAwake ?? FakeScreenAwake())
-    ..registerSingleton<SoundService>(SoundService()..enabled = false)
+    ..registerSingleton<SoundService>(SoundService(output: sound ?? FakeSoundOutput()))
     ..registerSingleton<Clock>(fakeClock)
     ..registerSingleton<Scheduler>(fakeClock)
     ..registerSingleton<AuthService>(FakeAuthService())

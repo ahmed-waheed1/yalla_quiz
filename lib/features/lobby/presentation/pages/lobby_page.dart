@@ -102,7 +102,7 @@ class _LobbyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final feedback = GameFeedback(getIt(), getIt());
+    final feedback = GameFeedback(getIt(), getIt(), language: context.locale.languageCode);
     return MultiBlocListener(
       listeners: [
         BlocListener<LobbyCubit, LobbyState>(
