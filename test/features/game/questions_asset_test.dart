@@ -57,17 +57,19 @@ void main() {
     expect(raw, hasLength(30));
   });
 
-  test('geography has 50 questions with the correct answer spread across positions', () {
-    final raw = jsonDecode(File('assets/questions/geography.json').readAsStringSync()) as List;
-    expect(raw, hasLength(50));
-    final perPosition = List.filled(4, 0);
-    for (final q in raw) {
-      perPosition[(q as Map)['answer'] as int]++;
-    }
-    for (final n in perPosition) {
-      expect(n, inInclusiveRange(12, 13), reason: '$perPosition');
-    }
-  });
+  for (final category in ['geography', 'food']) {
+    test('$category has 50 questions with the correct answer spread across positions', () {
+      final raw = jsonDecode(File('assets/questions/$category.json').readAsStringSync()) as List;
+      expect(raw, hasLength(50));
+      final perPosition = List.filled(4, 0);
+      for (final q in raw) {
+        perPosition[(q as Map)['answer'] as int]++;
+      }
+      for (final n in perPosition) {
+        expect(n, inInclusiveRange(12, 13), reason: '$perPosition');
+      }
+    });
+  }
 
   test('no question is repeated across categories', () {
     final seen = <String, String>{};

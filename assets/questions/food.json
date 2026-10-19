@@ -1,0 +1,302 @@
+[
+  {
+    "id": "food_001",
+    "en": { "q": "Which Egyptian dish mixes rice, lentils and pasta, topped with tomato sauce and fried onions?", "options": ["Koshari", "Fatta", "Mahshi", "Molokhia"] },
+    "ar": { "q": "أنهي أكلة مصرية فيها رز وعدس ومكرونة وعليها صلصة وبصل مقلي؟", "options": ["الكشري", "الفتة", "المحشي", "الملوخية"] },
+    "answer": 0
+  },
+  {
+    "id": "food_002",
+    "en": { "q": "Egyptian mahshi (stuffed vegetables) is usually stuffed with what?", "options": ["Rice", "Bulgur", "Couscous", "Oats"] },
+    "ar": { "q": "المحشي المصري بيتحشي عادةً بإيه؟", "options": ["الرز", "البرغل", "الكسكسي", "الشوفان"] },
+    "answer": 0
+  },
+  {
+    "id": "food_003",
+    "en": { "q": "Dates grow on which tree?", "options": ["The olive tree", "The fig tree", "The date palm", "The pomegranate tree"] },
+    "ar": { "q": "البلح بيطلع على أنهي شجرة؟", "options": ["الزيتون", "التين", "النخل", "الرمان"] },
+    "answer": 2
+  },
+  {
+    "id": "food_004",
+    "en": { "q": "Tahini is made from what?", "options": ["Sesame seeds", "Chickpeas", "Peanuts", "Sunflower seeds"] },
+    "ar": { "q": "الطحينة معمولة من إيه؟", "options": ["السمسم", "الحمص", "الفول السوداني", "بذر عباد الشمس"] },
+    "answer": 0
+  },
+  {
+    "id": "food_005",
+    "en": { "q": "Which Ramadan drink is made from sheets of dried apricot paste?", "options": ["Sobia", "Tamarind", "Hibiscus (karkadeh)", "Qamar al-Din"] },
+    "ar": { "q": "أنهي مشروب رمضاني معمول من لفايف المشمش؟", "options": ["السوبيا", "التمر هندي", "الكركديه", "قمر الدين"] },
+    "answer": 3
+  },
+  {
+    "id": "food_006",
+    "en": { "q": "What is Om Ali?", "options": ["A soup", "A dessert", "A salad", "A bread"] },
+    "ar": { "q": "أم علي عبارة عن إيه؟", "options": ["شوربة", "حلو", "سلطة", "عيش"] },
+    "answer": 1
+  },
+  {
+    "id": "food_007",
+    "en": { "q": "Kabsa is built on which grain?", "options": ["Bulgur", "Couscous", "Rice", "Freekeh"] },
+    "ar": { "q": "الكبسة أساسها أنهي حبوب؟", "options": ["البرغل", "الكسكسي", "الرز", "الفريك"] },
+    "answer": 2
+  },
+  {
+    "id": "food_008",
+    "en": { "q": "Qatayef are mostly eaten in which month?", "options": ["Shawwal", "Rajab", "Dhu al-Hijjah", "Ramadan"] },
+    "ar": { "q": "القطايف بتتاكل أكتر في أنهي شهر؟", "options": ["شوال", "رجب", "ذو الحجة", "رمضان"] },
+    "answer": 3
+  },
+  {
+    "id": "food_009",
+    "en": { "q": "Egyptian ta'meya is made mainly from which legume?", "options": ["Chickpeas", "Lentils", "Peas", "Fava beans"] },
+    "ar": { "q": "الطعمية المصرية معمولة أساسًا من إيه؟", "options": ["الحمص", "العدس", "البسلة", "الفول"] },
+    "answer": 3
+  },
+  {
+    "id": "food_010",
+    "en": { "q": "Which spice gives Gulf Arabic coffee (qahwa) its aroma?", "options": ["Cinnamon", "Cloves", "Cardamom", "Nutmeg"] },
+    "ar": { "q": "القهوة العربية الخليجية بيتحط فيها أنهي بهار عشان ريحتها؟", "options": ["القرفة", "القرنفل", "الحبهان", "جوزة الطيب"] },
+    "answer": 2
+  },
+  {
+    "id": "food_011",
+    "en": { "q": "Basbousa is made mainly from what?", "options": ["Semolina", "Rice flour", "Oats", "Cornmeal"] },
+    "ar": { "q": "البسبوسة معمولة أساسًا من إيه؟", "options": ["السميد", "دقيق الرز", "الشوفان", "دقيق الدرة"] },
+    "answer": 0
+  },
+  {
+    "id": "food_012",
+    "en": { "q": "Couscous is made from what?", "options": ["Semolina", "Rice", "Corn", "Lentils"] },
+    "ar": { "q": "الكسكسي بيتعمل من إيه؟", "options": ["السميد", "الرز", "الدرة", "العدس"] },
+    "answer": 0
+  },
+  {
+    "id": "food_013",
+    "en": { "q": "What does sumac taste like?", "options": ["Sweet", "Sour", "Bitter", "Hot"] },
+    "ar": { "q": "السماق طعمه إيه؟", "options": ["مسكّر", "حامض", "مر", "حرّاق"] },
+    "answer": 1
+  },
+  {
+    "id": "food_014",
+    "en": { "q": "Labneh is made by straining what?", "options": ["Yogurt", "Cream", "Cheese", "Butter"] },
+    "ar": { "q": "اللبنة بتتعمل من تصفية إيه؟", "options": ["الزبادي", "القشطة", "الجبنة", "الزبدة"] },
+    "answer": 0
+  },
+  {
+    "id": "food_015",
+    "en": { "q": "Bulgur is made from which grain?", "options": ["Rice", "Corn", "Barley", "Wheat"] },
+    "ar": { "q": "البرغل معمول من أنهي حبوب؟", "options": ["الرز", "الدرة", "الشعير", "القمح"] },
+    "answer": 3
+  },
+  {
+    "id": "food_016",
+    "en": { "q": "On which occasion do Egyptians traditionally eat fesikh?", "options": ["Sham El-Nessim", "Eid al-Fitr", "Ramadan", "The Prophet's Birthday"] },
+    "ar": { "q": "الفسيخ بيتاكل في مصر في أنهي مناسبة؟", "options": ["شم النسيم", "عيد الفطر", "رمضان", "المولد النبوي"] },
+    "answer": 0
+  },
+  {
+    "id": "food_017",
+    "en": { "q": "Medjool is a variety of what?", "options": ["Olives", "Figs", "Dates", "Grapes"] },
+    "ar": { "q": "المجدول نوع من إيه؟", "options": ["الزيتون", "التين", "البلح", "العنب"] },
+    "answer": 2
+  },
+  {
+    "id": "food_018",
+    "en": { "q": "Freekeh is made from which grain, harvested while still green?", "options": ["Wheat", "Rice", "Barley", "Corn"] },
+    "ar": { "q": "الفريك بيتعمل من أنهي حبوب بتتحصد وهي لسه خضرا؟", "options": ["القمح", "الرز", "الشعير", "الدرة"] },
+    "answer": 0
+  },
+  {
+    "id": "food_019",
+    "en": { "q": "Fesikh is traditionally made from which fish?", "options": ["Tilapia", "Grey mullet", "Mackerel", "Sardines"] },
+    "ar": { "q": "الفسيخ بيتعمل تقليديًا من أنهي سمك؟", "options": ["البلطي", "البوري", "الماكريل", "السردين"] },
+    "answer": 1
+  },
+  {
+    "id": "food_020",
+    "en": { "q": "In Moroccan cooking, \"tagine\" is also the name of what?", "options": ["A spice blend", "A clay cooking pot", "A coastal city", "A cut of lamb"] },
+    "ar": { "q": "في المطبخ المغربي، \"الطاجين\" كمان اسم إيه؟", "options": ["خلطة بهارات", "إناء طبخ فخار", "مدينة ساحلية", "قطعية لحم ضاني"] },
+    "answer": 1
+  },
+  {
+    "id": "food_021",
+    "en": { "q": "What's the main ingredient of guacamole?", "options": ["Tomato", "Cucumber", "Avocado", "Peas"] },
+    "ar": { "q": "إيه المكون الأساسي في الجواكامولي؟", "options": ["الطماطم", "الخيار", "الأفوكادو", "البسلة"] },
+    "answer": 2
+  },
+  {
+    "id": "food_022",
+    "en": { "q": "Paella is a dish from which country?", "options": ["Italy", "Portugal", "Spain", "Mexico"] },
+    "ar": { "q": "الباييا أكلة من أنهي دولة؟", "options": ["إيطاليا", "البرتغال", "إسبانيا", "المكسيك"] },
+    "answer": 2
+  },
+  {
+    "id": "food_023",
+    "en": { "q": "Sushi is made with which grain?", "options": ["Wheat", "Rice", "Barley", "Corn"] },
+    "ar": { "q": "السوشي بيتعمل بأنهي حبوب؟", "options": ["القمح", "الرز", "الشعير", "الدرة"] },
+    "answer": 1
+  },
+  {
+    "id": "food_024",
+    "en": { "q": "Risotto is a dish from which country?", "options": ["Spain", "France", "Greece", "Italy"] },
+    "ar": { "q": "الريزوتو أكلة من أنهي دولة؟", "options": ["إسبانيا", "فرنسا", "اليونان", "إيطاليا"] },
+    "answer": 3
+  },
+  {
+    "id": "food_025",
+    "en": { "q": "Raisins are dried versions of which fruit?", "options": ["Plums", "Grapes", "Figs", "Dates"] },
+    "ar": { "q": "الزبيب بيتعمل من تجفيف أنهي فاكهة؟", "options": ["البرقوق", "العنب", "التين", "البلح"] },
+    "answer": 1
+  },
+  {
+    "id": "food_026",
+    "en": { "q": "Popcorn is made from which grain?", "options": ["Rice", "Wheat", "Barley", "Corn"] },
+    "ar": { "q": "الفشار بيتعمل من أنهي حبوب؟", "options": ["الرز", "القمح", "الشعير", "الدرة"] },
+    "answer": 3
+  },
+  {
+    "id": "food_027",
+    "en": { "q": "Chocolate is made from the seeds of which plant?", "options": ["Coffee", "Vanilla", "Cacao", "Carob"] },
+    "ar": { "q": "الشوكولاتة بتتعمل من بذور أنهي نبات؟", "options": ["البن", "الفانيليا", "الكاكاو", "الخروب"] },
+    "answer": 2
+  },
+  {
+    "id": "food_028",
+    "en": { "q": "Which ingredient makes bread dough rise?", "options": ["Salt", "Sugar", "Starch", "Yeast"] },
+    "ar": { "q": "أنهي مكون بيخلي عجينة العيش تنفش وتعلى؟", "options": ["الملح", "السكر", "النشا", "الخميرة"] },
+    "answer": 3
+  },
+  {
+    "id": "food_029",
+    "en": { "q": "Tofu is made from what?", "options": ["Soybeans", "Rice", "Chickpeas", "Peanuts"] },
+    "ar": { "q": "التوفو بيتعمل من إيه؟", "options": ["فول الصويا", "الرز", "الحمص", "الفول السوداني"] },
+    "answer": 0
+  },
+  {
+    "id": "food_030",
+    "en": { "q": "Which cheese is traditionally used on a Margherita pizza?", "options": ["Cheddar", "Parmesan", "Mozzarella", "Feta"] },
+    "ar": { "q": "أنهي جبنة بتتحط تقليديًا على بيتزا مارجريتا؟", "options": ["الشيدر", "البارميزان", "الموتزاريلا", "الفيتا"] },
+    "answer": 2
+  },
+  {
+    "id": "food_031",
+    "en": { "q": "Tacos come from the cuisine of which country?", "options": ["Spain", "Brazil", "Mexico", "Argentina"] },
+    "ar": { "q": "التاكو أكلة من مطبخ أنهي دولة؟", "options": ["إسبانيا", "البرازيل", "المكسيك", "الأرجنتين"] },
+    "answer": 2
+  },
+  {
+    "id": "food_032",
+    "en": { "q": "What gives ketchup its red colour?", "options": ["Red peppers", "Tomatoes", "Beetroot", "Carrots"] },
+    "ar": { "q": "الكاتشب لونه أحمر بسبب إيه؟", "options": ["الفلفل الأحمر", "الطماطم", "البنجر", "الجزر"] },
+    "answer": 1
+  },
+  {
+    "id": "food_033",
+    "en": { "q": "Marzipan is made from which nut?", "options": ["Walnuts", "Hazelnuts", "Pistachios", "Almonds"] },
+    "ar": { "q": "المرزبان بيتعمل من أنهي مكسرات؟", "options": ["عين الجمل", "البندق", "الفستق", "اللوز"] },
+    "answer": 3
+  },
+  {
+    "id": "food_034",
+    "en": { "q": "Pho is a noodle soup from which country?", "options": ["Thailand", "Vietnam", "China", "South Korea"] },
+    "ar": { "q": "شوربة الفو من مطبخ أنهي دولة؟", "options": ["تايلاند", "فيتنام", "الصين", "كوريا الجنوبية"] },
+    "answer": 1
+  },
+  {
+    "id": "food_035",
+    "en": { "q": "Feta cheese is traditionally made from which milk?", "options": ["Sheep's milk", "Cow's milk", "Buffalo milk", "Camel's milk"] },
+    "ar": { "q": "جبنة الفيتا بتتعمل تقليديًا من لبن إيه؟", "options": ["لبن الغنم", "لبن البقر", "لبن الجاموس", "لبن الجمل"] },
+    "answer": 0
+  },
+  {
+    "id": "food_036",
+    "en": { "q": "Which spice gives curry its yellow colour?", "options": ["Turmeric", "Saffron", "Paprika", "Cumin"] },
+    "ar": { "q": "أنهي بهار بيدي الكاري لونه الأصفر؟", "options": ["الكركم", "الزعفران", "البابريكا", "الكمون"] },
+    "answer": 0
+  },
+  {
+    "id": "food_037",
+    "en": { "q": "In Japanese food, what is wasabi?", "options": ["Pickled ginger", "Dried seaweed", "A fish sauce", "A spicy green paste"] },
+    "ar": { "q": "في الأكل الياباني، الواسابي يبقى إيه؟", "options": ["زنجبيل مخلل", "طحالب بحرية ناشفة", "صوص سمك", "معجون أخضر حرّاق"] },
+    "answer": 3
+  },
+  {
+    "id": "food_038",
+    "en": { "q": "Goulash is a famous dish from which country?", "options": ["Poland", "Hungary", "Austria", "Czechia"] },
+    "ar": { "q": "الجولاش أكلة مشهورة من أنهي دولة؟", "options": ["بولندا", "المجر", "النمسا", "التشيك"] },
+    "answer": 1
+  },
+  {
+    "id": "food_039",
+    "en": { "q": "Gazpacho is a cold soup from which country?", "options": ["Italy", "Greece", "Spain", "Portugal"] },
+    "ar": { "q": "الجازباتشو شوربة باردة من أنهي دولة؟", "options": ["إيطاليا", "اليونان", "إسبانيا", "البرتغال"] },
+    "answer": 2
+  },
+  {
+    "id": "food_040",
+    "en": { "q": "Quinoa originally comes from which region?", "options": ["The Sahara", "The Himalayas", "The Alps", "The Andes"] },
+    "ar": { "q": "الكينوا أصلها من أنهي منطقة؟", "options": ["الصحراء الكبرى", "جبال الهيمالايا", "جبال الألب", "جبال الأنديز"] },
+    "answer": 3
+  },
+  {
+    "id": "food_041",
+    "en": { "q": "Emmental cheese comes from which country?", "options": ["The Netherlands", "Switzerland", "France", "Germany"] },
+    "ar": { "q": "جبنة الإيمنتال من أنهي دولة؟", "options": ["هولندا", "سويسرا", "فرنسا", "ألمانيا"] },
+    "answer": 1
+  },
+  {
+    "id": "food_042",
+    "en": { "q": "Arabica and Robusta are types of what?", "options": ["Tea", "Cocoa", "Vanilla", "Coffee"] },
+    "ar": { "q": "أرابيكا وروبوستا أنواع من إيه؟", "options": ["الشاي", "الكاكاو", "الفانيليا", "البن"] },
+    "answer": 3
+  },
+  {
+    "id": "food_043",
+    "en": { "q": "Classic Italian pesto (alla genovese) is made with which nuts?", "options": ["Almonds", "Walnuts", "Cashews", "Pine nuts"] },
+    "ar": { "q": "صوص البيستو الإيطالي الأصلي بيتعمل بأنهي مكسرات؟", "options": ["اللوز", "عين الجمل", "الكاجو", "الصنوبر"] },
+    "answer": 3
+  },
+  {
+    "id": "food_044",
+    "en": { "q": "Which part of the crocus flower is saffron?", "options": ["The petals", "The stigmas", "The roots", "The seeds"] },
+    "ar": { "q": "الزعفران بيتاخد من أنهي جزء في زهرة الزعفران؟", "options": ["البتلات", "المياسم", "الجذور", "البذور"] },
+    "answer": 1
+  },
+  {
+    "id": "food_045",
+    "en": { "q": "Vanilla comes from which kind of plant?", "options": ["An orchid", "A palm", "A lily", "A cactus"] },
+    "ar": { "q": "الفانيليا بتيجي من أنهي نوع من النباتات؟", "options": ["الأوركيد", "النخيل", "الزنبق", "الصبار"] },
+    "answer": 0
+  },
+  {
+    "id": "food_046",
+    "en": { "q": "Roquefort cheese is aged in caves in which country?", "options": ["Italy", "France", "Spain", "Switzerland"] },
+    "ar": { "q": "جبنة الروكفور بتتساب تستوي في كهوف في أنهي دولة؟", "options": ["إيطاليا", "فرنسا", "إسبانيا", "سويسرا"] },
+    "answer": 1
+  },
+  {
+    "id": "food_047",
+    "en": { "q": "Nori, the wrap used for sushi, is made from what?", "options": ["Soybeans", "Seaweed", "Rice paper", "Fish skin"] },
+    "ar": { "q": "النوري اللي بيتلف بيه السوشي معمول من إيه؟", "options": ["فول الصويا", "طحالب بحرية", "ورق الرز", "جلد السمك"] },
+    "answer": 1
+  },
+  {
+    "id": "food_048",
+    "en": { "q": "Which spice is the dried flower bud of a tree?", "options": ["Cinnamon", "Nutmeg", "Cloves", "Black pepper"] },
+    "ar": { "q": "أنهي بهار عبارة عن براعم زهور ناشفة؟", "options": ["القرفة", "جوزة الطيب", "القرنفل", "الفلفل الأسود"] },
+    "answer": 2
+  },
+  {
+    "id": "food_049",
+    "en": { "q": "Cinnamon comes from which part of the tree?", "options": ["The seeds", "The roots", "The bark", "The leaves"] },
+    "ar": { "q": "القرفة بتتاخد من أنهي جزء في الشجرة؟", "options": ["البذور", "الجذور", "اللحاء", "الورق"] },
+    "answer": 2
+  },
+  {
+    "id": "food_050",
+    "en": { "q": "How is Japanese tempura cooked?", "options": ["Deep-fried in batter", "Grilled over charcoal", "Steamed in baskets", "Served raw and sliced"] },
+    "ar": { "q": "التمبورا اليابانية بتتطبخ إزاي؟", "options": ["مقلية في عجينة", "مشوية على الفحم", "مطبوخة على البخار", "بتتاكل نية"] },
+    "answer": 0
+  }
+]
