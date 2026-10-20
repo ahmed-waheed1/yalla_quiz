@@ -262,4 +262,4 @@ The theme files in `lib/core/theme/` (`yq_colors.dart`, `yq_typography.dart`, `y
 
 ## License
 
-License: TBD.
+MIT. See [LICENSE](LICENSE).
